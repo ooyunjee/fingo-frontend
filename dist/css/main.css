@@ -660,8 +660,8 @@ body {
 }
 
 .main-main .ui-carousel {
-  width: 1240px;
-  height: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .main-main .ui-carousel-tablist {
@@ -747,6 +747,7 @@ body {
 }
 
 .main-main .main-box-office .ui-carousel-tabpanel-wrapper {
+  position: relative;
   padding-top: 55px;
   text-align: center;
   color: #fff;
@@ -962,7 +963,7 @@ body {
   background-color: #1e1e1e;
 }
 
-.main-main .main-new-movie-trailers .ui-carousel-video {
+.main-main .main-new-movie-trailers .ui-carousel-image {
   width: 400px;
   height: 225px;
 }
@@ -1239,7 +1240,7 @@ body {
     height: 197px;
   }
 
-  .main-main .main-new-movie-trailers .ui-carousel-video {
+  .main-main .main-new-movie-trailers .ui-carousel-image {
     width: 484px;
     height: 197px;
   }
@@ -1317,7 +1318,7 @@ body {
     height: 202px;
   }
 
-  .main-main .main-new-movie-trailers .ui-carousel-video {
+  .main-main .main-new-movie-trailers .ui-carousel-image {
     width: 358px;
     height: 202px;
   }

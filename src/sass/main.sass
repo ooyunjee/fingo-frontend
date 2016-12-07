@@ -147,8 +147,8 @@ $bp-tablet: 1024px
     @extend %reset-link
     color: $fingo-white
   .ui-carousel
-    width: 1240px
-    height: 100%
+    width: 100%
+    height: auto
     +tablet
       width: percentage($t-container-width/$bp-tablet)
     +mobile
@@ -225,6 +225,7 @@ $bp-tablet: 1024px
     +background(color $fingo-bg-dark)
     text-align: center
     .ui-carousel-tabpanel-wrapper
+      position: relative
       +padding(top 55px)
       text-align: center
       color: $fingo-white
@@ -405,7 +406,7 @@ $bp-tablet: 1024px
         +size(358px 202px)
       +mobile
         +size(484px 197px)
-    .ui-carousel-video
+    .ui-carousel-image
       +size(400px 225px)
       +tablet
         +size(358px 202px)

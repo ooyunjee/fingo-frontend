@@ -90,6 +90,8 @@ Carousel.prototype = {
     this.$carousel_tabpanel_content_imgs = this.$carousel.children().last().find('img').not('.icon');
     this.$carousel_tabpanel_content_videos = this.$carousel.children().last().find('iframe');
 
+    // console.log('tabpanels',this.$carousel.html());
+
     this.setResponsive();
 
     this.carousel_width = this.settings.width;
@@ -105,7 +107,7 @@ Carousel.prototype = {
 
     this.setCarouselRatio(this.$carousel.width(), this.carousel_height);
     this.carousel_ratio = this.getCarouselRatio();
-    console.log('init ratio', this.carousel_width+',' +this.carousel_height);
+    // console.log('init ratio', this.carousel_width+',' +this.carousel_height);
     // 동적으로 캐러셀 구조 생성/추가
     this.createPrevNextButtons();
     this.createCarouselMask();
@@ -173,16 +175,16 @@ Carousel.prototype = {
     // Set carousel tabpanel(div or img) size and margin
     if(this.settings.col === 1) {
       $tabpanel.width($carousel.width());
-      $carousel.height($tabpanel.height() + 50);
+      // $carousel.height($tabpanel.height() + 50);
     } else {
       $tabpanel
         // .width($carousel_mask.width())
         // .height(this.carousel_content_height)
         .css('margin-right', this.carousel_content_margin);
-        console.log('mask width',$carousel_mask.width());
+        // console.log('mask width',$carousel_mask.width());
     }
 
-    console.log('tabpanelh', $tabpanel.height());
+    // console.log('tabpanelh', $tabpanel.height());
 
     // Set carousel tabpanel wrapper width
     $tabpanel_wrapper.width(($tabpanel.width() + this.carousel_content_margin) * ($tabpanel.length + 1));
@@ -191,7 +193,7 @@ Carousel.prototype = {
     this.carousel_one_tab = ($tabpanel.width() + this.carousel_content_margin) * this.carousel_count;
 
     if(this.start_tabpanel_index !== 0) {
-      console.log('append');
+      // console.log('append');
       for(var i = 0, l = this.start_tabpanel_index + 1; i < l; i++) {
         this.$carousel_tabpanels.last().parent().prepend(this.$carousel_tabpanels.eq($tabpanel.length - (i + 1)));
       }
@@ -203,8 +205,6 @@ Carousel.prototype = {
       this.$carousel_tabpanels.eq(this.active_index).radioClass('active');
       $tabpanel_wrapper.css('left', -this.carousel_one_tab);
     }
-
-
 
     // 인디케이터 active 상태 초기화
     this.$carousel_tabs.eq(this.active_index).parent().radioClass('active');
@@ -219,9 +219,11 @@ Carousel.prototype = {
     // if(this.animating === false) {
       $buttons.on('click', function() {
         if ( this.className === 'ui-carousel-prev-button' ) {
+          console.log('prev click');
           // this.animating = true;
           widget.prevPanel();
         } else {
+          console.log('next click');
           widget.nextPanel();
         }
       });
@@ -296,8 +298,6 @@ Carousel.prototype = {
       }, 600, 'easeOutExpo');
     }
 
-
-
     // 인디케이터 라디오클래스 활성화
     this.$carousel_tabs.eq(this.active_index).parent().radioClass('active');
   },
@@ -317,14 +317,14 @@ Carousel.prototype = {
       }
       this.settings.index = 0;
 
-      console.log('width', this.settings.width = this.settings.width.mobile || this.settings.width);
-      console.log('height', this.settings.height = this.settings.height.mobile || this.settings.height);
-      console.log('margin', this.settings.margin = this.settings.margin.mobile || this.settings.margin);
-      console.log('count', this.settings.count = this.settings.count.mobile || this.settings.count);
-      console.log('col', this.settings.col = this.settings.col.mobile || this.settings.col);
-      console.log('row', this.settings.row = this.settings.row.mobile || this.settings.row);
-      console.log('infinite', this.settings.infinite = this.settings.infinite.mobile || this.settings.infinite);
-      console.log('index', this.settings.index = 0);
+      // console.log('width', this.settings.width = this.settings.width.mobile || this.settings.width);
+      // console.log('height', this.settings.height = this.settings.height.mobile || this.settings.height);
+      // console.log('margin', this.settings.margin = this.settings.margin.mobile || this.settings.margin);
+      // console.log('count', this.settings.count = this.settings.count.mobile || this.settings.count);
+      // console.log('col', this.settings.col = this.settings.col.mobile || this.settings.col);
+      // console.log('row', this.settings.row = this.settings.row.mobile || this.settings.row);
+      // console.log('infinite', this.settings.infinite = this.settings.infinite.mobile || this.settings.infinite);
+      // console.log('index', this.settings.index = 0);
 
     } else if(global.innerWidth <= 1024) {
       console.log('tablet');

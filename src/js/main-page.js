@@ -6,28 +6,28 @@ var header_carousel = {
     'mobile': 600
   }
 };
-var main_box_office_carousel = {
-  'height': {
-    'desktop': 530,
-    'tablet': 530
-  },
-  'index': {
-    'desktop': 2,
-    'tablet': 1,
-    'mobile': 0
-  },
-  'col': {
-    'desktop': 5,
-    'tablet': 3,
-    'mobile': 1
-  },
-  'margin': 20,
-  'infinite': {
-    'desktop': true,
-    'tablet': true,
-    'mobile': false
-  }
-};
+// var main_box_office_carousel = {
+//   'height': {
+//     'desktop': 530,
+//     'tablet': 530
+//   },
+//   'index': {
+//     'desktop': 2,
+//     'tablet': 1,
+//     'mobile': 0
+//   },
+//   'col': {
+//     'desktop': 5,
+//     'tablet': 3,
+//     'mobile': 1
+//   },
+//   'margin': 20,
+//   'infinite': {
+//     'desktop': true,
+//     'tablet': true,
+//     'mobile': false
+//   }
+// };
 var main_movie_ranking_carousel = {
   'height': {
     'desktop': 690,
@@ -59,12 +59,21 @@ var main_movie_trailers_carousel = {
 };
 
 
+$('#main-header-carousel').fingoCarousel(header_carousel);
+// $('#main-box-office-carousel').fingoCarousel(main_box_office_carousel);
+$('#main-movie-ranking-carousel').fingoCarousel(main_movie_ranking_carousel);
+$('#main-new-movie-trailers-carousel').fingoCarousel(main_movie_trailers_carousel);
 
 
-var $caro4 = $('#main-header-carousel').fingoCarousel(header_carousel);
-var $caro = $('#main-box-office-carousel').fingoCarousel(main_box_office_carousel);
-var $caro2 = $('#main-movie-ranking-carousel').fingoCarousel(main_movie_ranking_carousel);
-var $caro3 = $('#main-new-movie-trailers-carousel').fingoCarousel(main_movie_trailers_carousel);
+// function delayAction() {
+//   var $caro4 = $('#main-header-carousel').fingoCarousel(header_carousel);
+//   var $caro = $('#main-box-office-carousel').fingoCarousel(main_box_office_carousel);
+//   var $caro2 = $('#main-movie-ranking-carousel').fingoCarousel(main_movie_ranking_carousel);
+//   var $caro3 = $('#main-new-movie-trailers-carousel').fingoCarousel(main_movie_trailers_carousel);
+// }
+
+// window.setTimeout(delayAction, 2000);
+
 // var $ca = $('#carousel').fingoCarousel({});
 
 

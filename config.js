@@ -17,6 +17,7 @@ const PATHS = {
   // 디렉토리 별 이름
   'sass'      : 'sass',
   'js'        : 'js',
+  'directives': 'js/directives',
   'images'    : 'images',
   'fonts'     : 'fonts',
   'iconfonts' : 'iconfonts',
@@ -34,6 +35,10 @@ let config = {
     // Sass, JavaScript 디렉토리 경로
     'sass'  : `${PATHS.src}/${PATHS.sass}`,
     'js'    : `${PATHS.src}/${PATHS.js}`,
+    'directives' : {
+      'source' : `${PATHS.src}/${PATHS.directives}/**/*.html`,
+      'output' : `${PATHS.dist}/${PATHS.directives}`
+    },
     'fonts' : {
       'source' : `${PATHS.src}/${PATHS.fonts}/**/*.{eot,woff,woff2,ttf}`,
       'output' : `${PATHS.dist}/${PATHS.fonts}`

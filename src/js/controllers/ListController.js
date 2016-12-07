@@ -136,6 +136,6 @@ angular.module('FingoApp').controller('ListController', ['$scope', function($sco
   $scope.selectMovie = function(movie, index) {
     $scope.selected_index = index;
     $scope.selected_movie = movie;
-  }
+  };
 
 }]);
