@@ -28,24 +28,24 @@ var header_carousel = {
 //     'mobile': false
 //   }
 // };
-var main_movie_ranking_carousel = {
-  'height': {
-    'desktop': 690,
-    'tablet': 690
-  },
-  'count': {
-    'desktop': 5,
-    'tablet': 3,
-    'mobile': 1
-  },
-  'col': {
-    'desktop': 5,
-    'tablet': 3,
-    'mobile': 1
-  },
-  'row': 2,
-  'margin': 20,
-};
+// var main_movie_ranking_carousel = {
+//   'height': {
+//     'desktop': 690,
+//     'tablet': 690
+//   },
+//   'count': {
+//     'desktop': 5,
+//     'tablet': 3,
+//     'mobile': 1
+//   },
+//   'col': {
+//     'desktop': 5,
+//     'tablet': 3,
+//     'mobile': 1
+//   },
+//   'row': 2,
+//   'margin': 20,
+// };
 
 var main_movie_trailers_carousel = {
   'height': 225,
@@ -61,7 +61,7 @@ var main_movie_trailers_carousel = {
 
 $('#main-header-carousel').fingoCarousel(header_carousel);
 // $('#main-box-office-carousel').fingoCarousel(main_box_office_carousel);
-$('#main-movie-ranking-carousel').fingoCarousel(main_movie_ranking_carousel);
+// $('#main-movie-ranking-carousel').fingoCarousel(main_movie_ranking_carousel);
 $('#main-new-movie-trailers-carousel').fingoCarousel(main_movie_trailers_carousel);
 
 
