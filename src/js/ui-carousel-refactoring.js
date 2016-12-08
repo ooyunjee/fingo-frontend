@@ -46,7 +46,6 @@ var Carousel = function(widget, options) {
   this.carousel_content_width = 0;
   this.carousel_content_height= 0;
   this.carousel_ratio = 0;
-  // this.animating                         = false;
 
   this.$carousel                         = null;
   this.$carousel_headline                = null;
@@ -107,7 +106,7 @@ Carousel.prototype = {
 
     this.setCarouselRatio(this.$carousel.width(), this.carousel_height);
     this.carousel_ratio = this.getCarouselRatio();
-    // console.log('init ratio', this.carousel_width+',' +this.carousel_height);
+
     // 동적으로 캐러셀 구조 생성/추가
     this.createPrevNextButtons();
     this.createCarouselMask();
@@ -153,6 +152,22 @@ Carousel.prototype = {
     this.$carousel_tabpanels.parent().closest('div').parent().addClass('ui-carousel-mask');
     this.$carousel_tabpanel_content_imgs.addClass('ui-carousel-image');
     this.$carousel_tabpanel_content_videos.addClass('ui-carousel-video');
+
+    if(this.carousel_row === 2) {
+      var j = 1;
+      var j2 = 1;
+      for(var i = 0, l = this.$carousel_tabpanels.length; i < l; i++) {
+        if(i%2===1){
+          this.$carousel_tabpanels.eq(i).addClass('top-2');
+          this.$carousel_tabpanels.eq(i).addClass('left-' + j);
+          j++;
+        } else {
+          this.$carousel_tabpanels.eq(i).addClass('top-1');
+          this.$carousel_tabpanels.eq(i).addClass('left-' + j2);
+          j2++;
+        }
+      }
+    }
   },
 
   'settingSliding': function() {
@@ -178,13 +193,11 @@ Carousel.prototype = {
       // $carousel.height($tabpanel.height() + 50);
     } else {
       $tabpanel
-        // .width($carousel_mask.width())
+        .width(this.carousel_content_width)
         // .height(this.carousel_content_height)
         .css('margin-right', this.carousel_content_margin);
-        // console.log('mask width',$carousel_mask.width());
     }
 
-    // console.log('tabpanelh', $tabpanel.height());
 
     // Set carousel tabpanel wrapper width
     $tabpanel_wrapper.width(($tabpanel.width() + this.carousel_content_margin) * ($tabpanel.length + 1));
@@ -193,21 +206,39 @@ Carousel.prototype = {
     this.carousel_one_tab = ($tabpanel.width() + this.carousel_content_margin) * this.carousel_count;
 
     if(this.start_tabpanel_index !== 0) {
-      // console.log('append');
       for(var i = 0, l = this.start_tabpanel_index + 1; i < l; i++) {
         this.$carousel_tabpanels.last().parent().prepend(this.$carousel_tabpanels.eq($tabpanel.length - (i + 1)));
       }
     }
 
-    // tabpanel wrapper 위치 초기화
+    // Carousel 상태 초기화
     if(this.carousel_infinite === true) {
       // tabpanel active 상태 초기화
       this.$carousel_tabpanels.eq(this.active_index).radioClass('active');
+      // tabpanel wrapper 위치 초기화
       $tabpanel_wrapper.css('left', -this.carousel_one_tab);
+    } else if(this.carousel_col !== 1){
+      // Infinite Carousel이 아닐때
+      // prevBtn 비활성화
+      this.prevBtnDisable();
     }
 
     // 인디케이터 active 상태 초기화
     this.$carousel_tabs.eq(this.active_index).parent().radioClass('active');
+  },
+
+  'prevBtnActive': function() {
+    this.$carousel.find('.ui-carousel-prev-button')
+      .attr('aria-disabled', 'false')
+      .css({'opacity': 1, 'display': 'block'});
+
+  },
+
+  'prevBtnDisable': function() {
+    console.log(this.$carousel.find('.ui-carousel-prev-button'));
+    this.$carousel.find('.ui-carousel-prev-button')
+      .attr('aria-disabled', 'true')
+      .css({'opacity': 0, 'display': 'none'});
   },
 
   'events': function() {
@@ -215,19 +246,15 @@ Carousel.prototype = {
     var $carousel = widget.$carousel;
     var $tabs     = widget.$carousel_tabs;
     var $buttons  = widget.$carousel_button_group.children();
+
     // buttons event
-    // if(this.animating === false) {
-      $buttons.on('click', function() {
-        if ( this.className === 'ui-carousel-prev-button' ) {
-          console.log('prev click');
-          // this.animating = true;
-          widget.prevPanel();
-        } else {
-          console.log('next click');
-          widget.nextPanel();
-        }
-      });
-    // }
+    $buttons.on('click', function() {
+      if ( this.className === 'ui-carousel-prev-button' ) {
+        widget.prevPanel();
+      } else {
+        widget.nextPanel();
+      }
+    });
 
     // tabs event
     $.each($tabs, function(index) {
@@ -236,23 +263,12 @@ Carousel.prototype = {
     });
   },
 
-  'nextPanel': function() {
-    this.viewTabpanel(this.active_index + 1, 'next');
-  },
-
-  'prevPanel': function() {
-    this.viewTabpanel(this.active_index - 1, 'prev');
-  },
-
-  'viewTabpanel': function(index, btn, e) {
-    // 사용자가 클릭을 하는 행위가 발생하면 이벤트 객체를 받기 때문에
-    // 조건 확인을 통해 브라우저의 기본 동작 차단
-    if (e) { e.preventDefault(); }
-
+  'setActiveIndex': function(index) {
     // 활성화된 인덱스를 사용자가 클릭한 인덱스로 변경
     this.active_index = index;
 
     var carousel_tabs_max = (this.$carousel_tabpanels.length / (this.carousel_count * this.carousel_row)) - 1;
+
     // 한 마스크 안에 패널이 다 채워지지 않을 경우
     if((this.$carousel_tabpanels.length % (this.carousel_count * this.carousel_row)) !== 0) {
       carousel_tabs_max = carousel_tabs_max + 1;
@@ -266,44 +282,71 @@ Carousel.prototype = {
       this.active_index = 0;
     }
 
-    var $carousel_wrapper = this.$carousel_tabpanels.eq(this.active_index).parent();
+    return this.active_index;
+  },
+
+  'nextPanel': function() {
+    var active_index = this.setActiveIndex(this.active_index + 1);
+    this.viewTabpanel(active_index, 'next');
+  },
+
+  'prevPanel': function() {
+    this.viewTabpanel(this.setActiveIndex(this.active_index - 1), 'prev');
+  },
+
+  'viewTabpanel': function(index, btn, e) {
+    // 사용자가 클릭을 하는 행위가 발생하면 이벤트 객체를 받기 때문에
+    // 조건 확인을 통해 브라우저의 기본 동작 차단
+    if (e) { e.preventDefault(); }
+
+    var $carousel_wrapper = this.$carousel_tabpanels.eq(index).parent();
     var one_width = this.carousel_one_tab;
 
     // Infinite Carousel
     if(this.carousel_infinite === true) {
       // index에 해당되는 탭패널 활성화
-      this.$carousel_tabpanels.eq(this.active_index).radioClass('active');
+      this.$carousel_tabpanels.eq(index).radioClass('active');
+
       // When you click next btn
       if(btn === 'next') {
         $carousel_wrapper.stop().animate({
           'left': -one_width * 2
-        }, 600, 'easeOutExpo', function() {
+        }, 500, 'easeOutExpo', function() {
           $carousel_wrapper.append($carousel_wrapper.children().first());
           $carousel_wrapper.css('left', -one_width);
+          this.animating = false;
         });
+
       // When you click prev btn
       } else if(btn === 'prev') {
-        // console.log($carousel_wrapper);
         $carousel_wrapper.stop().animate({
           'left': 0
-        }, 600, 'easeOutExpo', function() {
-          var $carousel_wrapper = $(this);
+        }, 500, 'easeOutExpo', function() {
           $carousel_wrapper.prepend($carousel_wrapper.children().last());
           $carousel_wrapper.css('left', -one_width);
         });
       }
+
     } else if(this.carousel_infinite === false) {
-      this.$carousel_tabpanels.eq(this.active_index).parent().stop().animate({
-        'left': this.active_index * -this.carousel_one_tab
+      if(this.carousel_col !== 1) {
+        if(index === 0) {
+          this.prevBtnDisable();
+        } else {
+          this.prevBtnActive();
+        }
+      }
+
+      $carousel_wrapper.stop().animate({
+        'left': index * -this.carousel_one_tab
       }, 600, 'easeOutExpo');
     }
 
     // 인디케이터 라디오클래스 활성화
-    this.$carousel_tabs.eq(this.active_index).parent().radioClass('active');
+    this.$carousel_tabs.eq(index).parent().radioClass('active');
   },
 
   'setResponsive': function() {
-    console.log(this);
+    // console.log(this);
     if(global.innerWidth <= 750) {
       console.log('mobile');
       this.settings.width = this.settings.width.mobile || this.settings.width;
