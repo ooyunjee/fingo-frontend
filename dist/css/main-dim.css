@@ -402,6 +402,10 @@ body {
   margin: 0 auto;
 }
 
+.comment-dim-container {
+  display: none;
+}
+
 .dim,
 .dim2 {
   position: fixed;
