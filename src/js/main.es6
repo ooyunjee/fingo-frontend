@@ -1,4 +1,4 @@
-/*! main.js © yamoo9.net, 2016 */
+/*! main.es6 © FINGO, 2016 */
 
 let fingo = angular.module('FingoApp', []);
 
