@@ -33,19 +33,19 @@ $fluid: false !default
 /* top *
 @for $i from 1 through $row-count
   .top-#{$i}
-    position: absolute
+    position: absolute !important
     top: top($i - 1)
 
 +mobile
   @for $i from 1 through $row-count
     .top-m-#{$i}
-      position: absolute
+      position: absolute !important
       top: m_top($i - 1)
 
 /* left */
 @for $i from 1 through $column-count
   .left-#{$i}
-    position: absolute
+    position: absolute !important
     left: left($i - 1)
 
 +mobile
