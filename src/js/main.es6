@@ -14,18 +14,18 @@ let fingo = angular.module('FingoApp', []);
 // }]);
 
 // ListController
-require('./controllers/ListController');
-require('./controllers/FingoMovieDetailController');
+require('./controllers/FingoLoginController');
+// require('./controllers/FingoMovieDetailController');
 
 // // Custom Filter
 // require('./filters/readingZeroFilter')
 
-// require('./lib/jquery.min');
+require('./lib/jquery.min');
 require('./lib/jquery.easing.min');
 require('./jquery.radioClass');
-require('./ui-carousel-refactoring');
+// require('./ui-carousel-refactoring');
 // require('./main-add-comment');
-require('./main-page');
-require('./directives/FingoBoxOfficeCarousel');
-require('./directives/FingoMovieRankingCarousel');
-require('./directives/FingoCommentDim');
+// require('./main-page');
+// require('./directives/FingoBoxOfficeCarousel');
+// require('./directives/FingoMovieRankingCarousel');
+// require('./directives/FingoCommentDim');
