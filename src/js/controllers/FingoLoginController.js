@@ -8,10 +8,10 @@ angular.module('FingoApp').controller('FingoLoginController', ['$scope', '$http'
   $http({
   	method: 'POST', //방식
   	url: 'http://fingo-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/user/login/', /* 통신할 URL */
-    data: $.param({
-        email: 'heoyunjee@gmail.com',
-        password: '1234'
-    }) /* 파라메터로 보낼 데이터 */
+    data: {
+        'email': 'heoyunjee@gmail.com',
+        'password': '1234'
+    }, /* 파라메터로 보낼 데이터 */
   	// headers: {'Authorization': 'Token 9f2411a57a0d3b0495ece88ad38c336c6c8afb6c'} //헤더
   })
   .success(function(data, status, headers, config) {
