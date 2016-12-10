@@ -13,8 +13,8 @@ module.exports = {
   // 진입 설정
   // 'entry': [`./${config.paths.js}/main`, ``],
   'entry'   : {
-    'main': `./${config.paths.js}/main`,
-    // 'ui-carousel': `./${config.paths.js}/ui-carousel-refactoring`
+    'main': `./${config.paths.js}/main`
+    // 'sub': `./${config.paths.js}/sub`
   },
 
   // 출력 설정
