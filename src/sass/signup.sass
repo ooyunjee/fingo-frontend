@@ -1,0 +1,145 @@
+@import ./config/fingo-colors
+@import ./Modules/sass/style
+@import ./config/fingo-config
+@import ./config/fingo-reset
+@import ./config/fingo-grid-system
+
+// reset
+div, input
+  @extend %reset-border-box
+
+button
+  @extend %reset-button
+
+// hidden
+.a11y
+  @extend %a11y
+
+// layout
+body
+  +background(image url(../images/photo-index-bg.jpg) size cover position center center repeat no-repeat)
+  color: #fff
+
+// .container
+//   +size(1240px auto)
+//   +margin(0 auto)
+//   @media only screen and (min-width: 721px) and (max-width: 1024px)
+//     +size(percentage(904px / 1024px) auto)
+//   @media only screen and (max-width: 720px)
+//     +size(percentage(650px / 720px) auto)
+
+
+header
+  +padding(top 30px)
+  +position(absolute, top 0 left 0 right 0)
+
+main
+  +size(100% 100vh)
+  position: relative
+  .sign-up
+    +size(400px auto)
+    +position(absolute, top 50% left 50%)
+    transform: translate(-50%, -50%)
+    text-align: center
+    h1
+      +margin(bottom 45px)
+      font-size: 26px
+    > p
+      +margin(top 40px)
+      +padding(top 40px)
+      border-top: 1px solid rgba($fingo-white, 0.15)
+      font-size: 14px
+    button
+      +size(210px 50px)
+      +margin(top 10px)
+      +background(color #203571)
+      font-size: 16px
+      color: #fff
+      line-height: 50px
+    form
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+        +size(400px 60px)
+        +padding(left 30px)
+        +margin(bottom 15px)
+        border-radius: 5px
+        border: 0
+      .policy
+        text-align: left
+        font-size: 14px
+        cursor: pointer
+        &::before
+          content: '\2713'
+          +margin(top 5px)
+          +size(20px)
+          +margin(right 10px)
+          display: inline-block
+          border-radius: 50%
+          text-align: center
+          color: transparent
+          border: 1px solid $fingo-white
+      [aria-checked="false"],
+      [data-class="nocheck"]
+        &::before
+          text-align: center
+      [aria-checked="true"],
+      [data-class="check"]
+        &::before
+          content: '\2713'
+          +background(color $fingo-white)
+          color: $fingo-bg-dark
+        // &::before
+
+        // &:checked::before
+
+      .sign-up-policy
+        display: block
+        width: 100%
+        text-align: left
+      button
+        +margin(top 40px)
+        background: #a38b67
+
+
+footer
+  +size(100% 150px)
+  +background(color #161616)
+  a
+    color: #fff
+  .container
+    +padding(top 40px)
+    .footer-logo
+      +margin(right 50px)
+      float: left
+      +tablet
+        +margin(right 45px)
+      +mobile
+        +margin(right 15px)
+    .footer-copyright
+      +position(relative, top 5px)
+      width: 250px
+      float: left
+      p
+        font-size: 14px
+      span
+        font-size: 12px
+        font-weight: lighter
+  .footer-sns-group
+    float: right
+    a
+      +size(45px)
+      +margin(left 15px)
+      position: relative
+      display: inline-block
+      background: #333
+      border-radius: 50%
+      img
+        +position(absolute, top 50% left 50%)
+        transform: translate(-50%, -50%)
+    .footer-sns-facebook
+      &:hover
+        background: #203571
+    .footer-sns-twitter
+      &:hover
+        background: #30758b
