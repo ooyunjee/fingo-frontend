@@ -36,7 +36,7 @@ window.fbAsyncInit = function() {
 
 
 // ListController
-require('./controllers/ListController');
+require('./controllers/FingoLoginController');
 require('./controllers/FBLoginController');
 // require('./controllers/FingoMovieDetailController');
 
@@ -48,10 +48,3 @@ require('./services/ListDataShareService');
 // require('./lib/jquery.min');
 require('./lib/jquery.easing.min');
 require('./jquery.radioClass');
-require('./checkbox');
-// require('./ui-carousel-refactoring');
-// require('./main-add-comment');
-// require('./main-page');
-// require('./directives/FingoBoxOfficeCarousel');
-// require('./directives/FingoMovieRankingCarousel');
-// require('./directives/FingoCommentDim');

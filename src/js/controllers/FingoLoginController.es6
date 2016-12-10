@@ -76,10 +76,10 @@ let angular = require('angular');
 angular
   .module('FingoApp')
   .factory('FingoLogin', ['$resource', function($resource){
-    let url = 'http://eb-fingo-real.ap-northeast-2.elasticbeanstalk.com/api/v1.0/user/signup/';
+    let url = 'http://eb-fingo-real.ap-northeast-2.elasticbeanstalk.com/api/v1.0/user/login/';
     return $resource(url);
   }])
-  .controller('ListController', function($scope, FingoLogin) {
+  .controller('FingoLoginController', function($scope, FingoLogin) {
 
     $scope.Login = function() {
       // var entry = FingoSignup.get({}, function() {
@@ -95,7 +95,7 @@ angular
 
       entry.email = 'heoyunjee@gmail.com';
       entry.password = '1234';
-      entry.nickname = 'ooyunjee';
+      // entry.nickname = 'ooyunjee';
 
       // console.log(entry);
 
