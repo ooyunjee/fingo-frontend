@@ -597,9 +597,11 @@ body {
   .m-hidden {
     display: none;
   }
+}
 
+@media (max-width: 720px) {
   .container {
-    width: 85.3333%;
+    width: 88.8889%;
   }
 }
 
@@ -607,7 +609,9 @@ body {
   .t-hidden {
     display: none;
   }
+}
 
+@media (min-width: 721px) and (max-width: 1024px) {
   .container {
     width: 94.1406%;
   }

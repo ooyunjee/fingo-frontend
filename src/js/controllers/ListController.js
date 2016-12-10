@@ -1,133 +1,132 @@
 /*! movieListController.js © yamoo9.net, 2016 */
 'use strict'
 
-// let angular = require('angular');
+let angular = require('angular');
 
 angular.module('FingoApp').controller('ListController', ['$scope', function($scope) {
   // bipan 모델 데이터
   $scope.movies = [
-      {
-        "category": "closing",
-        "title": "서울역",
-        "english_title": "Seoul Station",
-        "director": "연상호",
-        "year": "2016",
-        "duration": "93",
-        "nation": "Korea",
-        "image": "http://www.bifan.kr/uploads/program/program_32016062110580.jpg"
+    {
+          "rank": 1,
+          "movie": {
+              "id": 1,
+              "title": "형",
+              "genre": "코미디",
+              "img": "http://t1.search.daumcdn.net/thumb/R438x0.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F1ccfbf81991b24161a31fa2629380acb1c64b9c3",
+              "first_run_date": "2016-11-23",
+              "score": 1.75,
+              "nation_code": "한국"
+          }
       },
       {
-        "category": "choice",
-        "title": "패티와의 스물 하룻밤",
-        "english_title": "21 Nights with Pattie",
-        "director": "아르노 라리외 / 장 마리 라리외",
-        "year": "2015",
-        "duration": "110",
-        "nation": "France",
-        "image": "http://www.bifan.kr/uploads/program/program_320160614152925.jpg"
+          "rank": 2,
+          "movie": {
+              "id": 2,
+              "title": "미씽: 사라진 여자",
+              "genre": "미스터리",
+              "img": "http://t1.search.daumcdn.net/thumb/R438x0.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F87c470f0a3f3ac61c64f6ac85e52bea8dfcbb8b4",
+              "first_run_date": "2016-11-30",
+              "score": 0.0,
+              "nation_code": "한국"
+          }
       },
       {
-        "category": "choice",
-        "title": "오토헤드",
-        "english_title": "Autohead",
-        "director": "로힛 미탈",
-        "year": "2016",
-        "duration": "97",
-        "nation": "India",
-        "image": "http://www.bifan.kr/uploads/program/program_320160614153423.jpg"
+          "rank": 3,
+          "movie": {
+              "id": 3,
+              "title": "신비한 동물사전",
+              "genre": "판타지",
+              "img": "http://t1.search.daumcdn.net/thumb/R438x0.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F7d09c2f81bfb2f2ff3f38a34dfedab996d501f14",
+              "first_run_date": "2016-11-16",
+              "score": 4.0,
+              "nation_code": "영국"
+          }
       },
       {
-        "category": "choice",
-        "title": "훠궈전쟁",
-        "english_title": "Chongqing Hot Pot",
-        "director": "양 칭",
-        "year": "2016",
-        "duration": "97",
-        "nation": "China",
-        "image": "http://www.bifan.kr/uploads/program/program_320160614153615.jpg"
+          "rank": 4,
+          "movie": {
+              "id": 4,
+              "title": "잭 리처: 네버 고 백",
+              "genre": "액션",
+              "img": "http://t1.search.daumcdn.net/thumb/R438x0.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fab9c84b753dfbe26656957fc05c56995884e991a",
+              "first_run_date": "2016-11-30",
+              "score": 0.0,
+              "nation_code": "미국"
+          }
       },
       {
-        "category": "choice",
-        "title": "장강도",
-        "english_title": "Crosscurrent",
-        "director": "양 차오",
-        "year": "2015",
-        "duration": "116",
-        "nation": "China",
-        "image": "http://www.bifan.kr/uploads/program/program_32016061415383.jpg"
+          "rank": 5,
+          "movie": {
+              "id": 5,
+              "title": "언더월드: 블러드 워",
+              "genre": "판타지",
+              "img": "http://t1.search.daumcdn.net/thumb/R438x0.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F72bda6f1be39162d744c37280ed4032cc8e00452",
+              "first_run_date": "2016-11-30",
+              "score": 3.5,
+              "nation_code": "미국"
+          }
       },
       {
-        "category": "choice",
-        "title": "세상에서 고양이가 사라진다면",
-        "english_title": "If Cats Disappeared from the World",
-        "director": "나가이 아키라",
-        "year": "2016",
-        "duration": "100",
-        "nation": "Japan",
-        "image": "http://www.bifan.kr/uploads/program/program_320160620101248.JPG"
+          "rank": 6,
+          "movie": {
+              "id": 6,
+              "title": "리틀메딕: 몸속탐험대",
+              "genre": "애니메이션",
+              "img": "http://t1.search.daumcdn.net/thumb/R438x0.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F47439f98b2c9b9ca4686fb97e1422c2a9284c747",
+              "first_run_date": "2016-11-24",
+              "score": 3.0,
+              "nation_code": "독일"
+          }
       },
       {
-        "category": "choice",
-        "title": "인어와 함께 춤을",
-        "english_title": "The Lure",
-        "director": "아그네즈카 스모친즈카",
-        "year": "2015",
-        "duration": "92",
-        "nation": "Poland",
-        "image": "http://www.bifan.kr/uploads/program/program_320160614153915.jpg"
+          "rank": 7,
+          "movie": {
+              "id": 7,
+              "title": "두 남자",
+              "genre": "범죄",
+              "img": "http://t1.search.daumcdn.net/thumb/R438x0.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Ff611a95b61a9309894ec4d29d046b6fed3e5086b",
+              "first_run_date": "2016-11-30",
+              "score": 0.0,
+              "nation_code": "한국"
+          }
       },
       {
-        "category": "choice",
-        "title": "무법자와 천사들",
-        "english_title": "Outlaws and Angels",
-        "director": "JT 몰너",
-        "year": "2016",
-        "duration": "120",
-        "nation": "USA",
-        "image": "http://www.bifan.kr/uploads/program/program_320160614154028.jpg"
+          "rank": 8,
+          "movie": {
+              "id": 8,
+              "title": "닥터 스트레인지",
+              "genre": "어드벤처",
+              "img": "http://t1.search.daumcdn.net/thumb/R438x0.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fc725c52ec857427532c2fe96bbcfff61747ccf77",
+              "first_run_date": "2016-10-26",
+              "score": 0.0,
+              "nation_code": "미국"
+          }
       },
       {
-        "category": "choice",
-        "title": "포인트 제로",
-        "english_title": "Point Zero",
-        "director": "호세 페드로 굴라르",
-        "year": "2015",
-        "duration": "84",
-        "nation": "Brazil",
-        "image": "http://www.bifan.kr/uploads/program/program_320160614154234.jpg"
+          "rank": 9,
+          "movie": {
+              "id": 9,
+              "title": "미스 사이공: 25주년 특별 공연",
+              "genre": "뮤지컬",
+              "img": "http://t1.search.daumcdn.net/thumb/R438x0.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fe98aaa091f8713d98193d2517ddb9d2a70177867",
+              "first_run_date": "2016-11-24",
+              "score": 0.0,
+              "nation_code": "영국"
+          }
       },
       {
-        "category": "choice",
-        "title": "얼굴 없는 밤",
-        "english_title": "The Similars",
-        "director": "이작 에즈반",
-        "year": "2015",
-        "duration": "89",
-        "nation": "Mexico",
-        "image": "http://www.bifan.kr/uploads/program/program_320160614154342.jpg"
-      },
-      {
-        "category": "choice",
-        "title": "아래층 사람들",
-        "english_title": "The Tenants Downstairs",
-        "director": "아담 추웨이",
-        "year": "2016",
-        "duration": "97",
-        "nation": "Taiwan",
-        "image": "http://www.bifan.kr/uploads/program/program_320160620101739.jpg"
-      },
-      {
-        "category": "choice",
-        "title": "어둠의 여인",
-        "english_title": "Under the Shadow",
-        "director": "바박 안바리",
-        "year": "2015",
-        "duration": "110",
-        "nation": "France",
-        "image": "http://www.bifan.kr/uploads/program/program_320160621223015.jpg"
+          "rank": 10,
+          "movie": {
+              "id": 10,
+              "title": "신밧드 더 무비",
+              "genre": "애니메이션",
+              "img": "http://t1.search.daumcdn.net/thumb/R438x0.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F128d38cf08a7f4f7f46d250b913b6a4c97e9aec8",
+              "first_run_date": "2016-12-01",
+              "score": 0.0,
+              "nation_code": "일본"
+          }
       }
   ];
-
   // Controller $scope 객체의 속성
   $scope.selected_index = null;
   $scope.selected_movie = null;
