@@ -126,7 +126,7 @@ $('#main-new-movie-trailers-carousel').fingoCarousel(main_movie_trailers_carouse
   function rollingList() {
     var list_length = $ul.children().length;
 
-    $ul.animate({
+    $ul.stop().animate({
       'top': -45
     }, 600, function() {
       $(this).append($(this).children().first());
@@ -139,5 +139,14 @@ $('#main-new-movie-trailers-carousel').fingoCarousel(main_movie_trailers_carouse
   if(!box_office_list.classList.contains('show')) {
     intervalID = window.setInterval(rollingList, 2500);
   }
+
+
+  ul.addEventListener('mouseover', function() {
+    clearInterval(intervalID);
+  });
+
+  ul.addEventListener('mouseout', function() {
+    intervalID = window.setInterval(rollingList, 2500);
+  });
 
 // })(this, this.jQuery);

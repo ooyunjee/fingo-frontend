@@ -286,12 +286,17 @@ Carousel.prototype = {
   },
 
   'nextPanel': function() {
-    var active_index = this.setActiveIndex(this.active_index + 1);
-    this.viewTabpanel(active_index, 'next');
+    if(!this.$carousel_tabpanels.parent().is(':animated')) {
+      var active_index = this.setActiveIndex(this.active_index + 1);
+      this.viewTabpanel(active_index, 'next');
+    }
   },
 
   'prevPanel': function() {
-    this.viewTabpanel(this.setActiveIndex(this.active_index - 1), 'prev');
+    if(!this.$carousel_tabpanels.parent().is(':animated')) {
+      var active_index = this.setActiveIndex(this.active_index - 1);
+      this.viewTabpanel(this.setActiveIndex(active_index), 'prev');
+    }
   },
 
   'viewTabpanel': function(index, btn, e) {
