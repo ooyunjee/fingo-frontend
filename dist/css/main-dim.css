@@ -411,10 +411,10 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   bottom: 0;
-  background: rgba(22,22,22,0.8);
+  right: 0;
   z-index: 100000;
+  background: rgba(22,22,22,0.8);
 }
 
 .dim2 {
@@ -454,19 +454,19 @@ body {
   font-size: 18px;
 }
 
-.modal-window .modal-headline .modal-rank-btn {
+.modal-window .modal-rank-btn {
   margin-left: 10px;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
 }
 
-.modal-window .modal-headline .modal-rank-btn::before {
+.modal-window .modal-rank-btn::before {
   content: '';
-  position: absolute;
-  top: 5px;
-  right: 0;
   width: 10px;
   height: 10px;
+  position: relative;
+  top: -2px;
+  display: block;
   -webkit-transform: rotate(-135deg);
   -ms-transform: rotate(-135deg);
   transform: rotate(-135deg);
@@ -540,6 +540,7 @@ body {
   padding-bottom: 20px;
   padding-right: 30px;
   background-color: #000;
+  box-shadow: 0 0 0 6px rgba(198,164,113,0.3);
   text-align: center;
   border: 1px solid #000;
   border-radius: 5px;
@@ -549,13 +550,13 @@ body {
 .modal-window .modal-rank-contents::before {
   content: '';
   position: absolute;
-  top: -10px;
+  top: -6px;
   right: 75px;
   width: 0;
   height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 10px solid #000;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 7px solid #000;
 }
 
 .modal-window .modal-rank-contents h4 {

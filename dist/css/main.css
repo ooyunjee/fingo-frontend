@@ -681,6 +681,8 @@ body {
 }
 
 .main-main .ui-carousel .ui-carousel-tabpanel .ui-carousel-image {
+  position: relative;
+  z-index: 1;
   width: 232px;
   height: 335px;
 }
@@ -688,9 +690,11 @@ body {
 .main-main .ui-carousel .ui-carousel-tabpanel .hover {
   position: absolute;
   top: 0;
-  z-index: 1000;
+  z-index: 10;
   width: 100%;
   height: 100%;
+  padding-left: 1.2em;
+  padding-right: 1.2em;
   display: none;
   cursor: pointer;
   background: rgba(0,0,0,0.85);
@@ -698,12 +702,14 @@ body {
 
 .main-main .ui-carousel .ui-carousel-tabpanel .hover h3 {
   margin-top: 55px;
-  margin-bottom: 40px;
-  font-size: 18px;
+  margin-bottom: 35px;
+  padding-bottom: 1em;
+  border-bottom: 1px solid rgba(198,164,113,0.4);
+  font-size: 19px;
 }
 
 .main-main .ui-carousel .ui-carousel-tabpanel .hover .stars {
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
 .main-main .ui-carousel .ui-carousel-tabpanel .hover button {
@@ -785,8 +791,7 @@ body {
 
 .main-main .main-box-office .ui-carousel-tabpanel.active {
   position: relative;
-  z-index: 10000;
-  opacity: 1;
+  z-index: 100;
   -webkit-transform: scale(1.3);
   -ms-transform: scale(1.3);
   transform: scale(1.3);
@@ -794,8 +799,6 @@ body {
 }
 
 .main-main .main-box-office .ui-carousel-tabpanel.active .ui-carousel-image {
-  position: relative;
-  z-index: 1000;
   opacity: 1;
 }
 
@@ -1207,12 +1210,6 @@ body {
     font-size: 20px;
   }
 
-  .main-main .main-box-office .ui-carousel-tabpanel.active {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-  }
-
   .main-main .main-box-office h1 {
     padding-top: 70px;
   }
@@ -1225,7 +1222,6 @@ body {
     position: absolute;
     top: 200px;
     left: 50%;
-    z-index: 10000;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
