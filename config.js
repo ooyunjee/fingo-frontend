@@ -19,6 +19,7 @@ const PATHS = {
   'js'        : 'js',
   'directives': 'js/directives',
   'images'    : 'images',
+  'views'     : 'views',
   'fonts'     : 'fonts',
   'iconfonts' : 'iconfonts',
   'sprites'   : 'sprites',
@@ -38,6 +39,10 @@ let config = {
     'directives' : {
       'source' : `${PATHS.src}/${PATHS.directives}/**/*.html`,
       'output' : `${PATHS.dist}/${PATHS.directives}`
+    },
+    'views' : {
+      'source' : `${PATHS.src}/${PATHS.views}/**/*.html`,
+      'output' : `${PATHS.dist}/${PATHS.views}`
     },
     'fonts' : {
       'source' : `${PATHS.src}/${PATHS.fonts}/**/*.{eot,woff,woff2,ttf}`,
@@ -178,6 +183,7 @@ let config = {
     'html'       : `${PATHS.src}/**/*.html`,
     'sass'       : `${PATHS.src}/${PATHS.sass}/**/*.{sass,scss}`,
     'directives' : `${PATHS.src}/${PATHS.directives}/**/*.html`,
+    'views' : `${PATHS.src}/${PATHS.views}/**/*.html`,
     'js'         : `${PATHS.src}/${PATHS.js}/**/*.{js,es6}`,
   },
 
