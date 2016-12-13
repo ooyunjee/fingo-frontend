@@ -9,27 +9,14 @@
 @import ./config/fingo-reset
 @import ./config/fingo-grid-system
 
-
-
-input
-  @extend %reset-box-model
+div, input
+  @extend %reset-border-box
 
 button
   @extend %reset-button
 
-body
-  font-family: 'Spoqa Han Sans', 'Sans-serif'
-  +size(100% auto)
-  +background(image url('../images/photo-index-bg.jpg') position center repeat no-repeat size cover)
-
-
-
-.header
-  +padding(top 20px)
-  // h1 img
-  //   +size(86px 43px)
-  h1 span
-    @extend %a11y-hidden
+.a11y
+  @extend %a11y
 
 .main
   +size(100% 100vh)
@@ -103,47 +90,3 @@ body
         line-height: 50px
         color: #fff
         font-size: 16px
-
-
-// * --------------------------------
-// * Footer
-// * --------------------------------
-footer
-  +size(100% 150px)
-  background: $fingo-bg-dark
-  a
-    color: $fingo-white
-  .container
-    padding-top: 40px
-    .footer-logo
-      float: left
-      margin-right: 50px
-    .footer-copyright
-      +position(relative, top 5px)
-      width: 250px
-      float: left
-      p
-        font-size: 14px
-      span
-        font-size: 12px
-        font-weight: lighter
-  .footer-sns-group
-    float: right
-    a
-      +size(45px)
-      +margin(left 15px)
-      position: relative
-      display: inline-block
-      background: $fingo-font-33
-      border-radius: 50%
-      img
-        position: absolute
-        top: 50%
-        left: 50%
-        transform: translate(-50%, -50%)
-    .footer-sns-facebook
-      &:hover
-        background: #203571
-    .footer-sns-twitter
-      &:hover
-        background: #30758b
