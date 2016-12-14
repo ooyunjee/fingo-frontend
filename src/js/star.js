@@ -24,51 +24,9 @@ document.querySelector('.star-rating-form').addEventListener('submit', function(
 	event.stopImmediatePropagation();
 });
 
-
-
-
-
-// (function(global, $){
-// 	'use strict';
-//
-// 	var $star_forms = $('.star-rating-form');
-//
-// 	var formAction = function(e){
-// 		console.log('form');
-// 		e.preventDefault();
-// 		e.stopImmediatePropagation();
-// 		return false;
-// 	};
-//
-// 	$.each($star_forms, function(index){
-// 		var $form = $star_forms.eq(index);
-// 		console.log($form);
-// 		$form.add( $('input, label, button', $form) ).on('submit', formAction);
-// 	});
-//
-// }(this, this.jQuery));
-
-(function (global, $) {
-	'use strict';
-
-	// function cencelBtnEvent() {
-	// 	$('.close-btn').on('click', function () {
-	// 		$('label > svg').addClass("cancel-btn-color-active");
-	// 		console.log('click');
-	// 		$('label').css("color", "#999");
-	// 		$('label > svg').hover(function () {
-	// 			$('label > svg').removeClass("cancel-btn-color-active");
-	// 		});
-	// 	});
-	// }
-	// cencelBtnEvent();
-
-
-})(this, this.jQuery);
-
-(function (global, $) {
-	'use strict';
-
+// (function (global, $) {
+	// 'use strict';
+	// var $ = require('jquery');
 	function cencelBtnEvent2() {
 		$('label>svg').on('click', function () {
 			console.log('label click');
@@ -94,4 +52,4 @@ document.querySelector('.star-rating-form').addEventListener('submit', function(
 
 	cencelBtnEvent2();
 
-})(this, this.jQuery);
+// })(this, this.jQuery);

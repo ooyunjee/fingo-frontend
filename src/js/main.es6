@@ -6,26 +6,33 @@
 let angular = require('angular');
 
 let fingo = angular.module('FingoApp', []);
-// 모듈 환경 설정
-// bipan.config(['$httpProvider', '$resourceProvider',($httpProvider, $resourceProvider)=> {
-//   let token = 'Token e5af61bea9ac671d360850752fe9c775bf2f6e9a';
-//   $httpProvider.defaults.headers.common['Authorization'] = token;
-//   $resourceProvider.defaults.stripTrailingSlashes = false;
-// }]);
+
+
+//Router
+require('angular-ui-router');
+
 
 // ListController
 require('./controllers/ListController');
-//
+require('./controllers/FingoMovieDetailController');
+// require('./controllers/FingoMovieDetailCommentController');
+
+
 // Custom Filter
-require('./filters/readingZeroFilter')
-//
+require('./filters/readingZeroFilter');
+
+
+// repuire('./lib/ng-infinite-scroll');
+
 require('./lib/jquery.min');
 require('./lib/jquery.easing.min');
 require('./jquery.radioClass');
-require('./ui-carousel-refactoring');
-require('./main-page');
-require('./main-add-comment');
+// require('./ui-carousel-refactoring');
+// require('./main-page');
+// require('./main-add-comment');
 require('./directives/MyDirective');
-require('./star');
 require('./nav-scroll-event');
 require('./nav-toggle-menu');
+require('./graph');
+// require('./movie-add-movie-info');
+require('./star');

@@ -259,6 +259,7 @@ main
   .sub-menu
     +size(100% 60px)
     border-bottom: 1px solid $fingo-border
+    +margin(bottom 60px)
     ul
       li
         float: left
@@ -290,7 +291,7 @@ main
           line-height: 60px
 
 .movies
-  +margin(top 60px)
+  // +margin(top 60px)
 
 
   h1
@@ -328,14 +329,14 @@ main
         &:nth-child(5n)
           +margin(right 20px)
       img
-        +size(220px 320px)
+        +size(232px 335px)
         +mobile
           +size(350px 500px)
 
       .hover
         +position(absolute, top 0 z-index 10)
         +size(100% 100%)
-        opacity: 1
+        opacity: 0
         cursor: pointer
         background: rgba(#000000, 0.3)
         text-align: center
