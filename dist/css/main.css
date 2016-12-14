@@ -569,10 +569,10 @@ body {
 }
 
 .main-header .ui-carousel-image {
-  width: 100%;
-  height: auto;
   position: absolute;
   top: 50%;
+  width: 100%;
+  height: auto;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);

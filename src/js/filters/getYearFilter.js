@@ -4,8 +4,9 @@
 
 // let angular = require('angular');
 
-angular.module('FingoApp').filter('readingZero', function() {
+angular.module('FingoApp').filter('getYear', function() {
   return function(input) {
-    return input < 10 ? ('0' + input) : input;
+    console.log(input.split('-')[0]);
+    return input.split('-')[0];
   };
 });

@@ -62,8 +62,8 @@ $bp-tablet: 1024px
     +size(100%)
     position: relative
   .ui-carousel-image
-    +size(100% auto)
     +position(absolute, top 50%)
+    +size(100% auto)
     transform: translateY(-50%)
   .ui-carousel-button-group
     button
@@ -92,6 +92,7 @@ $bp-tablet: 1024px
       background: radial-gradient(transparent 60%, $fingo-bg-light 90%)
 
   .container
+    // +position(absolute, top 0 z-index 1000)
     height: 100%
   .main-header-carousel-contents
     +position(absolute, top 50% left 0 z-index 10000)

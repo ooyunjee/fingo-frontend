@@ -34,7 +34,57 @@
         </a>
       </div>
     </div>
-  </nav> --><header class="main-header" data-ng-controller="FingoMovieDetailController"><!-- <div data-fingo-header-carousel></div> --><div id="main-header-carousel" class="main-header-carousel"><ul><li><a href></a></li><li><a href></a></li><li><a href></a></li></ul><div><figure><img src="./images/photo-main-carousel-1.jpg" alt=""><div class="container"><div class="main-header-carousel-contents"><h3><a href="">신비한 동물사전</a></h3><p>평균 별점 : 3.9 , 예매율 : 66.11%<br>2016, 미국, 판타지, 12세 관람가, 2시간 13분<br>배우 : 에디 레드메인, 콜린 파렐, 캐서린 워터스턴<br>감독 : 데이빗 예이츠</p><a href="#">예매하기</a></div></div></figure><figure><img src="./images/photo-main-carousel-2.jpg" alt=""><div class="container"><div class="main-header-carousel-contents"><h3><a href="">가려진 시간</a></h3><p>평균 별점 : 3.9 , 예매율 : 66.11%<br>2016, 미국, 판타지, 12세 관람가, 2시간 13분<br>배우 : 에디 레드메인, 콜린 파렐, 캐서린 워터스턴<br>감독 : 데이빗 예이츠</p><a href="#">예매하기</a></div></div></figure><figure><img src="./images/photo-main-carousel-1.jpg" alt=""><div class="container"><div class="main-header-carousel-contents"><h3><a href="">신비한 동물사전</a></h3><p>평균 별점 : 3.9 , 예매율 : 66.11%<br>2016, 미국, 판타지, 12세 관람가, 2시간 13분<br>배우 : 에디 레드메인, 콜린 파렐, 캐서린 워터스턴<br>감독 : 데이빗 예이츠</p><a href="#">예매하기</a></div></div></figure></div></div></header><main class="main-main"><section class="main-box-office" data-ng-controller="ListController"><div class="container"><h1>BOX OFFCE</h1><p class="main-box-office-desc">오늘의 박스 오피스 순위 입니다.</p><div class="main-box-office-list"><span>영화랭킹</span> <button type="button" aria-label="영화 박스오피스 랭킹 리스프 펼치기"></button><ul><li data-ng-repeat="movie in fingo_movies"><a href="" title="{{movie.rank}}위 {{movie.movie.title}}"><span>{{movie.rank}}위</span>{{movie.movie.title}}</a></li></ul></div><div data-fingo-box-office-carousel></div></div></section><section class="main-movie-ranking" data-ng-controller="ListController"><div class="container"><h1 class="a11y">영화 순위</h1><div class="main-movie-ranking-btn-group"><button type="button" class="active">국내 누적관객수 TOP 영화</button><button type="button">전문가 고평점 영화</button></div><div data-fingo-movie-ranking-carousel></div></div></section><section class="main-new-movie-trailers"><div class="container"><h1>NEW MOVIE TRAILERS</h1><div id="main-new-movie-trailers-carousel"><ul><li><a href></a></li><li><a href></a></li><li><a href></a></li><li><a href></a></li><li><a href></a></li></ul><div><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-2.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-2.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-2.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-2.png" alt=""></figure><!-- <div>
+  </nav> --><header class="main-header" data-ng-controller="FingoMovieDetailController"><div data-fingo-header-carousel></div><!-- <div id="main-header-carousel" class="main-header-carousel">
+      <ul>
+        <li><a href></a></li>
+        <li><a href></a></li>
+        <li><a href></a></li>
+      </ul>
+      <div>
+        <figure>
+          <img src="./images/photo-main-carousel-1.jpg" alt="">
+          <div class="container">
+            <div class="main-header-carousel-contents">
+              <h3><a href="">신비한 동물사전</a></h3>
+              <p>평균 별점 : 3.9 , 예매율 : 66.11%<br />
+                2016, 미국, 판타지, 12세 관람가, 2시간 13분<br />
+                배우 : 에디 레드메인, 콜린 파렐, 캐서린 워터스턴<br />
+                감독 : 데이빗 예이츠
+                </p>
+              <a href="#">예매하기</a>
+            </div>
+          </div>
+        </figure>
+        <figure>
+          <img src="./images/photo-main-carousel-2.jpg" alt="">
+          <div class="container">
+            <div class="main-header-carousel-contents">
+              <h3><a href="">가려진 시간</a></h3>
+              <p>평균 별점 : 3.9 , 예매율 : 66.11%<br />
+                2016, 미국, 판타지, 12세 관람가, 2시간 13분<br />
+                배우 : 에디 레드메인, 콜린 파렐, 캐서린 워터스턴<br />
+                감독 : 데이빗 예이츠
+                </p>
+              <a href="#">예매하기</a>
+            </div>
+          </div>
+        </figure>
+        <figure>
+          <img src="./images/photo-main-carousel-1.jpg" alt="">
+          <div class="container">
+            <div class="main-header-carousel-contents">
+              <h3><a href="">신비한 동물사전</a></h3>
+              <p>평균 별점 : 3.9 , 예매율 : 66.11%<br />
+                2016, 미국, 판타지, 12세 관람가, 2시간 13분<br />
+                배우 : 에디 레드메인, 콜린 파렐, 캐서린 워터스턴<br />
+                감독 : 데이빗 예이츠
+                </p>
+              <a href="#">예매하기</a>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </div> --></header><main class="main-main"><section class="main-box-office" data-ng-controller="ListController"><div class="container"><h1>BOX OFFCE</h1><p class="main-box-office-desc">오늘의 박스 오피스 순위 입니다.</p><div class="main-box-office-list"><span>영화랭킹</span> <button type="button" aria-label="영화 박스오피스 랭킹 리스프 펼치기"></button><ul><li data-ng-repeat="movie in fingo_movies"><a href="" title="{{movie.rank}}위 {{movie.movie.title}}"><span>{{movie.rank}}위</span>{{movie.movie.title}}</a></li></ul></div><div data-fingo-box-office-carousel></div></div></section><section class="main-movie-ranking" data-ng-controller="ListController"><div class="container"><h1 class="a11y">영화 순위</h1><div class="main-movie-ranking-btn-group"><button type="button" class="active">국내 누적관객수 TOP 영화</button><button type="button">전문가 고평점 영화</button></div><div data-fingo-movie-ranking-carousel></div></div></section><section class="main-new-movie-trailers"><div class="container"><h1>NEW MOVIE TRAILERS</h1><div id="main-new-movie-trailers-carousel"><ul><li><a href></a></li><li><a href></a></li><li><a href></a></li><li><a href></a></li><li><a href></a></li></ul><div><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-2.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-2.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-2.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-1.png" alt=""></figure><figure><img src="images/photo-main-video-2.png" alt=""></figure><!-- <div>
               <iframe src="https://www.youtube.com/embed/4f3wL6cgFZ8" frameborder="0" allowfullscreen></iframe>
             </div>
             <div>
@@ -75,4 +125,25 @@
             </div>
             <div>
               <iframe src="https://www.youtube.com/embed/4f3wL6cgFZ8" frameborder="0" allowfullscreen></iframe>
-            </div> --></div></div></div></section></main><!-- <div data-fingo-comment-dim></div> --><div class="comment-dim-container modal"><div class="dim"></div><div class="modal-window modal"><h3 class="modal-headline">신비한 동물사전</h3><button class="modal-rank-btn" aria-label="별점 남기기"></button><div class="modal-contents"><img class="modal-poster" src="./images/photo-main-poster-4.png"> <span class="modal-stars">별별별별별</span><textarea class="modal-textarea" placeholder="이 영화에 대한 생각을 자유롭게 표현해주세요."></textarea><button type="button" class="modal-ok-button" aria-label="Enter comment">확인</button></div><button type="button" class="modal-close-button" aria-label="Close Modal Window">x</button><div class="dim2"></div><div class="modal-rank-contents modal"><h4>평가를 먼저 해주세요!</h4><p class="modal-rank-desc">본 영화인가요?</p><span class="modal-stars">별별별별별</span><p>아직 안 본 영화인가요?</p><button class="modal-like-btn" type="button" aria-label="보고싶은 영화로 등록하기">보고싶어요</button></div></div></div><script src="js/main.bundle.js"></script><!-- <script src="js/ui-carousel.bundle.js"></script> --><!-- <script src="js/jquery.radioClass.js" charset="utf-8"></script> --><!-- <script src="js/ui-carousel-refactoring.js"></script> --><!-- <script src="js/main.js" charset="utf-8"></script> --><!-- <script src="js/main-add-comment.js" charset="utf-8"></script> --></body></html>
+            </div> --></div></div></div></section></main><!-- <div data-fingo-comment-dim></div> --><!-- <div class="comment-dim-container modal" data-ng-controller="FingoCommentController">
+    <div class="dim"></div>
+    <div class="modal-window modal">
+      <h3 class="modal-headline">신비한 동물사전</h3>
+      <button class="modal-rank-btn" aria-label="별점 남기기"></button>
+      <div class="modal-contents">
+        <img class="modal-poster" src="./images/photo-main-poster-4.png">
+        <span class="modal-stars">별별별별별</span>
+        <textarea class="modal-textarea" placeholder="이 영화에 대한 생각을 자유롭게 표현해주세요." data-ng-model="comment"></textarea>
+        <button type="button" class="modal-ok-button" aria-label="Enter comment" data-ng-click="addComment(comment, title)">확인</button>
+      </div>
+      <button type="button" class="modal-close-button" aria-label="Close Modal Window">x</button>
+      <div class="dim2"></div>
+      <div class="modal-rank-contents modal">
+        <h4>평가를 먼저 해주세요!</h4>
+        <p class="modal-rank-desc">본 영화인가요?</p>
+        <span class="modal-stars">별별별별별</span>
+        <p>아직 안 본 영화인가요?</p>
+        <button class="modal-like-btn" type="button" aria-label="보고싶은 영화로 등록하기">보고싶어요</button>
+      </div>
+    </div>
+  </div> --><script src="js/main.bundle.js"></script><!-- <script src="js/ui-carousel.bundle.js"></script> --><!-- <script src="js/jquery.radioClass.js" charset="utf-8"></script> --><!-- <script src="js/ui-carousel-refactoring.js"></script> --><!-- <script src="js/main.js" charset="utf-8"></script> --><!-- <script src="js/main-add-comment.js" charset="utf-8"></script> --></body></html>

@@ -1,20 +1,20 @@
 <div id="main-header-carousel" class="main-header-carousel">
   <ul>
-    <li data-ng-repeat="movie in fingo_movie_detail"><a href></a></li>
+    <li data-ng-repeat="movie in fingo_boxoffice_detail"><a href></a></li>
   </ul>
   <div>
     <figure
-      data-ng-repeat="movie in fingo_movie_detail"
+      data-ng-repeat="movie in fingo_boxoffice_detail"
       data-ng-init="$last && repeatComplete()">
-      <img src="{{movie.img}}" alt="">
+      <img data-ng-src="{{movie.movie.img}}" alt="{{movie.movie.title}} 스틸컷 이미지">
       <div class="container">
         <div class="main-header-carousel-contents">
-          <h3><a href="">{{movie.title}}</a></h3>
-          <p>평균 별점 : 3.9 , 예매율 : 66.11%<br />
-            2016, 미국, 판타지, 12세 관람가, 2시간 13분<br />
-            배우 : 에디 레드메인, 콜린 파렐, 캐서린 워터스턴<br />
-            감독 : 데이빗 예이츠
-            </p>
+          <h3><a href="">{{movie.movie.title}}</a></h3>
+          <!-- <p>평균 별점 : 3.9 , 예매율 : 66.11%<br />
+            {{fingo_boxoffice_detail.first_run_date | getYear}}, {{fingo_boxoffice_detail.genre}}, 12세 관람가, 2시간 13분<br />
+            배우 : <span data-ng-repeat="actor in fingo_boxoffice_detail">{{fingo_boxoffice_detail.actor[$index].name}}</span><br />
+            감독 : <span data-ng-repeat="director in fingo_boxoffice_detail">{{fingo_boxoffice_detail.director[$index].name}}</span>
+            </p> -->
           <a href="#">예매하기</a>
         </div>
       </div>

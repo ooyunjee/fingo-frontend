@@ -7,9 +7,11 @@ angular.module('FingoApp').controller('ListController', ['$scope', '$http', func
 
   $http({
   	method: 'GET', //방식
-  	url: 'http://fingo-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/boxoffice/', /* 통신할 URL */
+  	url: 'http://eb-fingo-real.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/boxoffice/', /* 통신할 URL */
   	// data: dataObject, /* 파라메터로 보낼 데이터 */
-  	headers: {'Authorization': 'Token 9f2411a57a0d3b0495ece88ad38c336c6c8afb6c'} //헤더
+  	// cb4a980f063b2dd4b550886526494091c131448f
+  	// 9f2411a57a0d3b0495ece88ad38c336c6c8afb6c
+  	headers: {'Authorization': 'Token cb4a980f063b2dd4b550886526494091c131448f'} //헤더
   })
   .success(function(data, status, headers, config) {
   	if( data ) {
