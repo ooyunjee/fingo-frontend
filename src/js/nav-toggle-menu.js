@@ -1,4 +1,4 @@
-(function (global) {
+// (function (global) {
 
   $( ".main-menu-btn" ).on( "click", function() {
     console.log("main-on");
@@ -7,4 +7,4 @@
 
   });
 
-})(this , jQuery.this);
+// })(this , jQuery.this);

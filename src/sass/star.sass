@@ -15,10 +15,19 @@ label
 .cancel-btn-color-active
   color: #999
 
-.star-rating-form svg
-	width: 13px
-	height: 36px
-	fill: currentColor
+.star-rating-form
+  svg
+	  width: 13px
+	  height: 36px
+    // +size(13px 36px)
+	  fill: currentColor
+    +background(color #000)
+    // +mobile
+    //   // background: #000
+    //   width: 33px
+    // 	height: 56px
+
+
 
 .star-rating-form label,
 	display: block
