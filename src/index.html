@@ -109,8 +109,8 @@
       </div>
     </div> -->
   </header>
-  <main class="main-main">
-    <section class="main-box-office" data-ng-controller="ListController">
+  <main class="main-main" >
+    <section class="main-box-office" data-ng-controller="FingpBoxofficeController">
       <div class="container">
         <h1>BOX OFFCE</h1>
         <p class="main-box-office-desc">오늘의 박스 오피스 순위 입니다.</p>
@@ -124,7 +124,7 @@
         <div data-fingo-box-office-carousel></div>
       </div>
     </section>
-    <section class="main-movie-ranking" data-ng-controller="ListController">
+    <section class="main-movie-ranking" data-ng-controller="FingpBoxofficeController">
       <div class="container">
         <h1 class="a11y">영화 순위</h1>
         <div class="main-movie-ranking-btn-group">
@@ -239,7 +239,7 @@
         <img class="modal-poster" src="./images/photo-main-poster-4.png">
         <span class="modal-stars">별별별별별</span>
         <textarea class="modal-textarea" placeholder="이 영화에 대한 생각을 자유롭게 표현해주세요." data-ng-model="comment"></textarea>
-        <button type="button" class="modal-ok-button" aria-label="Enter comment" data-ng-click="addComment(comment, title)">확인</button>
+        <button type="button" class="modal-ok-button" aria-label="Enter comment" data-ng-click="addComment(comment)">확인</button>
       </div>
       <button type="button" class="modal-close-button" aria-label="Close Modal Window">x</button>
       <div class="dim2"></div>

@@ -34,7 +34,7 @@ angular
           var $carousel = element.find('#main-box-office-carousel');
           $carousel.fingoCarousel(main_box_office_carousel);
         };
-        
+
       }
     };
 

@@ -13,13 +13,13 @@
           <h3>{{movie.movie.title}}</h3>
           <p class="stars">별 별 별 별 별</p>
           <button type="button">보고싶어요</button>
-          <button type="button">코멘트 쓰기</button>
+          <button type="button" ng-click="Comment(movie.movie.id)">코멘트 쓰기</button>
         </div>
       </a>
     </figure>
   </div>
 </div>
-<div class="comment-dim-container modal" data-ng-controller="FingoCommentController">
+<div class="comment-dim-container modal">
   <div class="dim"></div>
   <div class="modal-window modal">
     <h3 class="modal-headline"></h3>

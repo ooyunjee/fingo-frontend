@@ -8,13 +8,13 @@ require('angular-resource');
 
 // 모듈 환경 설정
 fingo.config(['$httpProvider', '$resourceProvider',($httpProvider, $resourceProvider)=> {
-  let token = 'Token cb4a980f063b2dd4b550886526494091c131448f';
+  let token = 'Token 0428140f0f353791520d51d20ce445c7d41c5cad';
   $httpProvider.defaults.headers.common['Authorization'] = token;
   $resourceProvider.defaults.stripTrailingSlashes = false;
 }]);
 
 // Controllers
-require('./controllers/ListController');
+require('./controllers/FingpBoxofficeController');
 require('./controllers/FingoMovieDetailController');
 require('./controllers/FingoCommentController');
 

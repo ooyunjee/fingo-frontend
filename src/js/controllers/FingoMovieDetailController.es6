@@ -5,18 +5,18 @@ let angular = require('angular');
 
 angular.module('FingoApp')
 .factory('FingoBoxofficeDetail', ['$resource', ($resource)=>{
-  let url = 'http://eb-fingo-real.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/boxoffice/';
+  let url = 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/boxoffice/';
   return $resource(url);
 }])
 .controller('FingoMovieDetailController', ($scope, FingoBoxofficeDetail)=>{
-  // var boxoffice = new FingoBoxofficeDetail();
 
   FingoBoxofficeDetail.get(function(data) {
     console.log('success',data);
-    $scope.fingo_boxoffice_detail = data.data; 
+    $scope.fingo_boxoffice_detail = data.data;
   }, function errorCallback(data) {
      console.log('e',data);
   });
+  
 });
 //   .controller('FingoMovieDetailController', ['$scope', '$http', function($scope, $http) {
 //
