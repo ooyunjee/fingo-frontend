@@ -142,11 +142,11 @@ $('#main-new-movie-trailers-carousel').fingoCarousel(main_movie_trailers_carouse
   }
 
 
-  ul.addEventListener('mouseover', function() {
+  box_office_list.addEventListener('mouseover', function() {
     clearInterval(intervalID);
   });
 
-  ul.addEventListener('mouseout', function() {
+  box_office_list.addEventListener('mouseout', function() {
     intervalID = window.setInterval(rollingList, 2500);
   });
 
