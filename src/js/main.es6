@@ -40,7 +40,7 @@ fingo.config([
       .state('signup', {
         'url'         : '/signup',
         'templateUrl' : 'views/signup.html',
-        'controller'  : 'FingoLoginController'
+        'controller'  : 'FingoSignupController'
       });
       // .state('main', {
       //   'url'         : '/main',
@@ -79,9 +79,11 @@ window.fbAsyncInit = function() {
 // ListController
 require('./controllers/FingoLoginController');
 require('./controllers/FBLoginController');
+require('./controllers/FingoSignupController');
 // require('./controllers/FingoMovieDetailController');
 
 require('./services/FingoTokenService');
+require('./services/FingoSignupService');
 
 // // Custom Filter
 // require('./filters/readingZeroFilter')
