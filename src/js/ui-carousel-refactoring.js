@@ -54,7 +54,7 @@ var Carousel = function(widget, options) {
   this.$carousel_button_group            = null;
   this.$carousel_mask                    = null;
   this.$carousel_tabpanels               = null;
-  this.$carousel_tabpanel_content_imgs   = null;
+  this.$carousel_tabpanel_imgs   = null;
   this.$carousel_tabpanel_content_videos = null;
 
   this.start_tabpanel_index = 0;
@@ -86,7 +86,7 @@ Carousel.prototype = {
     this.$carousel_tabs     = this.$carousel_tablist.find('a');
     this.$carousel_tabpanels = this.$carousel.children().last().children();
     this.$carousel_content = this.$carousel_tabpanels.children().parent();
-    this.$carousel_tabpanel_content_imgs = this.$carousel.children().last().find('img').not('.icon');
+    this.$carousel_tabpanel_imgs = this.$carousel.children().last().find('img').not('.icon');
     this.$carousel_tabpanel_content_videos = this.$carousel.children().last().find('iframe');
 
     // console.log('tabpanels',this.$carousel.html());
@@ -150,7 +150,7 @@ Carousel.prototype = {
     this.$carousel_tabpanels.addClass('ui-carousel-tabpanel');
     this.$carousel_tabpanels.parent().closest('div').addClass('ui-carousel-tabpanel-wrapper');
     this.$carousel_tabpanels.parent().closest('div').parent().addClass('ui-carousel-mask');
-    this.$carousel_tabpanel_content_imgs.addClass('ui-carousel-image');
+    this.$carousel_tabpanel_imgs.addClass('ui-carousel-image');
     this.$carousel_tabpanel_content_videos.addClass('ui-carousel-video');
 
     if(this.carousel_row === 2) {
@@ -178,11 +178,8 @@ Carousel.prototype = {
     var $carousel_mask = this.$carousel_mask;
     var carousel_tabpannel_width = ($carousel_mask.width() - (this.carousel_col - 1) * this.carousel_content_margin) / this.carousel_col;
 
-    this.carousel_content_width = this.$carousel_tabpanels.find('img').eq(0).width();
-    this.carousel_content_height = this.$carousel_tabpanels.find('img').eq(0).height();
-
-    // this.$carousel_tabpanels.forEach()
-    console.log('length',this.$carousel_tabpanels.length);
+    this.carousel_content_width = this.$carousel_tabpanel_imgs.eq(0).width();
+    // this.carousel_content_height = this.$carousel_tabpanels.find('img').eq(0).height();
 
     // carousel 높이 설정
     $carousel.height(this.carousel_height);
@@ -313,6 +310,9 @@ Carousel.prototype = {
     // Infinite Carousel
     if(this.carousel_infinite === true) {
 
+      // index에 해당되는 탭패널 활성화
+      this.$carousel_tabpanels.eq(index).radioClass('active');
+
       // When you click next btn
       if(btn === 'next') {
         $carousel_wrapper.stop().animate({
@@ -347,8 +347,7 @@ Carousel.prototype = {
       }, 600, 'easeOutExpo');
     }
 
-    // index에 해당되는 탭패널 활성화
-    this.$carousel_tabpanels.eq(index).radioClass('active');
+
     // 인디케이터 라디오클래스 활성화
     this.$carousel_tabs.eq(index).parent().radioClass('active');
   },
