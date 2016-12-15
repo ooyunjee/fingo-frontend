@@ -5,9 +5,57 @@
 // require('angular-resource');
 let angular = require('angular');
 
-let fingo = angular.module('FingoApp', []);
+require('angular-resource');
+require('angular-ui-router');
 
+let fingo = angular.module('FingoApp', [
+  'ngResource',
+  'ui.router',
+]);
 
+fingo.config([
+  '$httpProvider',
+  '$resourceProvider',
+  '$stateProvider',
+  '$urlRouterProvider',
+  (
+    $httpProvider,
+    $resourceProvider,
+    $stateProvider,
+    $urlRouterProvider
+  )=> {
+
+    // $stateProvider
+    $stateProvider
+      .state('main', {
+        'url'         : '/',
+        'templateUrl' : 'views/main.html'
+        // 'controller'  : 'ListController'
+        //indexpage
+      })
+      .state('movies', {
+        'url'         : '/movies',
+        'templateUrl' : 'views/movies.html',
+        // 'controller'  : 'ListController',
+        // 'controller' : 'FingoMovieDetailController'
+        //sub moviespage
+      })
+      .state('comment', {
+        'url'         : '/comment',
+        'templateUrl' : 'views/comments.html',
+        // 'controller'  : 'ListController',
+        // 'controller' : 'FingoMovieDetailController'
+        //sub comment page
+      });
+
+    $urlRouterProvider.otherwise('/');
+
+    // let token = 'Token 9f2411a57a0d3b0495ece88ad38c336c6c8afb6c';
+    // $httpProvider.defaults.headers.common['Authorization'] = token;
+    // $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
+    $resourceProvider.defaults.stripTrailingSlashes = false;
+
+}]);
 //Router
 require('angular-ui-router');
 
@@ -15,14 +63,14 @@ require('angular-ui-router');
 // ListController
 require('./controllers/ListController');
 require('./controllers/FingoMovieDetailController');
-// require('./controllers/FingoMovieDetailCommentController');
+require('./controllers/FingoWishMoviesController');
 
 
 // Custom Filter
 require('./filters/readingZeroFilter');
+require('./filters/loadMore');
 
 
-// repuire('./lib/ng-infinite-scroll');
 
 require('./lib/jquery.min');
 require('./lib/jquery.easing.min');

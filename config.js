@@ -20,6 +20,7 @@ const PATHS = {
   'directives': 'js/directives',
   'images'    : 'images',
   'fonts'     : 'fonts',
+  'views'     : 'views',
   'iconfonts' : 'iconfonts',
   'sprites'   : 'sprites',
 };
@@ -47,6 +48,10 @@ let config = {
     'images': {
       'source' : `${PATHS.src}/${PATHS.images}/**/*.{png,jpg,jpeg,gif,svg}`,
       'output' : `${PATHS.dist}/${PATHS.images}`
+    },
+    'views' : {
+      'source' : `${PATHS.src}/${PATHS.views}/**/*.html`,
+      'output' : `${PATHS.dist}/${PATHS.views}`
     },
     // 아이콘 폰트 소스/출력 설정
     'iconfonts': {
@@ -175,9 +180,11 @@ let config = {
   /////////////////
   // 관찰 파일 경로 설정
   'watch': {
-    'html' : `${PATHS.src}/**/*.html`,
-    'sass' : `${PATHS.src}/${PATHS.sass}/**/*.{sass,scss}`,
-    'js'   : `${PATHS.src}/${PATHS.js}/**/*.{js,es6}`,
+    'html'       : `${PATHS.src}/**/*.html`,
+    'sass'       : `${PATHS.src}/${PATHS.sass}/**/*.{sass,scss}`,
+    'directives' : `${PATHS.src}/${PATHS.directives}/**/*.html`,
+    'views' : `${PATHS.src}/${PATHS.views}/**/*.html`,
+    'js'         : `${PATHS.src}/${PATHS.js}/**/*.{js,es6}`,
   },
 
   /////////////////////

@@ -14,6 +14,7 @@ gulp.task('default', ()=>{
   // https://davidwalsh.name/gulp-run-sequence
   runSequence(
     ['clean'],
+    ['move-views'],
     ['html', 'sass', 'webpack', 'images'],
     ['move-directives'],
     ['watch', 'browser-sync']
