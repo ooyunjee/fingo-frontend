@@ -152,10 +152,16 @@ button
       content: ""
       display: block
       clear: both
+    button
+      +size(200px 40px)
+      +background(color $fingo-bg-dark)
+      font-size: 14px
+      color: $fingo-font-dd
   .movie-section-04
-    clear: both
+    box-sizing: border-box
     position: relative
-    top: -850px
+    width: 690px
+    float: left
     +padding(left 30px top 50px)
 
     h2
@@ -220,6 +226,10 @@ button
   cursor: pointer
   background: rgba(#000000, 0.3)
   text-align: center
+  .movie-info-click-on
+    +position(absolute, top 0 z-index 0)
+    +size(100% 100%)
+
   p
     +margin(top 55px)
     font-size: 16px
@@ -231,6 +241,7 @@ button
 
   .like-btn,
   .heart-btn
+    +position(relative, z-index 10)
     +margin(bottom 10px left auto right auto)
     +size(110px 35px)
     font-size: 14px
