@@ -7,8 +7,8 @@ angular.module('FingoApp').controller('ListController', ['$scope', '$http', func
 
   $http({
   	method: 'GET', //방식
-  	url: 'http://eb-fingo-real.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/boxoffice/',
-  	headers: {'Authorization': 'Token cb4a980f063b2dd4b550886526494091c131448f'}
+  	url: 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/boxoffice/',
+  	headers: {'Authorization': 'Token 0428140f0f353791520d51d20ce445c7d41c5cad'}
   })
   .success(function(data, status, headers, config) {
   	if( data ) {

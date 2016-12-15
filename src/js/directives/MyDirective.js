@@ -41,3 +41,26 @@ angular
       'controller': 'ListController'
     };
   });
+
+//   angular.element($window).bind('scroll', function () {
+//   console.log('Gogo!'); //works!
+// });
+//
+// element.bind('scroll', function () {
+//   console.log('Gogo!'); //doesn't work... :(((
+// });
+// angular
+//   .directive('scrolly', function () {
+//     return {
+//         restrict: 'A',
+//         link: function (scope, element, attrs) {
+//             var raw = element[0];
+//
+//             element.bind('scroll', function () {
+//                 if (raw.scrollTop + raw.offsetHeight > raw.scrollHeight) {
+//                     scope.$apply(attrs.scrolly);
+//                 }
+//             });
+//         }
+//     };
+// });
