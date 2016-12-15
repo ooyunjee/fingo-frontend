@@ -62,10 +62,9 @@ $bp-tablet: 1024px
     +size(100%)
     overflow: hidden
     position: relative
-    background: $fingo-bg-light
+    background: #000
   .ui-carousel-image
     +position(absolute, top 50%)
-    // +size(auto 100%)
     +size(100% auto)
     transform: translateY(-50%)
   .ui-carousel-button-group
@@ -187,7 +186,7 @@ $bp-tablet: 1024px
         .hover
           display: block
       .ui-carousel-image
-        +position(relative, z-index 1)
+        // +position(relative, z-index 1)
         +size(232px 335px)
         +mobile
           +size(100% auto)
