@@ -50,25 +50,34 @@ let angular = require('angular');
 
 angular
   .module('FingoApp')
-  .factory('FingoLogin', ['$resource', function($resource){
-    let url = 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/user/login/';
-    let token;
-    return $resource(url);
-  }])
-  .controller('FingoLoginController', function($scope, FingoLogin) {
+  .controller('FingoLoginController',
+    ['$scope', 'FingoTokenService', ($scope, FingoTokenService)=>{
+      $scope.share_data = FingoTokenService;
+      $scope.Login = ()=> {
+        $scope.share_data.fingoLogin($scope.email, $scope.pw);
+      };
 
-    $scope.Login = function() {
-
-      var entry = new FingoLogin();
-
-      entry.email = $scope.email;
-      entry.password = $scope.pw;
-
-      entry.$save().then(function(response) {
-        console.log(response.token);
-      }, function errorCallback(response) {
-         console.log('error',response);
-      });
-    };
-
-  });
+    }]);
+  // .factory('FingoLogin', ['$resource', function($resource){
+  //   let url = 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/user/login/';
+  //   let token;
+  //   return $resource(url);
+  // }])
+  // .controller('FingoLoginController', function($scope, FingoLogin) {
+  //
+  //   $scope.Login = function() {
+  //
+  //     var entry = new FingoLogin();
+  //
+  //     entry.email = $scope.email;
+  //     entry.password = $scope.pw;
+  //
+  //     entry.$save().then(function(response) {
+  //       console.log(response.token);
+  //       window.location.href = '/main.html';
+  //     }, function errorCallback(response) {
+  //        console.log('error',response);
+  //     });
+  //   };
+  //
+  // });

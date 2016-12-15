@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="FingoApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FINGO::손가락으로 만들어지는 영화 평점 순위</title>
+  <link href="http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/ui-carousel.css">
+  <!-- <link rel="stylesheet" href="css/svg-style.css"> -->
+  <!-- <link rel="stylesheet" href="css/nav-header.css"> -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main-dim.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+  <!-- <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script> -->
+</head>
+<body>
+  <!-- <nav class="nav">
+    <div class="nav-logo container">
+      <h1>
+        <span>FINGO</span>
+        <a href="#">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="104.75px" height="53px" viewbox="0 0 104.75 53" enable-background="new 0 0 104.75 53" xml:space="preserve">
+          <g>
+            <path fill="#C5A370" d="M25.632,28.773v8.309h-4.58V15.916h9.553v3.959h-4.973v5.07h4.646v3.828H25.632z"></path><path fill="#C5A370" d="M37.867,15.916v21.166h-4.58V15.916H37.867z"></path><path fill="#C5A370" d="M53.405,37.082h-4.58V19.516c0-0.175-0.061-0.328-0.18-0.459c-0.12-0.131-0.268-0.195-0.441-0.195h-1.767c-0.175,0-0.322,0.064-0.441,0.195c-0.12,0.131-0.181,0.284-0.181,0.459v17.566h-4.58V19.908c0-2.879,1.353-4.318,4.057-4.318h4.057c2.704,0,4.057,1.439,4.057,4.318V37.082z"></path>
+            <path fill="#C5A370" d="M62.663,28.676v-3.37h6.053v7.786c0,2.879-1.353,4.318-4.057,4.318h-4.122c-2.705,0-4.057-1.439-4.057-4.318V19.908c0-2.879,1.352-4.318,4.057-4.318h4.122c2.704,0,4.057,1.439,4.057,4.318v1.995h-4.352v-2.552c0-0.174-0.061-0.327-0.18-0.458c-0.12-0.131-0.268-0.196-0.441-0.196h-2.062c-0.175,0-0.321,0.065-0.441,0.196s-0.18,0.284-0.18,0.458v14.264c0,0.174,0.06,0.326,0.18,0.457s0.267,0.197,0.441,0.197h2.062c0.174,0,0.321-0.066,0.441-0.197c0.119-0.131,0.18-0.283,0.18-0.457v-4.939H62.663z"></path>
+            <path fill="#C5A370" d="M83.698,19.908v13.184c0,2.879-1.353,4.318-4.057,4.318h-4.351c-2.705,0-4.057-1.439-4.057-4.318V19.908c0-2.879,1.352-4.318,4.057-4.318h4.351C82.345,15.59,83.698,17.029,83.698,19.908z M79.118,33.615V19.352c0-0.174-0.061-0.327-0.18-0.458c-0.12-0.131-0.268-0.196-0.441-0.196h-2.062c-0.175,0-0.321,0.065-0.441,0.196s-0.18,0.284-0.18,0.458v14.264c0,0.174,0.06,0.326,0.18,0.457s0.267,0.197,0.441,0.197h2.062c0.174,0,0.321-0.066,0.441-0.197C79.057,33.941,79.118,33.789,79.118,33.615z"></path>
+          </g>
+          <path id="border-box" fill="#C5A370" d="M0,0v53h104.75V0H0z M100.75,49.125H4V3.875h96.75V49.125z"></path>
+        </svg>
+        </a>
+      </h1>
+      <ul class="nav-main-menu">
+        <li><a href="#">박스 오피스</a></li>
+        <li><a href="#">추천영화</a></li>
+        <li><a href="#">평가늘리기</a></li>
+      </ul>
+      <form action="" >
+        <label for="">검색창</label>
+        <input type="search" placeholder="Search" required name="" value="">
+        <button type="submit" required><img src="./images/icon-search.svg" alt="검색버튼"></button>
+      </form>
+      <div class="nav-profile">
+        <a href="#">
+          <h1>프로필</h1>
+          <p>이름</p>
+          <img src="./images/icon-profile.png" alt="프로필 사진">
+        </a>
+      </div>
+    </div>
+  </nav> -->
+  <header class="main-header" data-ng-controller="FingoMovieDetailController">
+    <div data-fingo-header-carousel></div>
+    <!-- <div id="main-header-carousel" class="main-header-carousel">
+      <ul>
+        <li><a href></a></li>
+        <li><a href></a></li>
+        <li><a href></a></li>
+      </ul>
+      <div>
+        <figure>
+          <img src="./images/photo-main-carousel-1.jpg" alt="">
+          <div class="container">
+            <div class="main-header-carousel-contents">
+              <h3><a href="">신비한 동물사전</a></h3>
+              <p>평균 별점 : 3.9 , 예매율 : 66.11%<br />
+                2016, 미국, 판타지, 12세 관람가, 2시간 13분<br />
+                배우 : 에디 레드메인, 콜린 파렐, 캐서린 워터스턴<br />
+                감독 : 데이빗 예이츠
+                </p>
+              <a href="#">예매하기</a>
+            </div>
+          </div>
+        </figure>
+        <figure>
+          <img src="./images/photo-main-carousel-2.jpg" alt="">
+          <div class="container">
+            <div class="main-header-carousel-contents">
+              <h3><a href="">가려진 시간</a></h3>
+              <p>평균 별점 : 3.9 , 예매율 : 66.11%<br />
+                2016, 미국, 판타지, 12세 관람가, 2시간 13분<br />
+                배우 : 에디 레드메인, 콜린 파렐, 캐서린 워터스턴<br />
+                감독 : 데이빗 예이츠
+                </p>
+              <a href="#">예매하기</a>
+            </div>
+          </div>
+        </figure>
+        <figure>
+          <img src="./images/photo-main-carousel-1.jpg" alt="">
+          <div class="container">
+            <div class="main-header-carousel-contents">
+              <h3><a href="">신비한 동물사전</a></h3>
+              <p>평균 별점 : 3.9 , 예매율 : 66.11%<br />
+                2016, 미국, 판타지, 12세 관람가, 2시간 13분<br />
+                배우 : 에디 레드메인, 콜린 파렐, 캐서린 워터스턴<br />
+                감독 : 데이빗 예이츠
+                </p>
+              <a href="#">예매하기</a>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </div> -->
+  </header>
+  <main class="main-main" >
+    <section class="main-box-office" data-ng-controller="FingoBoxofficeController">
+      <div class="container">
+        <h1>BOX OFFCE</h1>
+        <p class="main-box-office-desc">오늘의 박스 오피스 순위 입니다.</p>
+        <div class="main-box-office-list">
+          <span>영화랭킹</span>
+          <button type="button" aria-label="영화 박스오피스 랭킹 리스프 펼치기"></button>
+          <ul>
+            <li data-ng-repeat="movie in fingo_movies"><a href="" title="{{movie.rank}}위 {{movie.movie.title}}"><span>{{movie.rank}}위</span>{{movie.movie.title}}</a></li>
+          </ul>
+        </div>
+        <div data-fingo-box-office-carousel></div>
+      </div>
+    </section>
+    <section class="main-movie-ranking" data-ng-controller="FingoBoxofficeController">
+      <div class="container">
+        <h1 class="a11y">영화 순위</h1>
+        <div class="main-movie-ranking-btn-group">
+          <button type="button" class="active">국내 누적관객수 TOP 영화</button><button type="button">전문가 고평점 영화</button>
+        </div>
+        <div data-fingo-movie-ranking-carousel></div>
+      </div>
+    </section>
+    <section class="main-new-movie-trailers">
+      <div class="container">
+        <h1>NEW MOVIE TRAILERS</h1>
+        <div id="main-new-movie-trailers-carousel">
+          <ul>
+            <li><a href></a></li>
+            <li><a href></a></li>
+            <li><a href></a></li>
+            <li><a href></a></li>
+            <li><a href></a></li>
+          </ul>
+          <div>
+            <figure>
+              <img src="images/photo-main-video-1.png" alt="">
+            </figure>
+            <figure>
+              <img src="images/photo-main-video-2.png" alt="">
+            </figure>
+            <figure>
+              <img src="images/photo-main-video-1.png" alt="">
+            </figure>
+            <figure>
+              <img src="images/photo-main-video-1.png" alt="">
+            </figure>
+            <figure>
+              <img src="images/photo-main-video-1.png" alt="">
+            </figure>
+            <figure>
+              <img src="images/photo-main-video-2.png" alt="">
+            </figure>
+            <figure>
+              <img src="images/photo-main-video-1.png" alt="">
+            </figure>
+            <figure>
+              <img src="images/photo-main-video-2.png" alt="">
+            </figure>
+            <figure>
+              <img src="images/photo-main-video-1.png" alt="">
+            </figure>
+            <figure>
+              <img src="images/photo-main-video-1.png" alt="">
+            </figure>
+            <figure>
+              <img src="images/photo-main-video-1.png" alt="">
+            </figure>
+            <figure>
+              <img src="images/photo-main-video-2.png" alt="">
+            </figure>
+            <!-- <div>
+              <iframe src="https://www.youtube.com/embed/4f3wL6cgFZ8" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div>
+              <iframe src="https://www.youtube.com/embed/awyG1-xvqFY" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div>
+              <iframe src="https://www.youtube.com/embed/QtQNv49QlKI" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div>
+              <iframe src="https://www.youtube.com/embed/z0K6hzn9p_M" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div>
+              <iframe src="https://www.youtube.com/embed/4f3wL6cgFZ8" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div>
+              <iframe src="https://www.youtube.com/embed/awyG1-xvqFY" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div>
+              <iframe src="https://www.youtube.com/embed/QtQNv49QlKI" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div>
+              <iframe src="https://www.youtube.com/embed/z0K6hzn9p_M" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div>
+              <iframe src="https://www.youtube.com/embed/4f3wL6cgFZ8" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div>
+              <iframe src="https://www.youtube.com/embed/awyG1-xvqFY" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div>
+              <iframe src="https://www.youtube.com/embed/QtQNv49QlKI" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div>
+              <iframe src="https://www.youtube.com/embed/z0K6hzn9p_M" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div>
+              <iframe src="https://www.youtube.com/embed/z0K6hzn9p_M" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div>
+              <iframe src="https://www.youtube.com/embed/4f3wL6cgFZ8" frameborder="0" allowfullscreen></iframe>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- <div data-fingo-comment-dim></div> -->
+  <!-- <div class="comment-dim-container modal" data-ng-controller="FingoCommentController">
+    <div class="dim"></div>
+    <div class="modal-window modal">
+      <h3 class="modal-headline">신비한 동물사전</h3>
+      <button class="modal-rank-btn" aria-label="별점 남기기"></button>
+      <div class="modal-contents">
+        <img class="modal-poster" src="./images/photo-main-poster-4.png">
+        <span class="modal-stars">별별별별별</span>
+        <textarea class="modal-textarea" placeholder="이 영화에 대한 생각을 자유롭게 표현해주세요." data-ng-model="comment"></textarea>
+        <button type="button" class="modal-ok-button" aria-label="Enter comment" data-ng-click="addComment(comment)">확인</button>
+      </div>
+      <button type="button" class="modal-close-button" aria-label="Close Modal Window">x</button>
+      <div class="dim2"></div>
+      <div class="modal-rank-contents modal">
+        <h4>평가를 먼저 해주세요!</h4>
+        <p class="modal-rank-desc">본 영화인가요?</p>
+        <span class="modal-stars">별별별별별</span>
+        <p>아직 안 본 영화인가요?</p>
+        <button class="modal-like-btn" type="button" aria-label="보고싶은 영화로 등록하기">보고싶어요</button>
+      </div>
+    </div>
+  </div> -->
+
+
+  <script src="js/main.bundle.js"></script>
+  <!-- <script src="js/ui-carousel.bundle.js"></script> -->
+  <!-- <script src="js/jquery.radioClass.js" charset="utf-8"></script> -->
+  <!-- <script src="js/ui-carousel-refactoring.js"></script> -->
+  <!-- <script src="js/main.js" charset="utf-8"></script> -->
+  <!-- <script src="js/main-add-comment.js" charset="utf-8"></script> -->
+</body>
+</html>

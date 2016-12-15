@@ -33,6 +33,7 @@ angular
 
             fb_login.$save(function(response) {
               console.log('success',response.token);
+              window.location.href = '/main.html';
             }, function errorCallback(response) {
                console.log('e',response);
             });

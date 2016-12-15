@@ -42,11 +42,15 @@ fingo.config([
         'templateUrl' : 'views/signup.html',
         'controller'  : 'FingoLoginController'
       });
+      // .state('main', {
+      //   'url'         : '/main',
+      //   'templateUrl' : 'views/main.html'
+      // });
 
     $urlRouterProvider.otherwise('/');
 
-    // let token = 'Token 9f2411a57a0d3b0495ece88ad38c336c6c8afb6c';
-    // $httpProvider.defaults.headers.common['Authorization'] = token;
+    let token = 'Token 0428140f0f353791520d51d20ce445c7d41c5cad';
+    $httpProvider.defaults.headers.common['Authorization'] = token;
     // $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
     $resourceProvider.defaults.stripTrailingSlashes = false;
 
@@ -77,7 +81,7 @@ require('./controllers/FingoLoginController');
 require('./controllers/FBLoginController');
 // require('./controllers/FingoMovieDetailController');
 
-// require('./services/ListDataShareService');
+require('./services/FingoTokenService');
 
 // // Custom Filter
 // require('./filters/readingZeroFilter')
@@ -86,3 +90,21 @@ require('./lib/jquery.min');
 require('./lib/jquery.easing.min');
 require('./jquery.radioClass');
 // require('./checkbox');
+//
+// Controllers
+require('./controllers/FingoBoxofficeController');
+require('./controllers/FingoMovieDetailController');
+// require('./controllers/FingoCommentController');
+
+// // Custom Filter
+require('./filters/getYearFilter')
+
+// require('./lib/jquery.min');
+// require('./lib/jquery.easing.min');
+// require('./jquery.radioClass');
+require('./ui-carousel-refactoring');
+// require('./main-add-comment');
+require('./main-page');
+require('./directives/FingoBoxOfficeCarousel');
+require('./directives/FingoMovieRankingCarousel');
+require('./directives/FingoHeaderCarousel');
