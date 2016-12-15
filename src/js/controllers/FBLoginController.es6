@@ -5,7 +5,7 @@ let angular = require('angular');
 angular
   .module('FingoApp')
   .factory('FingoFBLogin', ['$resource', function($resource){
-    let url = 'http://fingo-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/user/test/';
+    let url = 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/user/fb_login/';
     return $resource(url, {}, {
         'save': {
             method: 'POST'
@@ -32,7 +32,7 @@ angular
             fb_login.access_token = $scope.token;
 
             fb_login.$save(function(response) {
-              console.log('success',response);
+              console.log('success',response.token);
             }, function errorCallback(response) {
                console.log('e',response);
             });
