@@ -1,6 +1,10 @@
-
+console.log('graph');
+//controller -> scope 배열
+//ng-controller body
+//컨트롤러 안에 http 불러올 api 가져와라
+// console.log($(".set-rating"));
 var w = 500, h = 100;
-var data = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+var data = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];//{{불러올배열}}
 var data_text = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
 var svg = d3.select(".set-rating")
             .append("svg")
