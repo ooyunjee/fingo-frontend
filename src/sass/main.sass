@@ -97,7 +97,7 @@ $bp-tablet: 1024px
     position: relative
     height: 100%
   .main-header-carousel-contents
-    +position(absolute, top 50% left 0 z-index 10000)
+    +position(absolute, top 50% left 0 z-index 100)
     +margin(left 80px)
     color: $fingo-white
     transform: translateY(-50%)
@@ -123,15 +123,23 @@ $bp-tablet: 1024px
         +mobile
           line-height: normal
           font-size: 42px
-    p
+    > p
       color: $fingo-white
       font-size: 16px
-      +margin(bottom 20px)
+    .header-carousel-actor
+      > span:last-child
+        > span
+          display: none
+    .header-carousel-director
+      > span:last-child
+        > span
+          display: none
 
     > a
+      +size(125px 30px)
+      +margin(top 20px)
       display: block
       border: 1px solid $fingo-white
-      +size(125px 30px)
       color: $fingo-white
       font-size: 14px
       line-height: 30px
@@ -203,7 +211,7 @@ $bp-tablet: 1024px
           +margin(top 55px bottom 35px)
           +padding(bottom 1em)
           border-bottom: 1px solid rgba($fingo-main-color, 0.4)
-          font-size: 19px
+          font-size: 16px
           +mobile
             font-size: 30px
         .stars
@@ -315,7 +323,7 @@ $bp-tablet: 1024px
           display: inline-block
           line-height: 45px
         > span
-          +size(95px 45px)
+          +size(90px 45px)
           +padding(left 25px)
           font-size: 15px
           color: #e8d0ad
@@ -338,8 +346,8 @@ $bp-tablet: 1024px
             border-top: 6px solid #fff
         ul
           @extend %reset-border-box
+          +size(160px auto)
           position: relative
-          width: 155px
           display: inline-block
           overflow: hidden
           +tablet
@@ -352,7 +360,7 @@ $bp-tablet: 1024px
             +tablet
               +padding(left 10px)
             span
-              +padding(right 20px)
+              +padding(right 15px)
               width: auto
               +tablet
                 +padding(right 10px)
