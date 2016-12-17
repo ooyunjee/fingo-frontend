@@ -7,11 +7,16 @@ let angular = require('angular');
 
 require('angular-resource');
 require('angular-ui-router');
+require('angular-route');
+require('angular-css');
 
 let fingo = angular.module('FingoApp', [
   'ngResource',
   'ui.router',
+  'ngRoute',
+  'angularCSS'
 ]);
+
 
 fingo.config([
   '$httpProvider',
@@ -29,20 +34,31 @@ fingo.config([
     $stateProvider
       .state('main', {
         'url'         : '/',
-        'templateUrl' : 'views/main.html'
+        'templateUrl' : 'views/main.html',
+        'css' : 'css/main.css'
         // 'controller'  : 'ListController'
         //indexpage
       })
       .state('movies', {
         'url'         : '/movies',
         'templateUrl' : 'views/movies.html',
+        'css' : 'css/movies.css'
         // 'controller'  : 'ListController',
         // 'controller' : 'FingoMovieDetailController'
         //sub moviespage
       })
-      .state('comment', {
-        'url'         : '/comment',
+      .state('comments', {
+        'url'         : '/comments',
         'templateUrl' : 'views/comments.html',
+        'css' : 'css/comments.css'
+        // 'controller'  : 'ListController',
+        // 'controller' : 'FingoMovieDetailController'
+        //sub comment page
+      })
+      .state('search', {
+        'url'         : '/search',
+        'templateUrl' : 'views/search.html',
+        'css' : 'css/search.css'
         // 'controller'  : 'ListController',
         // 'controller' : 'FingoMovieDetailController'
         //sub comment page
@@ -50,8 +66,8 @@ fingo.config([
 
     $urlRouterProvider.otherwise('/');
 
-    // let token = 'Token 9f2411a57a0d3b0495ece88ad38c336c6c8afb6c';
-    // $httpProvider.defaults.headers.common['Authorization'] = token;
+    let token = 'Token 0428140f0f353791520d51d20ce445c7d41c5cad';
+    $httpProvider.defaults.headers.common['Authorization'] = token;
     // $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
     $resourceProvider.defaults.stripTrailingSlashes = false;
 
