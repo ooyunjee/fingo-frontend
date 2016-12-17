@@ -84,7 +84,7 @@ Carousel.prototype = {
     this.$carousel_headline = this.$carousel.children(':header:first');
     this.$carousel_tablist  = this.$carousel.children('ul').wrap('<div/>').parent();
     this.$carousel_tabs     = this.$carousel_tablist.find('a');
-    this.$carousel_tabpanels = this.$carousel.children().last().children();
+    this.$carousel_tabpanels = this.$carousel.children().find('figure');
     this.$carousel_content = this.$carousel_tabpanels.children().parent();
     this.$carousel_tabpanel_imgs = this.$carousel.children().last().find('img').not('.icon');
     this.$carousel_tabpanel_content_videos = this.$carousel.children().last().find('iframe');
@@ -149,7 +149,7 @@ Carousel.prototype = {
     this.$carousel_button_group.children().last().addClass('ui-carousel-next-button');
     this.$carousel_tabpanels.addClass('ui-carousel-tabpanel');
     this.$carousel_tabpanels.parent().closest('div').addClass('ui-carousel-tabpanel-wrapper');
-    this.$carousel_tabpanels.parent().closest('div').parent().addClass('ui-carousel-mask');
+    this.$carousel_mask.addClass('ui-carousel-mask');
     this.$carousel_tabpanel_imgs.addClass('ui-carousel-image');
     this.$carousel_tabpanel_content_videos.addClass('ui-carousel-video');
 
@@ -355,7 +355,7 @@ Carousel.prototype = {
   'setResponsive': function() {
     // console.log(this);
     if(global.innerWidth <= 750) {
-      console.log('mobile');
+      // console.log('mobile');
       this.settings.width = this.settings.width.mobile || this.settings.width;
       this.settings.height = this.settings.height.mobile || this.settings.height;
       this.settings.margin = this.settings.margin.mobile || this.settings.margin;
@@ -377,7 +377,7 @@ Carousel.prototype = {
       // console.log('index', this.settings.index = 0);
 
     } else if(global.innerWidth <= 1024) {
-      console.log('tablet');
+      // console.log('tablet');
       this.settings.width = this.settings.width.tablet || this.settings.width;
       this.settings.height = this.settings.height.tablet || this.settings.height;
       this.settings.margin = this.settings.margin.tablet || this.settings.margin;
@@ -397,7 +397,7 @@ Carousel.prototype = {
       // // Index
       // main_box_office_carousel.index = main_box_office_carousel.index.tablet;
     } else {
-      console.log('desktop');
+      // console.log('desktop');
       this.settings.width = this.settings.width.desktop || this.settings.width;
       this.settings.height = this.settings.height.desktop || this.settings.height;
       this.settings.margin = this.settings.margin.desktop || this.settings.margin;
