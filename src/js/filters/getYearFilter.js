@@ -6,7 +6,6 @@
 
 angular.module('FingoApp').filter('getYear', function() {
   return function(input) {
-    console.log(input.split('-')[0]);
     return input.split('-')[0];
   };
 });
