@@ -4,6 +4,17 @@
 
 let angular = require('angular');
 
+angular
+  .module('FingoApp')
+  .controller('FingoLoginController',
+    ['$scope', 'FingoLoginService', ($scope, FingoLoginService)=>{
+      $scope.share_data = FingoLoginService;
+      $scope.Login = ()=> {
+        $scope.share_data.fingoLogin($scope.email, $scope.pw);
+      };
+
+    }]);
+
 // angular
 //   .module('FingoApp')
 //   .factory('FingoLogin', ['$resource', function($resource){
@@ -47,17 +58,6 @@ let angular = require('angular');
 //   });
 
 
-
-angular
-  .module('FingoApp')
-  .controller('FingoLoginController',
-    ['$scope', 'FingoTokenService', ($scope, FingoTokenService)=>{
-      $scope.share_data = FingoTokenService;
-      $scope.Login = ()=> {
-        $scope.share_data.fingoLogin($scope.email, $scope.pw);
-      };
-
-    }]);
   // .factory('FingoLogin', ['$resource', function($resource){
   //   let url = 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/user/login/';
   //   let token;

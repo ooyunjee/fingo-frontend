@@ -12,28 +12,31 @@ angular
         }
     });
   }])
-  .controller('FBLoginController', function($scope, FingoFBLogin) {
+  .controller('FBLoginController', ['$scope', '$state', 'FingoFBLogin', function($scope, $state, FingoFBLogin) {
     $scope.name = 'Login';
     $scope.token = null;
 
     $scope.FBLogin = function() {
       FB.login(function(response) {
         if(response.authResponse) {
-          console.log('Welcome!  Fetching your information.... ');
+          // console.log('Welcome!  Fetching your information.... ');
           FB.api('/me', function(response) {
-            console.log('Successful login for: ' + response.name);
-            console.log(response);
+            // console.log('Successful login for: ' + response.name);
+            // console.log(response);
 
             $scope.token = FB.getAuthResponse().accessToken;
-            console.log($scope.token);
+            // console.log($scope.token);
 
             var fb_login = new FingoFBLogin();
 
             fb_login.access_token = $scope.token;
 
             fb_login.$save(function(response) {
-              console.log('success',response.token);
-              window.location.href = '/main.html';
+              // 로컬 스토리지에 토큰값 저장
+              window.localStorage['key1'] = response.token;
+              // main 페이지로 이동
+              $state.go('main');
+
             }, function errorCallback(response) {
                console.log('e',response);
             });
@@ -44,4 +47,4 @@ angular
         }
      });
     };
-  });
+  }]);
