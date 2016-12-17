@@ -5,7 +5,7 @@ angular
   .directive('fingoHeaderCarousel', function() {
     return {
       'restrict': 'EA',
-      'templateUrl': '/js/directives/FingoHeaderCarousel.html',
+      'templateUrl': './views/FingoHeaderCarousel.html',
       'link': function(scope, element, attrs) {
         var header_carousel = {
           'width': 1640,
