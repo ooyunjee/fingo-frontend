@@ -1,22 +1,16 @@
 <header class="main-header" data-ng-controller="FingoMovieDetailController">
   <div data-fingo-header-carousel></div>
 </header>
-<main class="main-main" >
+<main class="main-main">
   <section class="main-box-office" data-ng-controller="FingoBoxofficeController">
     <div class="container">
       <h1>BOX OFFCE</h1>
       <p class="main-box-office-desc">오늘의 박스 오피스 순위 입니다.</p>
-      <div class="main-box-office-list">
-        <span>영화랭킹</span>
-        <button type="button" aria-label="영화 박스오피스 랭킹 리스프 펼치기"></button>
-        <ul>
-          <li data-ng-repeat="movie in fingo_movies"><a href="" title="{{movie.rank}}위 {{movie.movie.title}}"><span>{{movie.rank}}위</span>{{movie.movie.title}}</a></li>
-        </ul>
-      </div>
+      <div data-fingo-box-office-list></div>
       <div data-fingo-box-office-carousel></div>
     </div>
   </section>
-  <section class="main-movie-ranking" data-ng-controller="FingoBoxofficeController">
+  <section class="main-movie-ranking" data-ng-controller="FingoMovieRankingController">
     <div class="container">
       <h1 class="a11y">영화 순위</h1>
       <div class="main-movie-ranking-btn-group">
@@ -25,56 +19,5 @@
       <div data-fingo-movie-ranking-carousel></div>
     </div>
   </section>
-  <section class="main-new-movie-trailers">
-    <div class="container">
-      <h1>NEW MOVIE TRAILERS</h1>
-      <div id="main-new-movie-trailers-carousel">
-        <ul>
-          <li><a href></a></li>
-          <li><a href></a></li>
-          <li><a href></a></li>
-          <li><a href></a></li>
-          <li><a href></a></li>
-        </ul>
-        <div>
-          <figure>
-            <img src="images/photo-main-video-1.png" alt="">
-          </figure>
-          <figure>
-            <img src="images/photo-main-video-2.png" alt="">
-          </figure>
-          <figure>
-            <img src="images/photo-main-video-1.png" alt="">
-          </figure>
-          <figure>
-            <img src="images/photo-main-video-1.png" alt="">
-          </figure>
-          <figure>
-            <img src="images/photo-main-video-1.png" alt="">
-          </figure>
-          <figure>
-            <img src="images/photo-main-video-2.png" alt="">
-          </figure>
-          <figure>
-            <img src="images/photo-main-video-1.png" alt="">
-          </figure>
-          <figure>
-            <img src="images/photo-main-video-2.png" alt="">
-          </figure>
-          <figure>
-            <img src="images/photo-main-video-1.png" alt="">
-          </figure>
-          <figure>
-            <img src="images/photo-main-video-1.png" alt="">
-          </figure>
-          <figure>
-            <img src="images/photo-main-video-1.png" alt="">
-          </figure>
-          <figure>
-            <img src="images/photo-main-video-2.png" alt="">
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
+<div data-ui-view></div>
