@@ -12,6 +12,9 @@
 div, input
   @extend %reset-border-box
 
+input
+  +background(color $fingo-white)
+
 button
   @extend %reset-button
 
@@ -20,7 +23,7 @@ button
 
 body
   +background(image url('../images/photo-index-bg.jpg') position center repeat no-repeat size cover)
-  
+
 .main
   +size(100% 100vh)
   position: relative
@@ -76,6 +79,7 @@ body
       p
         +margin(top 40px)
         +padding(top 40px)
+        color: $fingo-font-ad
         border-top: 1px solid rgba($fingo-white, 0.15)
         font-size: 14px
       button
