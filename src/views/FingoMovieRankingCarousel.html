@@ -11,7 +11,7 @@
         <img data-ng-src="{{movie.img}}" alt="{{movie.title}}">
         <div class="hover">
           <h3>{{movie.title}}</h3>
-          <div class="stars" data-ng-click="$event.preventDefault();">
+          <div class="stars" data-ng-click="$event.stopPropagation();">
             <form novalidate class="star-rating-form" action="#" id="star_rating{{movie.id}}">
              <input value="null" id="cencel" checked type="radio" name="rating" >
               <label for="cencel">
