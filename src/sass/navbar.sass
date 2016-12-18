@@ -4,15 +4,14 @@
 // * Nav
 // * --------------------------------
 .nav-active
-  +background(color $fingo-bg-dark)
+  +background(color rgba($fingo-bg-dark, 0.85))
 .nav
   +position(fixed, z-index 100000)
   +size(100% 100px)
 
-
   .container
     position: relative
-    >h1
+    > h1
       display: inline-block
       +margin(top 20px)
       span
