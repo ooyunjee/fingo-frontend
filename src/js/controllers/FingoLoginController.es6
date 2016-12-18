@@ -1,4 +1,4 @@
-/*! FingoLoginController.js © yamoo9.net, 2016 */
+/*! FingoLoginController.es6 © heoyunjee, 2016 */
 
 'use strict';
 

@@ -1,3 +1,5 @@
+/*! FBLoginController.es6 © heoyunjee, 2016 */
+
 'use strict';
 
 let angular = require('angular');

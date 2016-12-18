@@ -1,17 +1,16 @@
-/*! movieListController.js © yamoo9.net, 2016 */
+/*! FingoMovieRankingController.es6 © heoyunjee, 2016 */
+
 'use strict'
 
 // let angular = require('angular');
 
 angular.module('FingoApp')
-  .controller('FingoMovieRankingController',
-    ['$scope', '$http', ($scope, $http)=>{
+  .controller('FingoMovieRankingController', ['$scope', '$http', ($scope, $http)=>{
 
       $http({
       	method: 'GET', //방식
-      	url: 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/random/', /* 통신할 URL */
-        // headers: {'Authorization': 'Token ' + window.localStorage['key1'] } //헤더
-      	// headers: {'Authorization': 'Token 0428140f0f353791520d51d20ce445c7d41c5cad'} //헤더
+      	url: 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/random/',
+        headers: {'Authorization': 'Token ' + window.localStorage['key1'] }
       })
       .success(function(data, status, headers, config) {
       	if( data ) {

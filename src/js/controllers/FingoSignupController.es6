@@ -1,3 +1,6 @@
+/*! FingoSignupController.js © heoyunjee, 2016 */
+'use strict';
+
 angular
   .module('FingoApp')
   .controller('FingoSignupController',

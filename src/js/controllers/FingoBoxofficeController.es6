@@ -1,15 +1,15 @@
-/*! movieListController.js © yamoo9.net, 2016 */
+/*! FingoBoxOfficeController.es6 © heoyunjee, 2016 */
 'use strict'
 
 // let angular = require('angular');
 
 angular.module('FingoApp')
-  .controller('FingoBoxofficeController', ['$scope', '$http', ($scope, $http)=>{
+  .controller('FingoBoxOfficeController', ['$scope', '$http', ($scope, $http)=>{
 
     $http({
     	method: 'GET', //방식
     	url: 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/boxoffice/', /* 통신할 URL */
-      // headers: {'Authorization': 'Token ' + window.localStorage['key1'] } //헤더
+      headers: {'Authorization': 'Token ' + window.localStorage['key1'] } //헤더
     })
     .success(function(data, status, headers, config) {
     	if( data ) {
