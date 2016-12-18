@@ -10,7 +10,7 @@
       <div class="container">
         <div class="main-header-carousel-contents">
           <h3><a href="">{{movie.movie.title}}</a></h3>
-          <p>평균 별점 : 3.9 , 예매율 : 66.11%</p>
+          <p>평균 별점 : {{movie.movie.score}} , 예매율 : 66.11%</p>
           <span>{{movie.movie.first_run_date | getYear}}, </span><span data-ng-repeat="genre in movie.movie.genre">{{genre.name}}, </span><span>12세 관람가, 2시간 13분</span>
           <p class="header-carousel-actor">
             배우 : <span data-ng-repeat="actor in movie.movie.actors">{{actor.actor.name}}<span>, </span></span>
