@@ -54,11 +54,12 @@ angular
           clearInterval(intervalID);
         });
 
-        $box_office_list.mouseout(function() {
+        $ul.mouseout(function() {
           if(!$box_office_list.hasClass('show')) {
             intervalID = window.setInterval(rollingList, rolling_time);
           }
         });
+
         // scope.repeatComplete = function() {
           // var box_office_list = document.querySelector('.main-box-office-list');
           // var box_office_list_btn = box_office_list.querySelector('button');
