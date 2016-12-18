@@ -12,6 +12,9 @@
 div, input
   @extend %reset-border-box
 
+input
+  +background(color $fingo-white)
+
 button
   @extend %reset-button
 
@@ -20,7 +23,7 @@ button
 
 body
   +background(image url('../images/photo-index-bg.jpg') position center repeat no-repeat size cover)
-  
+
 .main
   +size(100% 100vh)
   position: relative
@@ -63,7 +66,7 @@ body
         font-size: 16px
         +desktop
           font-size: 15px
-    >p
+    > p
       +margin(top 10px)
       display: inline-block
       border-bottom: 1px solid $fingo-font-ad
@@ -77,7 +80,7 @@ body
       a:hover
         color: $fingo-white
     .facebook-login
-      border-top: 1px solid rgba($fingo-white, 0.5)
+      border-top: 1px solid rgba($fingo-white, 0.15)
       +margin(top 40px)
       +padding(top 40px)
       p
