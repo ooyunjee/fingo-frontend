@@ -67,11 +67,9 @@ label
       border: 1px solid #161616
 
     input
-      position: absolute
-      top: -5px
-      left: 0
-      width: 0px
-      z-index: -10px
+      +size(0)
+      +position(absolute, top -5px left 0 z-index -10)
+      opacity: 0
 
     label
       .cancel-btn
