@@ -1,39 +1,48 @@
+/*! FingoAddCommentController.es6 © heoyunjee, 2016 */
+
 'use strict'
 
 angular.module('FingoApp')
   .controller('FingoAddCommentController',
-    ['$scope', '$http', '$stateParams', ($scope, $http, $stateParams)=>{
+    ['$scope', '$http', '$stateParams', '$state', ($scope, $http, $stateParams, $state)=>{
 
       let index = $stateParams.id;
+      // let token = 'Token ' + window.localStorage['key1'];
+      $scope.fingo_comment = null;
+      $scope.fingo_score = null;
       $scope.url = 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/'+index+'/comment/';
 
+      // 선택된 영화의 정보 가져오기
       $http({
-        method: 'GET', //방식
-      	url: 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/detail/'+ index + '/', /* 통신할 URL */
+        method: 'GET',
+      	url: 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/detail/'+ index + '/',
+        headers: {'Authorization': 'Token ' + window.localStorage['key1'] } //헤더
       })
       .success(function(data, status, header, config) {
         if(data) {
-          console.log(data.title);
           $scope.fingo_title = data.title;
           $scope.fingo_img = data.img;
-          if(data.score != 0) {
-            $scope.fingo_score = data.score;
-          } else {
-            $scope.fingo_score = '';
-          }
         }
       });
 
+      // 선택된 영화의 코멘트 가져오기
       $http({
-      	method: 'GET', //방식
-      	url: $scope.url, /* 통신할 URL */
-      	// headers: {'Authorization': 'Token 0428140f0f353791520d51d20ce445c7d41c5cad'} //헤더
+      	method: 'GET',
+      	url: $scope.url,
+        headers: {'Authorization': 'Token ' + window.localStorage['key1'] }
       })
       .success(function(data, status, headers, config) {
       	if( data ) {
       		/* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
           $scope.fingo_comment = data.comment;
+          $scope.fingo_score = data.score;
 
+          if(data.score != 0 && data.score != undefined) {
+            $scope.fingo_score = data.score;
+            $scope.dim2_class = 'hide';
+          } else {
+            $scope.fingo_score = '';
+          }
       	}
       	else {
       		/* 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 */
@@ -47,105 +56,68 @@ angular.module('FingoApp')
       	console.log(status);
       });
 
+
+      // 코멘트 남기기
       $scope.addComment = function(comment) {
         console.log(comment);
-        $http.post($scope.url, { comment: comment })
-          .success(function(data, status, headers, config) {
-          	if( data ) {
-          		/* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
-              console.log('success');
-              window.alert('success');
-          	}
-          	else {
-          		/* 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 */
-              console.log(error);
-          	}
+        if($scope.fingo_comment === null) {
+          $http.post($scope.url, { comment: comment }, {
+            headers: {'Authorization': 'Token ' + window.localStorage['key1'] }
           })
-          .error(function(data, status, headers, config) {
-          	/* 서버와의 연결이 정상적이지 않을 때 처리 */
-          	console.log(status);
-          });
+            .success(function(data, status, headers, config) {
+            	if( data ) {
+            		/* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
+                window.alert('코멘트가 성공적으로 등록되었습니다!');
+                $state.go('main');
+            	}
+            	else {
+            		/* 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 */
+                console.log(error);
+            	}
+            })
+            .error(function(data, status, headers, config) {
+            	/* 서버와의 연결이 정상적이지 않을 때 처리 */
+            	console.log(status);
+            });
+
+        } else if($scope.fingo_score == 0 || $scope.fingo_score == undefined ){
+          window.alert('별점 평가를 먼저 해주세요!');
+        } else {
+          // 코멘트 수정하기
+          $http.patch($scope.url, { comment: comment }, {
+            headers: {'Authorization': 'Token ' + window.localStorage['key1'] }
+          })
+            .success(function(data, status, headers, config) {
+            	if( data ) {
+            		/* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
+                // console.log('success');
+                window.alert('코멘트가 수정되었습니다!');
+                $state.go('main');
+
+            	}
+            	else {
+            		/* 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 */
+                console.log(error);
+            	}
+            })
+            .error(function(data, status, headers, config) {
+            	/* 서버와의 연결이 정상적이지 않을 때 처리 */
+            	console.log(status);
+              // if(status === 500) {
+              // }
+            });
+        }
+
       };
 
-    // };
+      $scope.dim_show = function(cl) {
+        console.log(cl);
+        $scope.dim_class = cl;
+      };
 
-    // Add comment
-    // var comment_dim_el = document.querySelector('.comment-dim-container');
-    // var dim_1 = comment_dim_el.querySelector('.dim');
-    // var dim_2 = comment_dim_el.querySelector('.dim2');
-    // var modal_rank_contents = comment_dim_el.querySelector('.modal-rank-contents');
-    //
-    // var modal_rank_btn = comment_dim_el.querySelector('.modal-rank-btn');
-    // var modal_close_btn = comment_dim_el.querySelector('.modal-close-button');
-    // var modal_ok_button = comment_dim_el.querySelector('.modal-ok-button');
-    //
-    // var modal_rank_contents_left = 0;
-    //
-    // dim_1.addEventListener('click', hideDimModal);
-    // dim_2.addEventListener('click', hideDimModal);
-    //
-    // modal_rank_btn.addEventListener('click', function() {
-    //   dim_2.style.display = 'block';
-    //   modal_rank_contents.style.display = 'block';
-    // });
-    //
-    //
-    // modal_close_btn.addEventListener('click', function() {
-    //   comment_dim_el.style.display = 'none';
-    // });
-    //
-    // modal_ok_button.addEventListener('click', function(e) {
-    //   if(e) { e.preventDefault(); }
-    //   comment_dim_el.style.display = 'none';
-    //   // 서버로 코멘트 전송
-    // });
-    //
-    //
-    // function showDimModal() {
-    //   var modals = document.querySelectorAll('.modal');
-    //   dim = document.querySelector('.dim');
-    //   dim_2 = document.querySelector('.dim2');
-    //
-    //   dim.style.display = 'block';
-    //   dim_2.style.display = 'block';
-    //   for(var i = 0, l = modals.length; i < l; i++) {
-    //     modals[i].style.display = 'block';
-    //   }
-    //   modal_rank_contents.style.left = (modal_rank_btn.offsetLeft - 127) + 'px';
-    // };
-    //
-    // function hideDimModal(){
-    //   var modal = this.parentNode.querySelector('.modal');
-    //
-    //   this.style.display = 'none';
-    //   modal.style.display = 'none';
-    // };
-    //
-    // var tabpanels = document.querySelectorAll('.hover');
-    //
-    // tabpanels.forEach(function(tabpanel, index) {
-    //   var tabpanel_btns = tabpanel.querySelectorAll('button');
-    //
-    //   tabpanel_btns.forEach(function(btn, index) {
-    //
-    //     if(index === 0) {
-    //       btn.addEventListener('click', function(e) {
-    //         if(e) { e.preventDefault(); }
-    //       });
-    //     } else if(index === 1) {
-    //       btn.addEventListener('click', function(e) {
-    //         if(e) { e.preventDefault(); e.stopPropagation();}
-    //
-    //         var title = this.parentNode.querySelector('h3').textContent;
-    //         var poster_src = this.parentNode.parentNode.querySelector('img').getAttribute('src');
-    //
-    //         comment_dim_el.querySelector('.modal-headline').innerHTML = this.parentNode.querySelector('h3').textContent;
-    //         comment_dim_el.querySelector('.modal-poster').setAttribute('src', poster_src);
-    //
-    //         showDimModal();
-    //       });
-    //     }
-    //   });
-    // });
+      $scope.dim2_show = function(cl) {
+        console.log(cl);
+        $scope.dim2_class = cl;
+      };
 
   }]);
