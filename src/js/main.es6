@@ -36,8 +36,17 @@ fingo.config([
         'url'         : '/',
         'templateUrl' : 'views/main.html',
         'css' : 'css/main.css'
+
         // 'controller'  : 'ListController'
         //indexpage
+      })
+      .state('wish', {
+        'url'         : '/wish',
+        'templateUrl' : 'views/wish.html',
+        'css' : 'css/wish.css'
+        // 'controller'  : 'ListController',
+        // 'controller' : 'FingoMovieDetailController'
+        //sub moviespage
       })
       .state('movies', {
         'url'         : '/movies',
@@ -66,7 +75,7 @@ fingo.config([
 
     $urlRouterProvider.otherwise('/');
 
-    let token = 'Token 0428140f0f353791520d51d20ce445c7d41c5cad';
+    let token = 'Token 8b7e29cf10bd79af9f387f021d4a1cd0a8ecd291';
     $httpProvider.defaults.headers.common['Authorization'] = token;
     // $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
     $resourceProvider.defaults.stripTrailingSlashes = false;
@@ -80,6 +89,9 @@ require('angular-ui-router');
 require('./controllers/ListController');
 require('./controllers/FingoMovieDetailController');
 require('./controllers/FingoWishMoviesController');
+require('./controllers/FingoUserPageController');
+require('./controllers/FingoMovieScoreController');
+
 
 
 // Custom Filter
