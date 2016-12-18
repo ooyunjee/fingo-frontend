@@ -49,22 +49,22 @@ var $ = require('jquery');
 //   'margin': 20,
 // };
 
-var main_movie_trailers_carousel = {
-  'height': 225,
-  'count': {
-    'desktop': 3,
-    'tablet': 2,
-    'mobile': 1
-  },
-  'col': 3,
-  'margin': 20
-};
+// var main_movie_trailers_carousel = {
+//   'height': 225,
+//   'count': {
+//     'desktop': 3,
+//     'tablet': 2,
+//     'mobile': 1
+//   },
+//   'col': 3,
+//   'margin': 20
+// };
 
 
 // $('#main-header-carousel').fingoCarousel(header_carousel);
 // $('#main-box-office-carousel').fingoCarousel(main_box_office_carousel);
 // $('#main-movie-ranking-carousel').fingoCarousel(main_movie_ranking_carousel);
-$('#main-new-movie-trailers-carousel').fingoCarousel(main_movie_trailers_carousel);
+// $('#main-new-movie-trailers-carousel').fingoCarousel(main_movie_trailers_carousel);
 
 
 // function delayAction() {
@@ -92,15 +92,15 @@ $('#main-new-movie-trailers-carousel').fingoCarousel(main_movie_trailers_carouse
 
 
 
-  var $tabs = $('.ui-carousel-tab');
-  console.log($tabs);
-
-  // 인디케이터 기본 이벤트 차단
-  $tabs.each(function(tab) {
-    tab.addEventListener('click', function(e) {
-      if(e) { e.preventDefault(); }
-    });
-  });
+  // var $tabs = $('.ui-carousel-tab');
+  // console.log($tabs);
+  //
+  // // 인디케이터 기본 이벤트 차단
+  // $tabs.each(function(tab) {
+  //   tab.addEventListener('click', function(e) {
+  //     if(e) { e.preventDefault(); }
+  //   });
+  // });
 
   // var box_office_list = document.querySelector('.main-box-office-list');
   // var box_office_list_btn = box_office_list.querySelector('button');
