@@ -18,6 +18,7 @@ angular.module('FingoApp').controller('FingoMovieDetailController', ['$scope', '
   $scope.popup_show = function(movie, id, boolean){
     console.log(id);
     console.log(boolean);
+
     $scope.movie_id = id;
     $scope.popup_show_active = boolean;
     $scope.selected_movie = movie;
@@ -29,7 +30,7 @@ angular.module('FingoApp').controller('FingoMovieDetailController', ['$scope', '
          method: 'GET', //방식
          url: 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/detail/'+$scope.movie_id+'/', /* 통신할 URL */
          data: dataObject, /* 파라메터로 보낼 데이터 */
-         headers: {'Authorization': 'Token 0428140f0f353791520d51d20ce445c7d41c5cad'} //헤더
+         headers: {'Authorization': 'Token 8b7e29cf10bd79af9f387f021d4a1cd0a8ecd291'} //헤더
       })
       .success(function(data, status, headers, config) {
          if( data ) {
@@ -45,11 +46,12 @@ angular.module('FingoApp').controller('FingoMovieDetailController', ['$scope', '
       })
       $http({
         method: 'GET', //방식
+        // $scope.movie_id
         url: 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/detail/'+$scope.movie_id+'/comments/', /* 통신할 URL */
         //http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/boxoffice/
         //http://eb-fingo-real.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/detail/1/comments/
         data: dataObject, /* 파라메터로 보낼 데이터 */
-        headers: {'Authorization': 'Token 0428140f0f353791520d51d20ce445c7d41c5cad'} //헤더
+        headers: {'Authorization': 'Token 8b7e29cf10bd79af9f387f021d4a1cd0a8ecd291'} //헤더
       })
       .success(function(data, status, headers, config) {
          if( data ) {
