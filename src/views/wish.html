@@ -20,181 +20,154 @@
 </header>
 
 
-<main data-ng-controller="FingoUserCommentController">
-    <div class="sub-menu">
-      <ul class="container">
-        <li><a href="#">취향통개분석</a></li>
-        <li><a href="/#/wish">보고싶어요</a></li>
-        <li><a href="/#/movies">봤어요</a></li>
-        <li><a href="/#/comments">코맨트</a></li>
-      </ul>
-    </div>
+<main data-ng-controller="FingoUserWishMoviesController">
+  <div class="sub-menu">
+    <ul class="container">
+      <li><a href="#">취향통개분석</a></li>
+      <li><a href="/#/wish">보고싶어요</a></li>
+      <li><a href="/#/movies">봤어요</a></li>
+      <li><a href="/#/comments">코맨트</a></li>
+    </ul>
+  </div>
 
   <section class="container movies">
-    <h1>코멘트 목록</h1>
-    <div class="movie-list">
-      <article class="user-comment"  data-ng-repeat="results in user_comment.results">
-        <figure>
-          <p></p>
-          <img data-ng-src="{{results.movie.img}}" alt="">
-          <!-- <img
-            src="{{selected_movie.image}}"
-            data-ng-src="{{movie.image}}"
-            alt=""> -->
+  <h1>봤어요 목록</h1>
+  <div class="movie-list" >
+    <figure data-ng-repeat="results in wish_movie.results">
+      <p></p>
+      <img data-ng-src="{{results.movie.img}}" alt="">
+      <!-- <img
+        src="{{selected_movie.image}}"
+        data-ng-src="{{movie.image}}"
+        alt=""> -->
 
-          <div class="hover">
-            <!-- ng-click="popup_show(movie.movie, movie.movie.id, 'active')" -->
-            <div class="movie-info-click-on" ng-click="popup_show(results.movie, results.movie.id, 'active')"></div>
-            <p>{{results.movie.title}}</p>
-            <div class="stars">
-              <!-- <div id="star_rating"> -->
-              <form novalidate class="star-rating-form" action="#" id="star_rating{{results.movie.id}}">
-               <input value="null" id="cencel" checked type="radio" name="rating" >
-                <label for="cencel">
-                  <span>취소</span>
-                  <button type="button" name="button" class="cancel-btn">
-                    취소
-                  </button>
-                </label>
+      <div class="hover">
+        <!-- ng-click="popup_show(movie.movie, movie.movie.id, 'active')" -->
+        <div class="movie-info-click-on" ng-click="popup_show(results.movie, results.movie.id, 'active')"></div>
+        <p>{{results.movie.title}}</p>
+        <div class="stars" data-ng-controller="FingoMovieScoreController">
+          <!-- <div id="star_rating"> -->
+          <form novalidate class="star-rating-form" action="#" id="star_rating{{results.movie.id}}">
+           <input value="null" id="cencel" checked type="radio" name="rating" >
+            <label for="cencel">
+              <span>취소</span>
+              <button type="button" name="button" class="cancel-btn">
+                취소
+              </button>
+            </label>
 
-                <input value="0.5" id="star1_{{results.movie.id}}"
-                  type="radio" name="rating" >
-                <label for="star1_{{results.movie.id}}" class="star1">
-                  <span >0.5점</span>
-                  <svg>
-                    <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
-                  </svg>
-                </label>
+            <input value="0.5" id="star1_{{results.movie.id}}"
+              type="radio" name="rating" >
+              <!-- data-ng-click="MovieScore('True')" -->
+            <label for="star1_{{results.movie.id}}" class="star1"
+            data-ng-click="MovieScore(1)">
+              <span>0.5점</span>
+              <svg>
+                <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
+              </svg>
+            </label>
 
-                <input value="1" id="star2_{{results.movie.id}}"
-                  type="radio" name="rating" >
-                <label for="star2_{{results.movie.id}}"  class="star2">
-                  <span >1점</span>
-                  <svg>
-                    <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
-                  </svg>
-                </label>
+            <input value="1" id="star2_{{results.movie.id}}"
+              type="radio" name="rating" >
+            <label for="star2_{{results.movie.id}}"  class="star2"  data-ng-click="MovieScore('1')">
+              <span >1점</span>
+              <svg>
+                <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
+              </svg>
+            </label>
 
-                <input value="1.5" id="star3_{{results.movie.id}}"
-                  type="radio" name="rating" >
-                <label for="star3_{{results.movie.id}}">
-                  <span >1.5점</span>
-                  <svg>
-                    <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
-                  </svg>
-                </label>
+            <input value="1.5" id="star3_{{results.movie.id}}"
+              type="radio" name="rating" >
+            <label for="star3_{{results.movie.id}}">
+              <span >1.5점</span>
+              <svg>
+                <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
+              </svg>
+            </label>
 
-                <input value="2" id="star4_{{results.movie.id}}"
-                  type="radio" name="rating" >
-                <label for="star4_{{results.movie.id}}"  class="star4">
-                  <span >2점</span>
-                  <svg>
-                    <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
-                  </svg>
-                </label>
+            <input value="2" id="star4_{{results.movie.id}}"
+              type="radio" name="rating" >
+            <label for="star4_{{results.movie.id}}"  class="star4">
+              <span >2점</span>
+              <svg>
+                <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
+              </svg>
+            </label>
 
 
-                <input value="2.5" id="star5_{{results.movie.id}}"
-                  type="radio" name="rating" >
-                <label for="star5_{{results.movie.id}}">
-                  <span >2.5점</span>
-                  <svg>
-                    <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
-                  </svg>
-                </label>
+            <input value="2.5" id="star5_{{results.movie.id}}"
+              type="radio" name="rating" >
+            <label for="star5_{{results.movie.id}}">
+              <span >2.5점</span>
+              <svg>
+                <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
+              </svg>
+            </label>
 
-                <input value="6" id="star6_{{results.movie.id}}"
-                  type="radio" name="rating" >
-                <label for="star6_{{results.movie.id}}"  class="star6">
-                  <span>3점</span>
-                  <svg>
-                    <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
-                  </svg>
-                </label>
+            <input value="6" id="star6_{{results.movie.id}}"
+              type="radio" name="rating" >
+            <label for="star6_{{results.movie.id}}"  class="star6">
+              <span>3점</span>
+              <svg>
+                <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
+              </svg>
+            </label>
 
-                <input value="7" id="star7_{{results.movie.id}}"
-                  type="radio" name="rating" >
-                <label for="star7_{{results.movie.id}}">
-                  <span >3.5점</span>
-                  <svg>
-                    <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
-                  </svg>
-                </label>
+            <input value="7" id="star7_{{results.movie.id}}"
+              type="radio" name="rating" >
+            <label for="star7_{{results.movie.id}}">
+              <span >3.5점</span>
+              <svg>
+                <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
+              </svg>
+            </label>
 
-                <input value="8" id="star8_{{results.movie.id}}"
-                  type="radio" name="rating" >
-                <label for="star8_{{results.movie.id}}"  class="star8">
-                  <span >4점</span>
-                  <svg>
-                    <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
-                  </svg>
-                </label>
+            <input value="8" id="star8_{{results.movie.id}}"
+              type="radio" name="rating" >
+            <label for="star8_{{results.movie.id}}"  class="star8">
+              <span >4점</span>
+              <svg>
+                <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
+              </svg>
+            </label>
 
-                <input value="9" id="star9_{{results.movie.id}}"
-                  type="radio" name="rating" >
-                <label for="star9_{{results.movie.id}}">
-                  <span >4.5점</span>
-                  <svg>
-                    <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
-                  </svg>
-                </label>
+            <input value="9" id="star9_{{results.movie.id}}"
+              type="radio" name="rating" >
+            <label for="star9_{{results.movie.id}}">
+              <span >4.5점</span>
+              <svg>
+                <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
+              </svg>
+            </label>
 
-                <input value="10" id="star10_{{results.movie.id}}"
-                  type="radio" name="rating" >
-                <label for="star10_{{results.movie.id}}">
-                  <span >5점</span>
-                  <svg>
-                    <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
-                  </svg>
-                </label>
+            <input value="10" id="star10_{{results.movie.id}}"
+              type="radio" name="rating" >
+            <label for="star10_{{results.movie.id}}">
+              <span >5점</span>
+              <svg>
+                <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
+              </svg>
+            </label>
 
-                <button type="submit" class="submit">평가하기</button>
-                <output></output>
+            <button type="submit" class="submit">평가하기</button>
+            <output></output>
 
-              </form>
-            </div>
-            <!-- data-ladda="share_data.is_creating" -->
-            <button
-            type="button"
-            class="heart-btn"
-            data-ng-click="WishMovies('True')"
-            ><img src="./images/icon-heart.svg" alt="보고싶어요">보고싶어요</button>
-            <button type="button" class="like-btn"><img src="./images/icon-comment.svg" alt="코멘트">코멘트 쓰기</button>
-            <!-- ng-click="wishStyle={'background-color':'#be3c39'}" -->
-          </div>
-          <!--  data-ng-click="offScroll={'overflow-y':'hidden'}" -->
-        </figure>
-        <div class="comment-box" >
-          <div class="movie-comment" >
-            <h2>{{results.movie.title}}</h2>
-            <!-- <p class="info">
-              <span data-ng-repeat="genre in fingo_movie_detail.genre">{{genre.name}}</span> |
-              <span data-ng-repeat="nation_code in fingo_movie_detail.nation_code">{{nation_code.name}}</span> |
-              <span>{{results.activity_time}}</span>
-            </p> -->
-          </div>
-          <div class="rating-stars">
-            <span><img src="./images/star-on.svg" alt=""></span>
-            <span><img src="./images/star-on.svg" alt=""></span>
-            <span><img src="./images/star-on.svg" alt=""></span>
-            <span><img src="./images/star-on.svg" alt=""></span>
-            <span><img src="./images/star-off.svg" alt=""></span>
-            <span>[{{fingo_movie_detail.score}}]</span>
-          </div>
-          <div class="comment">
-            <p>{{results.comment}}</p>
-            <time datetime="2016-12-30">{{results.activity_time}}</time>
-          </div>
-          <section class="received-likes">
-            <h1>받은 좋아요</h1>
-            <img src="./images/icon-like.svg" alt="좋아요">
-            <strong>000</strong>
-          </section>
-          <button type="button" name="button">수정</button>
-          <button type="button" name="button">삭제</button>
+          </form>
         </div>
-      </article>
-    </div>
+        <!-- data-ladda="share_data.is_creating" -->
+        <!-- data-ui-sref="main.comment({'id': results.movie.id})" -->
+        <button
+        type="button"
+        class="heart-btn"
+        data-ng-controller="FingoWishMoviesController"
+        data-ng-click="WishMovies('True')"
+        ><img src="./images/icon-heart.svg" alt="보고싶어요">보고싶어요</button>
+        <button type="button" class="like-btn"><img src="./images/icon-comment.svg" alt="코멘트">코멘트 쓰기</button>
+        <!-- ng-click="wishStyle={'background-color':'#be3c39'}" -->
+      </div>
+      <!--  data-ng-click="offScroll={'overflow-y':'hidden'}" -->
+    </figure>
+  </div>
   </section>
 </main>
 

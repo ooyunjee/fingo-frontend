@@ -1,18 +1,39 @@
+<header class="header">
+  <div class="profile container">
+    <section class="account">
+      <h1>개인 프로필</h1>
+      <div class="thumbnail">
+        <img src="./images/icon-profile.svg" alt="프로필 사진">
+      </div>
+      <p>이름</p>
+    </section>
+    <section class="total-movies">
+      <h1>영화 보관함</h1>
+      <strong>000</strong>
+    </section>
+    <section class="received-likes">
+      <h1>받은 좋아요</h1>
+      <img src="./images/icon-like.svg" alt="좋아요">
+      <strong>000</strong>
+    </section>
+  </div>
+</header>
+
+
 <main>
   <div class="sub-menu">
     <ul class="container">
       <li><a href="#">취향통개분석</a></li>
-      <li><a href="#">보고싶어요</a></li>
-      <li><a href="#">봤어요</a></li>
-      <li><a href="#">코맨트</a></li>
+      <li><a href="/#/wish">보고싶어요</a></li>
+      <li><a href="/#/movies">봤어요</a></li>
+      <li><a href="/#/comments">코맨트</a></li>
     </ul>
   </div>
 
   <section class="container movies">
   <h1>봤어요 목록</h1>
   <div class="movie-list" >
-    <figure class="top-1" data-ng-repeat="movie in movies">
-      <!-- <img src="images/photo-main-poster-2.png" alt=""> -->
+    <figure data-ng-repeat="movie in movies">
       <p></p>
       <img data-ng-src="{{movie.movie.img}}" alt="">
       <!-- <img
@@ -20,7 +41,7 @@
         data-ng-src="{{movie.image}}"
         alt=""> -->
 
-      <div class="hover movie-info-on" data-ng-controller="FingoWishMoviesController">
+      <div class="hover">
         <!-- ng-click="popup_show(movie.movie, movie.movie.id, 'active')" -->
         <div class="movie-info-click-on" ng-click="popup_show(movie.movie, movie.movie.id, 'active')"></div>
         <p>{{movie.movie.title}}</p>
@@ -135,9 +156,11 @@
         <button
         type="button"
         class="heart-btn"
-        data-ng-click="WishMovies(False)"
+        data-ng-controller="FingoWishMoviesController"
+        data-ng-click="WishMovies('True',movie.movie, movie.movie.id)"
         ><img src="./images/icon-heart.svg" alt="보고싶어요">보고싶어요</button>
         <button type="button" class="like-btn"><img src="./images/icon-comment.svg" alt="코멘트">코멘트 쓰기</button>
+        <!-- ng-click="wishStyle={'background-color':'#be3c39'}" -->
       </div>
       <!--  data-ng-click="offScroll={'overflow-y':'hidden'}" -->
     </figure>
@@ -278,7 +301,11 @@
 
             </form>
           </div>
-          <button type="button" class="heart-btn"><img src="./images/icon-heart.svg" alt="보고싶어요">보고싶어요</button>
+          <button type="button"
+          data-ng-controller="FingoWishMoviesController"
+          data-ng-click="WishMovies('True')"
+          class="heart-btn">
+          <img src="./images/icon-heart.svg" alt="보고싶어요">보고싶어요</button>
           <button type="button" class="like-btn"><img src="./images/icon-comment.svg" alt="코멘트">코멘트 쓰기</button>
         </div>
       </figure>
@@ -314,10 +341,10 @@
       </div>
       <div>
         <h2>주연</h2>
-        <div class="actor"  data-ng-repeat="actor in fingo_movie_detail.actor |  limitTo:length_item as results">
+        <div class="actor"  data-ng-repeat="actors in fingo_movie_detail.actors |  limitTo:length_item as results">
           <!-- | loadMore : item -->
           <!-- <div class="movie-section-03-img-box"> -->
-            <img data-ng-src="{{actor.img}}" alt="배우 이미지">
+            <img data-ng-src="{{actors.actor[1].name}}" alt="배우 이미지">
           <!-- </div> -->
           <p>{{actor.name}}</p>
           <p>역할 이름</p>

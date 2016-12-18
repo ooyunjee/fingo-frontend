@@ -7,11 +7,14 @@
   <title>내가 본 영화::Fingo</title>
   <link href="http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="./css/svg-style.css">
-  <link rel="stylesheet" href="css/movie-info.css">
-  <link rel="stylesheet" href="./css/movies.css">
+  <link rel="stylesheet" href="./css/nav.css">
   <link rel="stylesheet" href="./css/star.css">
+
+  <!-- movis-info style -->
+  <link rel="stylesheet" href="css/movie-info.css">
   <link rel="stylesheet" href="./css/main-dim.css">
   <link rel="stylesheet" href="./css/graph.css">
+
   <!-- <script src="lib/jquery.min.js"></script> -->
   <!-- <script src="lib/jquery.easing.min.js"></script> -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -23,7 +26,7 @@
     <div class="logo container">
       <h1>
         <span>FINGO</span>
-        <a href="#">
+        <a href="/#/">
         <svg version="1.1" class="fingo-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="104.75px" height="53px" viewbox="0 0 104.75 53" enable-background="new 0 0 104.75 53" xml:space="preserve">
           <g>
             <path fill="#C5A370" d="M25.632,28.773v8.309h-4.58V15.916h9.553v3.959h-4.973v5.07h4.646v3.828H25.632z"></path><path fill="#C5A370" d="M37.867,15.916v21.166h-4.58V15.916H37.867z"></path><path fill="#C5A370" d="M53.405,37.082h-4.58V19.516c0-0.175-0.061-0.328-0.18-0.459c-0.12-0.131-0.268-0.195-0.441-0.195h-1.767c-0.175,0-0.322,0.064-0.441,0.195c-0.12,0.131-0.181,0.284-0.181,0.459v17.566h-4.58V19.908c0-2.879,1.353-4.318,4.057-4.318h4.057c2.704,0,4.057,1.439,4.057,4.318V37.082z"></path>
@@ -53,7 +56,7 @@
         <button type="submit" name="button" required><img src="./images/icon-search.svg" alt="검색버튼"></button>
       </form>
       <div class="profile-menu">
-        <a href="#">
+        <a href="/#/wish">
           <h1>프로필</h1>
           <p>이름</p>
           <img src="./images/icon-profile.svg" alt="프로필 사진">
@@ -61,26 +64,7 @@
       </div>
     </div>
   </nav>
-  <header class="header">
-    <div class="profile container">
-      <section class="account">
-        <h1>개인 프로필</h1>
-        <div class="thumbnail">
-          <img src="./images/icon-profile.svg" alt="프로필 사진">
-        </div>
-        <p>이름</p>
-      </section>
-      <section class="total-movies">
-        <h1>영화 보관함</h1>
-        <strong>000</strong>
-      </section>
-      <section class="received-likes">
-        <h1>받은 좋아요</h1>
-        <img src="./images/icon-like.svg" alt="좋아요">
-        <strong>000</strong>
-      </section>
-    </div>
-  </header>
+
 
   <!-- main -->
   <div data-ui-view></div>

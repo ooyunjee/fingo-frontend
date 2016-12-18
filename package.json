@@ -16,6 +16,7 @@
   "author": "yamoo9 <yamoo9@naver.com>",
   "dependencies": {
     "angular": "^1.5.9",
+    "angular-css": "^1.0.8",
     "angular-resource": "^1.6.0",
     "angular-route": "^1.6.0",
     "d3": "^4.4.0",
