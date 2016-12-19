@@ -124,65 +124,6 @@ angular.module('FingoApp')
       });
 
 
-      // 코멘트 남기기
-      // $scope.addComment = function(comment) {
-      //   console.log(comment);
-      //   // console.log($scope.previousState);
-      //   if($scope.fingo_comment === null) {
-      //     $http.post($scope.url, { comment: comment }, {
-      //       headers: {'Authorization': 'Token ' + window.localStorage['key1'] }
-      //     })
-      //       .success(function(data, status, headers, config) {
-      //       	if( data ) {
-      //       		/* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
-      //           window.alert('코멘트가 성공적으로 등록되었습니다!');
-      //           $state.go('main');
-      //       	}
-      //       	else {
-      //       		/* 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 */
-      //           console.log(error);
-      //       	}
-      //       })
-      //       .error(function(data, status, headers, config) {
-      //       	/* 서버와의 연결이 정상적이지 않을 때 처리 */
-      //       	console.log(status);
-      //       });
-      //
-      //   } else if($scope.fingo_score == 0 || $scope.fingo_score == undefined ){
-      //     window.alert('별점 평가를 먼저 해주세요!');
-      //   } else {
-      //     // 코멘트 수정하기
-      //     $http.patch($scope.url, { comment: comment }, {
-      //       headers: {'Authorization': 'Token ' + window.localStorage['key1'] }
-      //     })
-      //     .success(function(data, status, headers, config) {
-      //     	if( data ) {
-      //     		/* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
-      //         // console.log('success');
-      //         window.alert('코멘트가 수정되었습니다!');
-      //         // $state.go(previousState);
-      //
-      //     	}
-      //     	else {
-      //     		/* 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 */
-      //         console.log(error);
-      //     	}
-      //     })
-      //     .error(function(data, status, headers, config) {
-      //     	/* 서버와의 연결이 정상적이지 않을 때 처리 */
-      //     	console.log(status);
-      //       // if(status === 500) {
-      //       // }
-      //     });
-      //   }
-      //
-      // };
-
-      // $scope.dim_show = function(cl) {
-      //   console.log(cl);
-      //   $scope.dim_class = cl;
-      // };
-
       $scope.dim2_show = function(cl) {
         console.log(cl);
         $scope.dim2_class = cl;
