@@ -11,19 +11,19 @@
         <img data-ng-src="{{movie.img}}" alt="{{movie.title}}">
         <div class="hover">
           <h3>{{movie.title}}</h3>
-          <div class="stars" data-ng-click="$event.stopPropagation();">
+          <div class="stars" data-ng-click="$event.preventDefault();" data-ng-controller="FingoMovieScoreController">
             <form novalidate class="star-rating-form" action="#" id="star_rating{{movie.id}}">
              <input value="null" id="cencel" checked type="radio" name="rating" >
               <label for="cencel">
                 <span>취소</span>
-                <button type="button" name="button" class="cancel-btn">
+                <button type="button" name="button" class="cancel-btn" data-ng-click="addScore(movie.id, 0)">
                   취소
                 </button>
               </label>
 
               <input value="0.5" id="star1_{{movie.id}}"
                 type="radio" name="rating" >
-              <label for="star1_{{movie.id}}" class="star1">
+              <label for="star1_{{movie.id}}" class="star1" data-ng-click="addScore(movie.id, 0.5)">
                 <span >0.5점</span>
                 <svg>
                   <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
@@ -32,7 +32,7 @@
 
               <input value="1" id="star2_{{movie.id}}"
                 type="radio" name="rating" >
-              <label for="star2_{{movie.id}}"  class="star2">
+              <label for="star2_{{movie.id}}" class="star2" data-ng-click="addScore(movie.id, 1)">
                 <span >1점</span>
                 <svg>
                   <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
@@ -41,7 +41,7 @@
 
               <input value="1.5" id="star3_{{movie.id}}"
                 type="radio" name="rating" >
-              <label for="star3_{{movie.id}}">
+              <label for="star3_{{movie.id}}" data-ng-click="addScore(movie.id, 1.5)">
                 <span >1.5점</span>
                 <svg>
                   <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
@@ -50,7 +50,7 @@
 
               <input value="2" id="star4_{{movie.id}}"
                 type="radio" name="rating" >
-              <label for="star4_{{movie.id}}"  class="star4">
+              <label for="star4_{{movie.id}}" class="star4" data-ng-click="addScore(movie.id, 2)">
                 <span >2점</span>
                 <svg>
                   <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
@@ -60,7 +60,7 @@
 
               <input value="2.5" id="star5_{{movie.id}}"
                 type="radio" name="rating" >
-              <label for="star5_{{movie.id}}">
+              <label for="star5_{{movie.id}}" data-ng-click="addScore(movie.id, 2.5)">
                 <span >2.5점</span>
                 <svg>
                   <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
@@ -69,7 +69,7 @@
 
               <input value="6" id="star6_{{movie.id}}"
                 type="radio" name="rating" >
-              <label for="star6_{{movie.id}}"  class="star6">
+              <label for="star6_{{movie.id}}" class="star6" data-ng-click="addScore(movie.id, 3)">
                 <span>3점</span>
                 <svg>
                   <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
@@ -78,7 +78,7 @@
 
               <input value="7" id="star7_{{movie.id}}"
                 type="radio" name="rating" >
-              <label for="star7_{{movie.id}}">
+              <label for="star7_{{movie.id}}" data-ng-click="addScore(movie.id, 3.5)">
                 <span >3.5점</span>
                 <svg>
                   <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
@@ -87,7 +87,7 @@
 
               <input value="8" id="star8_{{movie.id}}"
                 type="radio" name="rating" >
-              <label for="star8_{{movie.id}}"  class="star8">
+              <label for="star8_{{movie.id}}" class="star8" data-ng-click="addScore(movie.id, 4)">
                 <span >4점</span>
                 <svg>
                   <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
@@ -96,7 +96,7 @@
 
               <input value="9" id="star9_{{movie.id}}"
                 type="radio" name="rating" >
-              <label for="star9_{{movie.id}}">
+              <label for="star9_{{movie.id}}" data-ng-click="addScore(movie.id, 4.5)">
                 <span >4.5점</span>
                 <svg>
                   <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
@@ -105,7 +105,7 @@
 
               <input value="10" id="star10_{{movie.id}}"
                 type="radio" name="rating" >
-              <label for="star10_{{movie.id}}">
+              <label for="star10_{{movie.id}}" data-ng-click="addScore(movie.id, 5)">
                 <span >5점</span>
                 <svg>
                   <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
@@ -117,8 +117,8 @@
 
             </form>
           </div>
-          <button type="button" data-ng-click="$event.preventDefault();">보고싶어요</button>
-          <button type="button" data-ui-sref="main.comment({'id': movie.id})">코멘트 쓰기</button>
+          <button type="button" class="heart-btn" data-ng-click="$event.preventDefault();"><img src="./images/icon-heart.svg" class="icon">보고싶어요</button>
+          <button type="button" class="like-btn" data-ui-sref="main.comment({'id': movie.id})"><img src="./images/icon-comment.svg" class="icon">코멘트 쓰기</button>
         </div>
       </a>
     </figure>

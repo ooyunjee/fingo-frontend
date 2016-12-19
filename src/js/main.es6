@@ -130,6 +130,7 @@ require('./directives/FingoHeaderCarousel');
 require('./directives/FingoBoxOfficeList');
 require('./directives/FingoBoxOfficeCarousel');
 require('./directives/FingoMovieRankingCarousel');
+require('./directives/FingoMovieScoreDirective');
 // require('./directives/FingoAddCommentDirective');
 
 // Services
@@ -154,6 +155,8 @@ require('./controllers/FingoUserPageController');
 require('./controllers/FingoMovieDetailController');
 require('./controllers/FingoMovieScoreController');
 require('./controllers/ListController');
+require('./controllers/FingoMovieScoreController');
+
 
 
 
