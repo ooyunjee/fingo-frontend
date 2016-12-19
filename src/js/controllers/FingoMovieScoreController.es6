@@ -15,12 +15,13 @@ angular
 
     return $resource(url, {}, {
         'create': {
-            method: 'POST'
+            method: 'POST',
+            headers: {'Authorization': 'Token 8b7e29cf10bd79af9f387f021d4a1cd0a8ecd291'}
         }
     });
 
   }])
-  .controller('FingoMovieScoreController', function($scope, FingoMovieScore) {
+  .controller('FingoMovieScoreController', ['$scope', 'FingoMovieScore' ,function($scope, FingoMovieScore) {
 
     $scope.MovieScore = function(Num,movie) {
       console.log('on2');
@@ -41,4 +42,4 @@ angular
       });
     };
 
-  })
+  }]);

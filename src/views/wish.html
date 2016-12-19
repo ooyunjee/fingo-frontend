@@ -47,7 +47,8 @@
 
         <div class="hover">
           <!-- ng-click="popup_show(movie.movie, movie.movie.id, 'active')" -->
-          <div class="movie-info-click-on" ng-click="popup_show(results.movie, results.movie.id, 'active')"></div>
+          <!-- ng-click="popup_show(results.movie, results.movie.id, 'active')" -->
+          <div class="movie-info-click-on" data-ui-sref="wish.movie_detail({'id': results.movie.id})"></div>
           <p>{{results.movie.title}}</p>
           <div class="stars" data-ng-controller="FingoMovieScoreController">
             <!-- <div id="star_rating"> -->
@@ -64,7 +65,7 @@
                 type="radio" name="rating" >
                 <!-- data-ng-click="MovieScore('True')" -->
               <label for="star1_{{results.movie.id}}" class="star1"
-              data-ng-click="MovieScore(1)">
+              data-ng-click="MovieScore(0.5)">
                 <span>0.5점</span>
                 <svg>
                   <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
@@ -73,7 +74,7 @@
 
               <input value="1" id="star2_{{results.movie.id}}"
                 type="radio" name="rating" >
-              <label for="star2_{{results.movie.id}}"  class="star2"  data-ng-click="MovieScore('1')">
+              <label for="star2_{{results.movie.id}}"  class="star2"  data-ng-click="MovieScore(1)">
                 <span >1점</span>
                 <svg>
                   <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
@@ -82,7 +83,7 @@
 
               <input value="1.5" id="star3_{{results.movie.id}}"
                 type="radio" name="rating" >
-              <label for="star3_{{results.movie.id}}">
+              <label for="star3_{{results.movie.id}}" data-ng-click="MovieScore(1.5)">
                 <span >1.5점</span>
                 <svg>
                   <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
@@ -91,7 +92,7 @@
 
               <input value="2" id="star4_{{results.movie.id}}"
                 type="radio" name="rating" >
-              <label for="star4_{{results.movie.id}}"  class="star4">
+              <label for="star4_{{results.movie.id}}"  class="star4" data-ng-click="MovieScore(2)">
                 <span >2점</span>
                 <svg>
                   <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
@@ -101,7 +102,7 @@
 
               <input value="2.5" id="star5_{{results.movie.id}}"
                 type="radio" name="rating" >
-              <label for="star5_{{results.movie.id}}">
+              <label for="star5_{{results.movie.id}}" data-ng-click="MovieScore(2.5)">
                 <span >2.5점</span>
                 <svg>
                   <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
@@ -110,7 +111,7 @@
 
               <input value="6" id="star6_{{results.movie.id}}"
                 type="radio" name="rating" >
-              <label for="star6_{{results.movie.id}}"  class="star6">
+              <label for="star6_{{results.movie.id}}"  class="star6" data-ng-click="MovieScore(3)">
                 <span>3점</span>
                 <svg>
                   <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
@@ -119,7 +120,7 @@
 
               <input value="7" id="star7_{{results.movie.id}}"
                 type="radio" name="rating" >
-              <label for="star7_{{results.movie.id}}">
+              <label for="star7_{{results.movie.id}}" data-ng-click="MovieScore(3.5)">
                 <span >3.5점</span>
                 <svg>
                   <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
@@ -128,7 +129,7 @@
 
               <input value="8" id="star8_{{results.movie.id}}"
                 type="radio" name="rating" >
-              <label for="star8_{{results.movie.id}}"  class="star8">
+              <label for="star8_{{results.movie.id}}"  class="star8" data-ng-click="MovieScore(4)">
                 <span >4점</span>
                 <svg>
                   <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
@@ -137,7 +138,7 @@
 
               <input value="9" id="star9_{{results.movie.id}}"
                 type="radio" name="rating" >
-              <label for="star9_{{results.movie.id}}">
+              <label for="star9_{{results.movie.id}}" data-ng-click="MovieScore(4.5)">
                 <span >4.5점</span>
                 <svg>
                   <path class="icon-star-left" d="M601,680m0,22.038L592.965,706l1.1-9.259L588,689.931l8.715-1.76L601,680" transform="translate(-588 -680)"/>
@@ -146,7 +147,7 @@
 
               <input value="10" id="star10_{{results.movie.id}}"
                 type="radio" name="rating" >
-              <label for="star10_{{results.movie.id}}">
+              <label for="star10_{{results.movie.id}}" data-ng-click="MovieScore(5)">
                 <span >5점</span>
                 <svg>
                   <path class="icon-star-right" d="M602,680m0,22.038L610.035,706l-1.1-9.259,6.066-6.81-8.715-1.76L602,680" transform="translate(-602 -680)"/>
@@ -160,11 +161,13 @@
           </div>
           <!-- data-ladda="share_data.is_creating" -->
           <!-- data-ui-sref="main.comment({'id': results.movie.id})" -->
+           <!-- data-ui-sref="main.comment({'id': movie.movie.id})" -->
+           <!-- ng-click="popup_show(movie.movie, movie.movie.id, 'active')" -->
           <button
           type="button"
           class="heart-btn"
           data-ng-controller="FingoWishMoviesController"
-          data-ng-click="WishMovies('True')"
+          data-ng-click="WishMovies('True',results.movie.id)"
           ><img src="./images/icon-heart.svg" alt="보고싶어요">보고싶어요</button>
           <button type="button" class="like-btn"><img src="./images/icon-comment.svg" alt="코멘트">코멘트 쓰기</button>
           <!-- ng-click="wishStyle={'background-color':'#be3c39'}" -->
@@ -175,7 +178,8 @@
     </section>
   </main>
 
-  <div class="dim-movie-info" ng-class="popup_show_active" >
+  <div data-ui-view></div>
+  <!-- <div class="dim-movie-info" ng-class="popup_show_active" >
   <div class="dim-movie-bg" ng-click="popup_show(movie, 0, '')"></div>
   <div class="movie-info">
       <div class="steel-cut-carousel">
@@ -380,6 +384,6 @@
       </section>
 
     </div>
-  </div>
+  </div> -->
 </div>
 <div data-ng-include="'views/footer.html'"></div>
