@@ -12,6 +12,7 @@ angular.module('FingoApp')
   $scope.popup_show_index = null;
   $scope.popup_show_active = false;
   $scope.length_item = 3;
+  $scope.comment_length_item = 3;
   var dataObject = 1;
 
   $rootScope.previousState = null;
@@ -19,6 +20,9 @@ angular.module('FingoApp')
 
   $scope.length_num = function(num){
     $scope.length_item += num;
+  };
+  $scope.comment_length_num = function(num){
+    $scope.comment_length_item += num;
   };
 
   $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
