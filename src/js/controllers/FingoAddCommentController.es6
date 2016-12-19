@@ -29,7 +29,8 @@ angular.module('FingoApp')
               	if( data ) {
               		/* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
                   window.alert('코멘트가 성공적으로 등록되었습니다!');
-                  $state.go($rootScope.previousState);
+                  $state.go($rootScope.previousState, {}, {notify: false});
+                  $scope.dim_show('hide');
               	}
               	else {
               		/* 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 */
@@ -43,6 +44,7 @@ angular.module('FingoApp')
 
           } else if($scope.fingo_score == 0 || $scope.fingo_score == undefined ){
             window.alert('별점 평가를 먼저 해주세요!');
+            $scope.dim2_show('show');
           } else {
             // 코멘트 수정하기
             $http.patch($scope.url, { comment: comment }, {
@@ -54,7 +56,7 @@ angular.module('FingoApp')
                 // console.log('success');
                 window.alert('코멘트가 수정되었습니다!');
                 $state.go($rootScope.previousState, {}, {notify: false});
-
+                $scope.dim_show('hide');
             	}
             	else {
             		/* 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 */
