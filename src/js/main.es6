@@ -87,10 +87,20 @@ fingo.config([
         'url'         : '/comments',
         'templateUrl' : 'views/comments.html',
         'css' : 'css/comments.css'
-        // 'controller'  : 'ListController',
-        // 'controller' : 'FingoMovieDetailController'
-        //sub comment page
+      })
+      .state('movies.movie_detail', {
+        'url'         : '/movie_detail/:id',
+        'templateUrl' : 'views/FingoMovieDetail.html',
+        'controller'  : 'FingoMovieDetailController',
+        'css' : ['css/movie-info.css', 'css/movies.css']
+      })
+      .state('wish.movie_detail', {
+        'url'         : '/movie_detail/:id',
+        'templateUrl' : 'views/FingoMovieDetail.html',
+        'controller'  : 'FingoMovieDetailController',
+        'css' : ['css/movie-info.css', 'css/wish.css']
       });
+
       // .state('comment.rank', {
       //   'url'         : '/comment/:id/rank',
       //   'templateUrl' : 'views/comment-dim2.html',
