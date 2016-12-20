@@ -96,9 +96,18 @@ fingo.config([
         'url'         : '/comments',
         'templateUrl' : 'views/comments.html',
         'css' : 'css/comments.css'
-        // 'controller'  : 'ListController',
-        // 'controller' : 'FingoMovieDetailController'
-        //sub comment page
+      })
+      .state('movies.detail', {
+        'url'         : '/detail/:id',
+        'templateUrl' : 'views/FingoMovieDetail.html',
+        'controller'  : 'FingoMovieDetailController',
+        'css' : ['css/movie-info.css', 'css/movies.css']
+      })
+      .state('wish.detail', {
+        'url'         : '/detail/:id',
+        'templateUrl' : 'views/FingoMovieDetail.html',
+        'controller'  : 'FingoMovieDetailController',
+        'css' : ['css/movie-info.css', 'css/wish.css']
       });
 
     $urlRouterProvider.otherwise('/');

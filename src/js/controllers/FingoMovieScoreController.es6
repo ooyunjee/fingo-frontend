@@ -8,6 +8,7 @@ angular.module('FingoApp')
 
 
     $scope.getScore = function(event, id) {
+
       $scope.url = 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/score/'+ id +'/';
 
       $http({
@@ -19,6 +20,7 @@ angular.module('FingoApp')
         if( data ) {
           /* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
           $scope.currrentScore = data.score * 2;
+
           angular.element(event.currentTarget.querySelectorAll('label')).css('color', '#999');
           if($scope.currrentScore != 0) {
             for(let i = 0, l = $scope.currrentScore; i <= l; i++) {
