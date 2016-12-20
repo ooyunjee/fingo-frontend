@@ -1,21 +1,17 @@
-<div data-ng-controller="FingoSearchController">
-   <div data-ng-include="'views/navbar.html'"></div>
-</div>
-
+<div data-fingo-nav-directive></div>
 <div data-ng-include="'views/sub-header.html'"></div>
 
-<div data-ng-controller="FingoUserWatchedMoviesController">
-  <main>
-    <div class="sub-menu">
-      <ul class="container">
-        <li><a href="#">취향통계분석</a></li>
-        <li><a href="/#/wish">보고싶어요</a></li>
-        <li><a href="/#/movies">봤어요</a></li>
-        <li><a href="/#/comments">코멘트</a></li>
-      </ul>
-    </div>
+<main data-ng-controller="FingoUserWatchedMoviesController">
+  <div class="sub-menu">
+    <ul class="container">
+      <li><a href>취향통계분석</a></li>
+      <li><a href="/#/wish">보고싶어요</a></li>
+      <li><a href="/#/movies">봤어요</a></li>
+      <li><a href="/#/comments">코멘트</a></li>
+    </ul>
+  </div>
 
-    <section class="container movies">
+  <section class="container movies">
     <h1>봤어요 목록</h1>
     <div class="movie-list" data-ng-controller="FingoMovieScoreController">
       <figure data-ng-repeat="movie in watched_movie.results" data-ng-mouseover="getScore($event, movie.movie.id)">
@@ -38,9 +34,8 @@
         </div>
       </figure>
     </div>
-    </section>
-  </main>
-</div>
+  </section>
+</main>
 
 <div data-ui-view></div>
 <div data-ng-include="'views/footer.html'"></div>
