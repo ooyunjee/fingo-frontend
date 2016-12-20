@@ -22,12 +22,21 @@ fingo.config([
   '$resourceProvider',
   '$stateProvider',
   '$urlRouterProvider',
+  '$sceDelegateProvider',
   (
     $httpProvider,
     $resourceProvider,
     $stateProvider,
-    $urlRouterProvider
+    $urlRouterProvider,
+    $sceDelegateProvider
   )=> {
+
+    $sceDelegateProvider.resourceUrlWhitelist([
+    // Allow same origin resource loads.
+    'self',
+    // Allow loading from our assets domain.  Notice the difference between * and **.
+    'http://*.unripers.com/**'
+  ]);
 
     // $stateProvider
     $stateProvider
@@ -45,7 +54,7 @@ fingo.config([
       .state('signup', {
         'url'         : '/signup',
         'templateUrl' : 'views/signup.html',
-        'controller'  : 'FingoLoginController',
+        'controller'  : 'FingoSignupController',
         'css' : 'css/signup.css'
       })
       // main
@@ -121,12 +130,6 @@ fingo.config([
         'css' : ['css/add-comment.css', 'css/comments.css']
       });
 
-      // .state('comment.rank', {
-      //   'url'         : '/comment/:id/rank',
-      //   'templateUrl' : 'views/comment-dim2.html',
-      //   'controller'  : 'FingoAddCommentController'
-      // });
-
     $urlRouterProvider.otherwise('/');
 
     // let token = 'Token ' + window.localStorage['key1'];
@@ -160,6 +163,7 @@ require('./directives/FingoHeaderCarousel');
 require('./directives/FingoBoxOfficeList');
 require('./directives/FingoBoxOfficeCarousel');
 require('./directives/FingoMovieRankingCarousel');
+require('./directives/FingoMovieScoreDirective');
 // require('./directives/FingoAddCommentDirective');
 
 // Services
@@ -184,6 +188,8 @@ require('./controllers/FingoUserPageController');
 require('./controllers/FingoMovieDetailController');
 require('./controllers/FingoMovieScoreController');
 require('./controllers/ListController');
+require('./controllers/FingoMovieScoreController');
+
 
 
 
