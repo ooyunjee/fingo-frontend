@@ -1,4 +1,4 @@
-/*! FingoLoginController.js © yamoo9.net, 2016 */
+/*! FingoWishMoviesontroller.js © yamoo9.net, 2016 */
 'use strict';
 console.log('on');
 let angular = require('angular');
@@ -6,13 +6,11 @@ let angular = require('angular');
 angular
   .module('FingoApp')
   .factory('FingoWishMovies', ['$resource','$stateParams', function($resource, $stateParams){
-    // let index = $stateParams.id;
-    // console.log('$stateParams.id',$stateParams.id);
-    // console.log('id :',$stateParams.id);
-    // FingoWishMovie
-    // let url = 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/wish/'+ $scope.movie_id +'/';
+
+    //선택한 부분 아이디 필요
+    //http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/wish/ id값 /
     let url = 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/wish/2/';
-    // console.log($scope.movie_id);
+
 
     return $resource(url, {}, {
         'create': {
@@ -34,7 +32,7 @@ angular
       // console.log('id값',$scope.movie_id);
       entry.wish_movie = bool;
       console.log('결과',entry.wish_movie);
-      // 'background-color':'#be3c39';
+
 
       entry.$create().then(function(response) {
         console.log(response);
