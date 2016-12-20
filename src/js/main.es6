@@ -35,8 +35,7 @@ fingo.config([
     // Allow same origin resource loads.
     'self',
     // Allow loading from our assets domain.  Notice the difference between * and **.
-    'https://www.unripers.com/**',
-    '*'
+    'http://*.unripers.com/**'
   ]);
 
     // $stateProvider
@@ -55,7 +54,7 @@ fingo.config([
       .state('signup', {
         'url'         : '/signup',
         'templateUrl' : 'views/signup.html',
-        'controller'  : 'FingoLoginController',
+        'controller'  : 'FingoSignupController',
         'css' : 'css/signup.css'
       })
       .state('main', {
@@ -101,11 +100,6 @@ fingo.config([
         // 'controller' : 'FingoMovieDetailController'
         //sub comment page
       });
-      // .state('comment.rank', {
-      //   'url'         : '/comment/:id/rank',
-      //   'templateUrl' : 'views/comment-dim2.html',
-      //   'controller'  : 'FingoAddCommentController'
-      // });
 
     $urlRouterProvider.otherwise('/');
 

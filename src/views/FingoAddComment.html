@@ -4,19 +4,19 @@
     <h3 class="modal-headline">{{fingo_title}}<button class="modal-rank-btn" aria-label="별점 남기기" data-ng-click="dim2_show('show')"></button></h3>
     <div class="modal-contents">
       <img class="modal-poster" src="{{fingo_img}}">
-      <span class="modal-stars">{{fingo_score}}</span>
+      <span class="modal-stars">{{fingo_score}}점</span>
       <textarea class="modal-textarea" placeholder="이 영화에 대한 생각을 자유롭게 표현해주세요." data-ng-model="fingo_comment">{{fingo_comment}}</textarea>
       <button type="button" class="modal-ok-button" aria-label="Enter comment" data-ng-click="addComment(fingo_comment)">확인</button>
     </div>
     <button type="button" class="modal-close-button" aria-label="Close Modal Window" data-ui-sref="main">x</button>
-    <div class="modal-rank-window" data-ng-class="dim2_class">
+    <div class="modal-rank-window" data-ng-class="dim2_class" data-ng-controller="FingoMovieScoreController" data-ng-mouseover="getScore($event, fingo_id)">
       <div class="dim2" data-ng-click="dim2_show('hide')"></div>
       <div class="modal-rank-contents modal">
         <h4>평가를 먼저 해주세요!</h4>
         <p class="modal-rank-desc">본 영화인가요?</p>
-        <!-- <div data-fingo-movie-score-directive></div> -->
+        <div data-fingo-movie-score-directive data-movie-id="fingo_id" data-movie-score="currrentScore"></div>
         <p>아직 안 본 영화인가요?</p>
-        <button class="modal-like-btn" type="button" aria-label="보고싶은 영화로 등록하기">보고싶어요</button>
+        <button type="button" aria-label="보고싶은 영화로 등록하기" class="heart-btn" data-ng-click="$event.preventDefault();"><img src="./images/icon-heart.svg">보고싶어요</button>
       </div>
     </div>
   </div>

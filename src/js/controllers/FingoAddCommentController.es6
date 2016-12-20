@@ -76,6 +76,7 @@ angular.module('FingoApp')
       });
 
       let index = $stateParams.id;
+      $scope.fingo_id = index;
       // let token = 'Token ' + window.localStorage['key1'];
       $scope.fingo_comment = null;
       $scope.fingo_score = null;
@@ -89,6 +90,7 @@ angular.module('FingoApp')
       })
       .success(function(data, status, header, config) {
         if(data) {
+          console.log(data);
           $scope.fingo_title = data.title;
           $scope.fingo_img = data.img;
         }
