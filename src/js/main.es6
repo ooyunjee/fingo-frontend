@@ -179,6 +179,7 @@ require('./services/FingoLoginService');
 
 // Filters
 require('./filters/getYearFilter');
+require('./filters/dateTimeFilter');
 
 // Controllers
 require('./controllers/FingoSignupController');

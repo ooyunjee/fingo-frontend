@@ -13,8 +13,17 @@
         <div class="hover">
           <h3>{{movie.title}}</h3>
           <div data-fingo-movie-score-directive data-movie-id="movie.id" data-movie-score="currentScore"></div>
-          <button type="button" class="heart-btn" data-ng-click="$event.preventDefault();"><img src="./images/icon-heart.svg" class="icon">보고싶어요</button>
-          <button type="button" class="like-btn" data-ui-sref="main.comment({'id': movie.id})"><img src="./images/icon-comment.svg" class="icon">코멘트 쓰기</button>
+          <button
+            type="button"
+            class="heart-btn"
+            data-ng-click="$event.preventDefault();"
+          ><img src="./images/icon-heart.svg" class="icon">보고싶어요</button>
+          <button
+            type="button"
+            class="like-btn"
+            data-ui-sref="main.comment({'id': movie.id})"
+            data-ng-click="$event.stopPropagation();"
+          ><img src="./images/icon-comment.svg" class="icon">코멘트 쓰기</button>
         </div>
       </a>
     </figure>
