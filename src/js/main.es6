@@ -75,12 +75,6 @@ fingo.config([
         'controller'  : 'FingoMovieDetailController',
         'css' : ['css/movie-info.css', 'css/main.css']
       })
-      // search
-      .state('search', {
-        'url'         : '/search',
-        'templateUrl' : 'views/search.html',
-        'css' : 'css/search.css'
-      })
       // wish
       .state('wish', {
         'url'         : '/wish',
@@ -128,6 +122,18 @@ fingo.config([
         'templateUrl' : 'views/FingoAddComment.html',
         'controller'  : 'FingoAddCommentController',
         'css' : ['css/add-comment.css', 'css/comments.css']
+      })
+      .state('comments.detail', {
+        'url'         : '/detail/:id',
+        'templateUrl' : 'views/FingoMovieDetail.html',
+        'controller'  : 'FingoMovieDetailController',
+        'css' : ['css/movie-info.css', 'css/comments.css']
+      })
+      // search
+      .state('search', {
+        'url'         : '/search',
+        'templateUrl' : 'views/search.html',
+        'css' : 'css/search.css'
       });
 
     $urlRouterProvider.otherwise('/');

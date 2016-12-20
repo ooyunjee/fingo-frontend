@@ -1,27 +1,8 @@
 <div data-ng-controller="FingoSearchController">
    <div data-ng-include="'views/navbar.html'"></div>
 </div>
-<header class="header">
-  <div class="profile container">
-    <section class="account">
-      <h1>개인 프로필</h1>
-      <div class="thumbnail">
-        <img src="./images/icon-profile.svg" alt="프로필 사진">
-      </div>
-      <p>이름</p>
-    </section>
-    <section class="total-movies">
-      <h1>영화 보관함</h1>
-      <strong>000</strong>
-    </section>
-    <section class="received-likes">
-      <h1>받은 좋아요</h1>
-      <img src="./images/icon-like.svg" alt="좋아요">
-      <strong>000</strong>
-    </section>
-  </div>
-</header>
 
+<div data-ng-include="'views/sub-header.html'"></div>
 
 <div data-ng-controller="FingoMovieDetailController">
   <main data-ng-controller="FingoUserWishMoviesController">
@@ -38,7 +19,6 @@
     <h1>봤어요 목록</h1>
     <div class="movie-list" data-ng-controller="FingoMovieScoreController">
       <figure data-ng-repeat="movie in wish_movie.results" data-ng-mouseover="getScore($event, movie.movie.id)">
-        <p></p>
         <img data-ng-src="{{movie.movie.img}}" alt="">
         <!-- <img
           src="{{selected_movie.image}}"
@@ -46,17 +26,16 @@
           alt=""> -->
 
         <div class="hover">
-          <!-- ng-click="popup_show(movie.movie, movie.movie.id, 'active')" -->
-          <div class="movie-info-click-on" ng-click="popup_show(movie.movie, movie.movie.id, 'active')"></div>
+          <div class="movie-info-click-on"  data-ui-sref="movies.detail({id : movie.movie.id})"></div>
           <h3>{{movie.movie.title}}</h3>
           <div data-fingo-movie-score-directive data-movie-id="movie.movie.id"></div>
-          <!-- data-ladda="share_data.is_creating" -->
-          <!-- data-ui-sref="main.comment({'id': movie.movie.id})" -->
+
+
           <button
           type="button"
           class="heart-btn"
           data-ng-controller="FingoWishMoviesController"
-          data-ng-click="WishMovies('True')"
+          data-ng-click="WishMovies('True', movie.movie.id)"
           ><img src="./images/icon-heart.svg" alt="보고싶어요">보고싶어요</button>
           <button type="button" class="like-btn"><img src="./images/icon-comment.svg" alt="코멘트">코멘트 쓰기</button>
           <!-- ng-click="wishStyle={'background-color':'#be3c39'}" -->
@@ -67,7 +46,8 @@
     </section>
   </main>
 
-  <div class="dim-movie-info" ng-class="popup_show_active" >
+  <div data-ui-view></div>
+  <!-- <div class="dim-movie-info" ng-class="popup_show_active" >
   <div class="dim-movie-bg" ng-click="popup_show(movie, 0, '')"></div>
   <div class="movie-info">
       <div class="steel-cut-carousel">
@@ -272,6 +252,6 @@
       </section>
 
     </div>
-  </div>
+  </div> -->
 </div>
 <div data-ng-include="'views/footer.html'"></div>

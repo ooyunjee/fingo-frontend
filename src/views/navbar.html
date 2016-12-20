@@ -32,11 +32,14 @@
         <input type="search" placeholder="Search" required name="" value="" data-ng-model="keyword" required>
         <button type="submit" data-ng-click="fingo_search(keyword)"><img src="./images/icon-search.svg" alt="검색버튼"></button>
       </form>
-      <div class="profile-menu">
+      <div class="profile-menu" data-ng-controller="FingoUserDetailController">
         <a href="#" data-ui-sref="wish">
           <h1>프로필</h1>
-          <p>이름</p>
-          <img src="./images/icon-profile.svg" alt="프로필 사진">
+          <p>{{user_detail.user_profile.nickname}}</p>
+          <img
+          data-ng-src="{{user_detail.user_profile.user_img}}"
+          src="./images/icon-profile.svg" alt="프로필 사진">
+        </div>
         </a>
       </div>
     </div>
