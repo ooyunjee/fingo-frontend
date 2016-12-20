@@ -1,11 +1,9 @@
- <div data-ng-controller="FingoSearchController">
-    <div data-ng-include="'views/navbar.html'"></div>
-  </div>
+ <div data-fingo-nav-directive></div>
   <header class="main-header" data-ng-controller="FingoBoxOfficeDetailController">
     <div data-fingo-header-carousel></div>
   </header>
   <main class="main-main">
-    <section class="main-box-office" data-ng-controller="FingoBoxOfficeController">
+    <section id="boxoffice" class="main-box-office" data-ng-controller="FingoBoxOfficeController">
       <div class="container">
         <h1>BOX OFFCE</h1>
         <p class="main-box-office-desc">오늘의 박스 오피스 순위 입니다.</p>
