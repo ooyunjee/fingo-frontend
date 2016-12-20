@@ -1,6 +1,5 @@
 <div  data-ng-controller="FingoMovieDetailController">
   <div class="dim-movie-info" ng-class="popup_show_active" >
-    <!--  data-ng-click="dim_show('hide')" -->
   <div class="dim-movie-bg" ng-click="popup_show(movie, 0, 'hide')"></div>
   <div class="movie-info">
     <div class="steel-cut-carousel">
@@ -12,12 +11,6 @@
         <figure class="steel-cut-list"  data-ng-repeat="stillcut in fingo_movie_detail.stillcut">
           <img data-ng-src="{{stillcut.img}}" alt="">
         </figure>
-        <!-- <ul class="items-wrap" scrolly="showMore()"> -->
-           <!-- <li class="item" ng-repeat="item in items">{{item.name}}</li> -->
-        <!-- </ul> -->
-        <!-- <figure class="steel-cut-02">
-          <img src="./images/steel-cut.jpg" alt="">
-        </figure> -->
       </div>
     </div>
     <section class="movie-section-01">
@@ -44,11 +37,6 @@
         <span>{{fingo_movie_detail.first_run_date}}</span>
       </p>
       <div class="rating-stars">
-        <!-- <span><img src="./images/star-on.svg" alt=""></span>
-        <span><img src="./images/star-on.svg" alt=""></span>
-        <span><img src="./images/star-on.svg" alt=""></span>
-        <span><img src="./images/star-on.svg" alt=""></span>
-        <span><img src="./images/star-off.svg" alt=""></span> -->
         <span>[{{fingo_movie_detail.score}}]</span>
       </div>
       <div class="set-rating">
@@ -62,19 +50,14 @@
       <div>
         <h2>감독</h2>
         <div class="director" data-ng-repeat="director in fingo_movie_detail.director">
-          <!-- <div class="movie-section-03-img-box"> -->
             <img data-ng-src="{{director.img}}" alt="감독 이미지">
-          <!-- </div> -->
           <p>{{director.name}}</p>
         </div>
       </div>
       <div>
         <h2>주연</h2>
         <div class="actor"  data-ng-repeat="actors in fingo_movie_detail.actors |  limitTo:length_item as results">
-          <!-- | loadMore : item -->
-          <!-- <div class="movie-section-03-img-box"> -->
             <img data-ng-src="{{actors.actor.img}}" alt="배우 이미지">
-          <!-- </div> -->
           <p>{{actors.actor.name}}</p>
           <p>{{actors.role}}</p>
         </div>
@@ -84,7 +67,6 @@
       </div>
     </section>
     <section class="movie-section-04" >
-      <!-- data-ng-controller="FingoMovieDetailCommentController" -->
       <h2>코멘트</h2>
       <div data-ng-repeat="results in fingo_movie_detail_comment.results">
         <div class="profile">
@@ -92,21 +74,14 @@
         </div>
         <p class="user-name">{{results.user.nickname}}</p>
         <div class="rating-stars">
-          <!-- <span><img src="./images/star-on.svg" alt=""></span>
-          <span><img src="./images/star-on.svg" alt=""></span>
-          <span><img src="./images/star-on.svg" alt=""></span>
-          <span><img src="./images/star-on.svg" alt=""></span>
-          <span><img src="./images/star-off.svg" alt=""></span> -->
           <span>[{{results.score}}]</span>
         </div>
         <p class="comment">{{results.comment}}</p>
         <time>2016</time>
       </div>
-      <pre>{{fingo_movie_detail_comment.results.length | json}}</pre>
-      <pre>{{comment_length_item | json}}</pre>
-      <!-- <div ng-hide="fingo_movie_detail_comment.results.length <= comment_length_item" > -->
-        <!-- <button type="button" name="button"  data-ng-click="comment_length_num(2)">더보기</button> -->
-      <!-- </div> -->
+      <div ng-hide="fingo_movie_detail_comment.results.length <= comment_length_item" > -->
+        <button type="button" name="button"  data-ng-click="comment_length_num(2)">더보기</button>
+      </div>
     </section>
 
   </div>

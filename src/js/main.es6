@@ -89,7 +89,7 @@ fingo.config([
       })
       .state('wish.comment', {
         'url'         : '/comment/:id',
-        'templateUrl' : 'views/FingoMovieDetail.html',
+        'templateUrl' : 'views/FingoAddComment.html',
         'controller'  : 'FingoAddCommentController',
         'css' : ['css/add-comment.css', 'css/wish.css']
       })
