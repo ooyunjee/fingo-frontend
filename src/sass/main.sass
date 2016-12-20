@@ -198,46 +198,6 @@ $bp-tablet: 1024px
         +size(232px 335px)
         +mobile
           +size(100% auto)
-      .hover
-        +position(absolute, top 0 z-index 10)
-        +size(100%)
-        +padding(left 1.2em right 1.2em)
-        display: none
-        cursor: pointer
-        background: rgba(#000000, 0.85)
-        +mobile
-          +size(100% 100%)
-        h3
-          +margin(top 55px bottom 35px)
-          +padding(bottom 1em)
-          border-bottom: 1px solid rgba($fingo-main-color, 0.4)
-          font-size: 16px
-          +mobile
-            font-size: 30px
-        .stars
-          +margin(bottom 35px)
-        button
-          +margin(bottom 10px left auto right auto)
-          +size(100px 35px)
-          line-height: 32px
-          font-size: 14px
-          display: block
-          color: $fingo-white
-          border: 1px solid currentColor
-          &:nth-of-type(1)
-            &.active
-              +background(color $fingo-heart)
-              border: 1px solid $fingo-heart
-            &:hover
-              +background(color $fingo-heart)
-              border: 1px solid $fingo-heart
-          &:nth-of-type(2)
-            &.active
-              +background(color #27569c)
-              border: 1px solid #27569c
-            &:hover
-              +background(color #27569c)
-              border: 1px solid #27569c
 
 
 // * --------------------------------
