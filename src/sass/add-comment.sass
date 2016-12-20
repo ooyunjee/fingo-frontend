@@ -72,7 +72,7 @@ button
         +position(absolute, left 30px)
         +size(80px 115px)
       .modal-stars
-        color: $fingo-white
+        color: $fingo-main-color
       .modal-textarea
         +margin(top 10px)
         +size(100% 130px)
@@ -131,7 +131,12 @@ button
         font-size: 14px
         color: #cacaca
         font-weight: lighter
-      button
+        &:last-of-type
+          +margin(top 10px)
+      .stars
+        +margin(0)
+
+      // button
         +size(100px 35px)
         border: 1px solid $fingo-white
         color: $fingo-white

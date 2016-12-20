@@ -9,7 +9,8 @@ angular
       'controller': 'FingoMovieScoreController',
       'replace': true,
       'scope': {
-        'movieId': '='
+        'movieId': '=',
+        'movieScore': '='
       }
     };
   });
