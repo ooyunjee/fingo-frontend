@@ -5,80 +5,69 @@
 <div data-ng-include="'views/sub-header.html'"></div>
 
 
-<div data-ng-controller="FingoMovieDetailController">
-  <main data-ng-controller="FingoUserCommentController">
-      <div class="sub-menu">
-        <ul class="container">
-          <li><a href="#">취향통계분석</a></li>
-          <li><a href="/#/wish">보고싶어요</a></li>
-          <li><a href="/#/movies">봤어요</a></li>
-          <li><a href="/#/comments">코멘트</a></li>
-        </ul>
-      </div>
+<main data-ng-controller="FingoUserCommentController">
+    <div class="sub-menu">
+      <ul class="container">
+        <li><a href="#">취향통계분석</a></li>
+        <li><a href="/#/wish">보고싶어요</a></li>
+        <li><a href="/#/movies">봤어요</a></li>
+        <li><a href="/#/comments">코멘트</a></li>
+      </ul>
+    </div>
 
-    <section class="container movies">
-      <h1>코멘트 목록</h1>
-      <div class="movie-list">
-        <article class="user-comment"
-          data-ng-repeat="movie in user_comment.results"
-          data-ng-controller="FingoMovieScoreController">
-          <figure data-ng-mouseover="getScore($event, movie.movie.id)">
-            <p></p>
-            <img data-ng-src="{{movie.movie.img}}" alt="">
-            <!-- <img
-              src="{{selected_movie.image}}"
-              data-ng-src="{{movie.image}}"
-              alt=""> -->
-
-              <div class="hover">
-                <div class="movie-info-click-on" data-ui-sref="movies.detail({id : movie.movie.id})"></div>
-                <h3>{{movie.movie.title}}</h3>
-                <div data-fingo-movie-score-directive data-movie-id="movie.movie.id"></div>
-
-              <button
+  <section class="container movies">
+    <h1>코멘트 목록</h1>
+    <div class="movie-list">
+      <article class="user-comment"
+        data-ng-repeat="movie in user_comment.results"
+        data-ng-controller="FingoMovieScoreController"
+      >
+        <figure data-ng-mouseover="getScore($event, movie.movie.id)">
+          <img data-ng-src="{{movie.movie.img}}" alt="">
+          <div class="hover" data-ui-sref="comments.detail({id : movie.movie.id})">
+            <h3>{{movie.movie.title}}</h3>
+            <div data-fingo-movie-score-directive data-movie-id="movie.movie.id" data-movie-score="currentScore"></div>
+            <button
               type="button"
               class="heart-btn"
               data-ng-click="WishMovies('True')"
-              ><img src="./images/icon-heart.svg" alt="보고싶어요">보고싶어요</button>
-              <button type="button" class="like-btn"><img src="./images/icon-comment.svg" alt="코멘트">코멘트 쓰기</button>
-              <!-- ng-click="wishStyle={'background-color':'#be3c39'}" -->
-            </div>
-            <!--  data-ng-click="offScroll={'overflow-y':'hidden'}" -->
-          </figure>
-          <div class="comment-box" >
-            <div class="movie-comment" >
-              <h2>{{movie.movie.title}}</h2>
-              <!-- <p class="info">
-                <span data-ng-repeat="genre in fingo_movie_detail.genre">{{genre.name}}</span> |
-                <span data-ng-repeat="nation_code in fingo_movie_detail.nation_code">{{nation_code.name}}</span> |
-                <span>{{movie.activity_time}}</span>
-              </p> -->
-            </div>
-            <div class="rating-stars">
-              <span><img src="./images/star-on.svg" alt=""></span>
-              <span><img src="./images/star-on.svg" alt=""></span>
-              <span><img src="./images/star-on.svg" alt=""></span>
-              <span><img src="./images/star-on.svg" alt=""></span>
-              <span><img src="./images/star-off.svg" alt=""></span>
-              <span>[{{fingo_movie_detail.score}}]</span>
-            </div>
-            <div class="comment">
-              <p>{{movie.comment}}</p>
-              <time datetime="2016-12-30">{{movie.activity_time}}</time>
-            </div>
-            <section class="received-likes">
-              <h1>받은 좋아요</h1>
-              <img src="./images/icon-like.svg" alt="좋아요">
-              <strong>000</strong>
-            </section>
-            <button type="button" name="button">수정</button>
-            <button type="button" name="button">삭제</button>
+            ><img src="./images/icon-heart.svg" class="icon">보고싶어요</button>
+            <button
+              type="button"
+              class="like-btn"
+              data-ui-sref="comments.comment({'id': movie.movie.id})"
+              data-ng-click="$event.stopPropagation()"
+            ><img src="./images/icon-comment.svg" class="icon">코멘트 쓰기</button>
           </div>
-        </article>
-      </div>
-    </section>
-  </main>
+        </figure>
+        <div class="comment-box" >
+          <div class="movie-comment" >
+            <h2>{{movie.movie.title}}</h2>
+          </div>
+          <div class="rating-stars">
+            <span><img src="./images/star-on.svg" alt=""></span>
+            <span><img src="./images/star-on.svg" alt=""></span>
+            <span><img src="./images/star-on.svg" alt=""></span>
+            <span><img src="./images/star-on.svg" alt=""></span>
+            <span><img src="./images/star-off.svg" alt=""></span>
+            <span>[{{fingo_movie_detail.score}}]</span>
+          </div>
+          <div class="comment">
+            <p>{{movie.comment}}</p>
+            <time datetime="2016-12-30">{{movie.activity_time}}</time>
+          </div>
+          <section class="received-likes">
+            <h1>받은 좋아요</h1>
+            <img src="./images/icon-like.svg" alt="좋아요">
+            <strong>000</strong>
+          </section>
+          <button type="button" name="button">수정</button>
+          <button type="button" name="button">삭제</button>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
 
-
-  </div>
-  <div data-ng-include="'views/footer.html'"></div>
+<div data-ui-view></div>
+<div data-ng-include="'views/footer.html'"></div>

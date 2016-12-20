@@ -57,6 +57,7 @@ fingo.config([
         'controller'  : 'FingoSignupController',
         'css' : 'css/signup.css'
       })
+      // main
       .state('main', {
         'url'         : '/main',
         'templateUrl' : 'views/main.html',
@@ -68,23 +69,35 @@ fingo.config([
         'controller'  : 'FingoAddCommentController',
         'css' : ['css/add-comment.css', 'css/main.css']
       })
-      .state('search', {
-        'url'         : '/search',
-        'templateUrl' : 'views/search.html',
-        'css' : 'css/search.css'
+      .state('main.detail', {
+        'url'         : '/detail/:id',
+        'templateUrl' : 'views/FingoMovieDetail.html',
+        'controller'  : 'FingoMovieDetailController',
+        'css' : ['css/movie-info.css', 'css/main.css']
       })
+      // wish
       .state('wish', {
         'url'         : '/wish',
         'templateUrl' : 'views/wish.html',
         'css' : 'css/wish.css'
       })
+      .state('wish.detail', {
+        'url'         : '/detail/:id',
+        'templateUrl' : 'views/FingoMovieDetail.html',
+        'controller'  : 'FingoMovieDetailController',
+        'css' : ['css/movie-info.css', 'css/wish.css']
+      })
+      .state('wish.comment', {
+        'url'         : '/comment/:id',
+        'templateUrl' : 'views/FingoAddComment.html',
+        'controller'  : 'FingoAddCommentController',
+        'css' : ['css/add-comment.css', 'css/wish.css']
+      })
+      // movies
       .state('movies', {
         'url'         : '/movies',
         'templateUrl' : 'views/movies.html',
         'css' : 'css/movies.css'
-        // 'controller'  : 'ListController',
-        // 'controller' : 'FingoMovieDetailController'
-        //sub moviespage
       })
       .state('movies.comment', {
         'url'         : '/comment/:id',
@@ -92,22 +105,35 @@ fingo.config([
         'controller'  : 'FingoAddCommentController',
         'css' : ['css/add-comment.css', 'css/movies.css']
       })
-      .state('comments', {
-        'url'         : '/comments',
-        'templateUrl' : 'views/comments.html',
-        'css' : 'css/comments.css'
-      })
       .state('movies.detail', {
         'url'         : '/detail/:id',
         'templateUrl' : 'views/FingoMovieDetail.html',
         'controller'  : 'FingoMovieDetailController',
         'css' : ['css/movie-info.css', 'css/movies.css']
       })
-      .state('wish.detail', {
+      // comments
+      .state('comments', {
+        'url'         : '/comments',
+        'templateUrl' : 'views/comments.html',
+        'css' : 'css/comments.css'
+      })
+      .state('comments.comment', {
+        'url'         : '/comment/:id',
+        'templateUrl' : 'views/FingoAddComment.html',
+        'controller'  : 'FingoAddCommentController',
+        'css' : ['css/add-comment.css', 'css/comments.css']
+      })
+      .state('comments.detail', {
         'url'         : '/detail/:id',
         'templateUrl' : 'views/FingoMovieDetail.html',
         'controller'  : 'FingoMovieDetailController',
-        'css' : ['css/movie-info.css', 'css/wish.css']
+        'css' : ['css/movie-info.css', 'css/comments.css']
+      })
+      // search
+      .state('search', {
+        'url'         : '/search',
+        'templateUrl' : 'views/search.html',
+        'css' : 'css/search.css'
       });
 
     $urlRouterProvider.otherwise('/');
