@@ -170,6 +170,7 @@ require('./directives/FingoBoxOfficeList');
 require('./directives/FingoBoxOfficeCarousel');
 require('./directives/FingoMovieRankingCarousel');
 require('./directives/FingoMovieScoreDirective');
+require('./directives/FingoNavDirective');
 // require('./directives/FingoAddCommentDirective');
 
 // Services

@@ -23,23 +23,22 @@
         </button>
       </div>
       <ul class="main-menu">
-        <li><a href="#">박스 오피스</a></li>
-        <li><a href="#">추천영화</a></li>
-        <li><a href="#">평가늘리기</a></li>
+        <li><a href>박스오피스</a></li>
+        <li><a href>추천영화</a></li>
+        <li><a href>평가늘리기</a></li>
       </ul>
       <form action="" >
         <label for="">검색창</label>
-        <input type="search" placeholder="Search" required name="" value="" data-ng-model="keyword" required>
+        <input type="search" placeholder="Search" name="" value="" data-ng-model="keyword" required>
         <button type="submit" data-ng-click="fingo_search(keyword)"><img src="./images/icon-search.svg" alt="검색버튼"></button>
       </form>
       <div class="profile-menu" data-ng-controller="FingoUserDetailController">
-        <a href="#" data-ui-sref="wish">
+        <a href data-ui-sref="wish">
           <h1>프로필</h1>
           <p>{{user_detail.user_profile.nickname}}</p>
           <img
           data-ng-src="{{user_detail.user_profile.user_img}}"
           src="./images/icon-profile.svg" alt="프로필 사진">
-        </div>
         </a>
       </div>
     </div>
