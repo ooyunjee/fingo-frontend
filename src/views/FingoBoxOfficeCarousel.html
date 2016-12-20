@@ -1,0 +1,23 @@
+<div id="main-box-office-carousel">
+  <ul>
+    <li data-ng-repeat="movie in fingo_movies" class="{{$index + 1}}"><a href></a></li>
+  </ul>
+  <div data-ng-controller="FingoMovieScoreController">
+    <figure
+      data-ng-repeat="movie in fingo_movies"
+      data-ng-init="$last && repeatComplete()"
+      data-ng-mouseover="getScore($event, movie.movie.id)"
+      >
+      <a href="#">
+        <img data-ng-src="{{movie.movie.img}}" alt="">
+        <p class="box-office-movie-title"><span>{{movie.rank}}위</span> {{movie.movie.title}}</p>
+        <div class="hover">
+          <h3>{{movie.movie.title}}</h3>
+          <div data-fingo-movie-score-directive data-movie-id="movie.movie.id" data-movie-score="currrentScore"></div>
+          <button type="button" class="heart-btn" data-ng-click="$event.preventDefault();"><img src="./images/icon-heart.svg" class="icon">보고싶어요</button>
+          <button type="button" class="like-btn" data-ui-sref="main.comment({'id': movie.movie.id})"><img src="./images/icon-comment.svg" class="icon">코멘트 쓰기</button>
+        </div>
+      </a>
+    </figure>
+  </div>
+</div>
