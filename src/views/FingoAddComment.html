@@ -1,14 +1,14 @@
 <div class="comment-dim-container modal" data-ng-class="dim_class">
   <div class="dim" data-ng-click="dim_show('hide')"></div>
   <div class="modal-window modal">
-    <h3 class="modal-headline">{{fingo_title}}<button class="modal-rank-btn" aria-label="별점 남기기" data-ng-click="dim2_show('show')"></button></h3>
+    <h3 class="modal-headline">{{fingo_title}}<button class="modal-rank-btn" aria-label="별점 남기기 버튼" data-ng-click="dim2_show('show')"></button></h3>
     <div class="modal-contents">
       <img class="modal-poster" src="{{fingo_img}}">
       <span class="modal-stars">[{{fingo_score}}]</span>
       <textarea class="modal-textarea" placeholder="이 영화에 대한 생각을 자유롭게 표현해주세요." data-ng-model="fingo_comment">{{fingo_comment}}</textarea>
-      <button type="button" class="modal-ok-button" aria-label="Enter comment" data-ng-click="addComment(fingo_comment)">확인</button>
+      <button type="button" class="modal-ok-button" aria-label="코멘트 저장하기" data-ng-click="addComment(fingo_comment)">확인</button>
     </div>
-    <button type="button" class="modal-close-button" aria-label="Close Modal Window" data-ui-sref="main">x</button>
+    <button type="button" class="modal-close-button" aria-label="코멘트 남기기 창 닫기" data-ng-click="dim_show('hide')">x</button>
     <div class="modal-rank-window" data-ng-class="dim2_class" data-ng-controller="FingoMovieScoreController" data-ng-mouseover="getScore($event, fingo_id)">
       <div class="dim2" data-ng-click="dim2_show('hide')"></div>
       <div class="modal-rank-contents modal">
