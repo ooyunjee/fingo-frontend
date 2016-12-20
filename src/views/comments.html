@@ -1,19 +1,15 @@
-<div data-ng-controller="FingoSearchController">
-   <div data-ng-include="'views/navbar.html'"></div>
-</div>
-
+<div data-fingo-nav-directive></div>
 <div data-ng-include="'views/sub-header.html'"></div>
 
-
 <main data-ng-controller="FingoUserCommentController">
-    <div class="sub-menu">
-      <ul class="container">
-        <li><a href="#">취향통계분석</a></li>
-        <li><a href="/#/wish">보고싶어요</a></li>
-        <li><a href="/#/movies">봤어요</a></li>
-        <li><a href="/#/comments">코멘트</a></li>
-      </ul>
-    </div>
+  <div class="sub-menu">
+    <ul class="container">
+      <li><a href>취향통계분석</a></li>
+      <li><a href="/#/wish">보고싶어요</a></li>
+      <li><a href="/#/movies">봤어요</a></li>
+      <li><a href="/#/comments">코멘트</a></li>
+    </ul>
+  </div>
 
   <section class="container movies">
     <h1>코멘트 목록</h1>
