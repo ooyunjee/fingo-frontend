@@ -7,6 +7,9 @@ angular
       'restrict': 'EA',
       'templateUrl': 'views/FingoMovieScore.html',
       'controller': 'FingoMovieScoreController',
-      'replace': true
+      'replace': true,
+      'scope': {
+        'movieId': '='
+      }
     };
   });

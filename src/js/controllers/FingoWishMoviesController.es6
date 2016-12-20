@@ -22,7 +22,7 @@ angular
     });
 
   }])
-  .controller('FingoWishMoviesController', function($scope, FingoWishMovies) {
+  .controller('FingoWishMoviesController', [ '$scope', 'FingoWishMovies', function($scope, FingoWishMovies) {
 
     $scope.WishMovies = function(bool,movie, id) {
       console.log('on2');
@@ -43,4 +43,4 @@ angular
       });
     };
 
-  })
+  }]);

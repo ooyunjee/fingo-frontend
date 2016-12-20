@@ -37,7 +37,7 @@
     <section class="container movies">
       <h1>코멘트 목록</h1>
       <div class="movie-list">
-        <article class="user-comment"  data-ng-repeat="movie in user_comment.results">
+        <article class="user-comment"  data-ng-repeat="movie in user_comment.results" data-ng-controller="FingoMovieScoreController">
           <figure data-ng-mouseover="getScore($event, movie.movie.id)">
             <p></p>
             <img data-ng-src="{{movie.movie.img}}" alt="">
@@ -50,7 +50,7 @@
               <!-- ng-click="popup_show(movie.movie, movie.movie.id, 'active')" -->
               <div class="movie-info-click-on" ng-click="popup_show(movie.movie, movie.movie.id, 'active')"></div>
               <h3>{{movie.movie.title}}</h3>
-              <div data-fingo-movie-score-directive></div>
+              <div data-fingo-movie-score-directive data-movie-id="movie.movie.id"></div>
               <!-- data-ladda="share_data.is_creating" -->
               <button
               type="button"

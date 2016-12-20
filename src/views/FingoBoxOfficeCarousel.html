@@ -2,7 +2,7 @@
   <ul>
     <li data-ng-repeat="movie in fingo_movies" class="{{$index + 1}}"><a href></a></li>
   </ul>
-  <div>
+  <div data-ng-controller="FingoMovieScoreController">
     <figure
       data-ng-repeat="movie in fingo_movies"
       data-ng-init="$last && repeatComplete()"
@@ -13,7 +13,7 @@
         <p class="box-office-movie-title"><span>{{movie.rank}}위</span> {{movie.movie.title}}</p>
         <div class="hover">
           <h3>{{movie.movie.title}}</h3>
-          <div data-fingo-movie-score-directive></div>
+          <div data-fingo-movie-score-directive data-movie-id="movie.movie.id"></div>
           <button type="button" class="heart-btn" data-ng-click="$event.preventDefault();"><img src="./images/icon-heart.svg" class="icon">보고싶어요</button>
           <button type="button" class="like-btn" data-ui-sref="main.comment({'id': movie.movie.id})"><img src="./images/icon-comment.svg" class="icon">코멘트 쓰기</button>
           <!-- <button type="button" data-ng-click="Comment(movie.movie.id); $event.preventDefault();">코멘트 쓰기</button> -->
