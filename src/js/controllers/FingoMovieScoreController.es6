@@ -19,11 +19,11 @@ angular.module('FingoApp')
       .success(function(data, status, headers, config) {
         if( data ) {
           /* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
-          $scope.currrentScore = data.score * 2;
+          $scope.currentScore = data.score * 2;
 
           angular.element(event.currentTarget.querySelectorAll('label')).css('color', '#999');
-          if($scope.currrentScore != 0) {
-            for(let i = 0, l = $scope.currrentScore; i <= l; i++) {
+          if($scope.currentScore != 0) {
+            for(let i = 0, l = $scope.currentScore; i <= l; i++) {
               angular.element(event.currentTarget.querySelector('.star' + i)).css('color', '#e7ae5a');
             }
           }
