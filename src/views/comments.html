@@ -17,10 +17,10 @@
 
   <section class="container movies">
     <h1>코멘트 목록</h1>
-    <div class="movie-list">
-      <article class="user-comment"
+    <div class="movie-list" data-ng-controller="FingoMovieScoreController">
+      <div
+        class="user-comment"
         data-ng-repeat="movie in user_comment.results"
-        data-ng-controller="FingoMovieScoreController"
       >
         <figure data-ng-mouseover="getScore($event, movie.movie.id)">
           <img data-ng-src="{{movie.movie.img}}" alt="">
@@ -41,30 +41,32 @@
           </div>
         </figure>
         <div class="comment-box" >
-          <div class="movie-comment" >
-            <h2>{{movie.movie.title}}</h2>
-          </div>
+          <h2>{{movie.movie.title}}</h2>
           <div class="rating-stars">
             <span><img src="./images/star-on.svg" alt=""></span>
             <span><img src="./images/star-on.svg" alt=""></span>
             <span><img src="./images/star-on.svg" alt=""></span>
             <span><img src="./images/star-on.svg" alt=""></span>
             <span><img src="./images/star-off.svg" alt=""></span>
-            <span>[{{fingo_movie_detail.score}}]</span>
+            <span>[{{movie.score}}]</span>
           </div>
-          <div class="comment">
-            <p>{{movie.comment}}</p>
-            <time datetime="2016-12-30">{{movie.activity_time}}</time>
+          <p class="comment">{{movie.comment}}</p>
+          <time>{{movie.activity_time | dateTime}}</time>
+          <div class="received-likes">
+            <h4>받은 좋아요</h4>
+            <img src="./images/icon-like.svg">
+            <strong>100</strong>
           </div>
-          <section class="received-likes">
-            <h1>받은 좋아요</h1>
-            <img src="./images/icon-like.svg" alt="좋아요">
-            <strong>000</strong>
-          </section>
-          <button type="button" name="button">수정</button>
-          <button type="button" name="button">삭제</button>
+          <div class="comment-btn-group">
+            <button
+              type="button"
+              data-ui-sref="comments.comment({'id': movie.movie.id})"
+              data-ng-click="$event.stopPropagation()"
+            >수정</button>
+            <!-- <button type="button" name="button">삭제</button> -->
+          </div>
         </div>
-      </article>
+      </div>
     </div>
   </section>
 </main>

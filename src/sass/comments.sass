@@ -48,7 +48,6 @@ main
           +background(color $fingo-main-color)
           clear: both
           transform: scale(0)
-          // transition: all 0.3s
         &:nth-child(4)::after
           transform: scale(1)
         &:hover::after
@@ -64,8 +63,6 @@ main
 
 .movies
   +margin(top 60px)
-
-
   h1
     @extend %a11y-hidden
   .movie-list
@@ -80,86 +77,69 @@ main
       display: block
       clear: both
 
-    figure
-      float: left
-      +margin( bottom 20px)
-      // transition: 0.3s all
-      position: relative
 
-      +mobile
-        background-color: pink
-        +margin(right 20px auto)
-        +size(350px 500px)
 
-      img
-        +size(200px 300px)
-        +mobile
-          +size(350px 500px)
-      .hover
-        h3
-          +margin(top 45px)
-    
-
-.comment-box
-  +margin(right 20px bottom 20px)
-  position: relative
+.user-comment
+  +margin(right 20px bottom 25px)
+  +size(600px 358px)
+  +background(color #222)
   float: left
-  color: $fingo-white
-  +size(200px 300px)
-  background-color: #222
-  +padding(top 30px left 25px right 25px)
-  box-sizing: border-box
-  +tablet
-    +margin(right 0)
-  .movie-comment
-    h2
-      font-size: 16px
-      +margin(bottom 6px)
-    .info
-      font-size: 12px
-      color: $fingo-font-dd
-  .rating-stars
-    font-size: 10px
-    +margin(top 5px bottom 15px)
-
-  .comment
-    color: $fingo-font-dd
-    p
-      font-size: 12px
-    time
-      font-size: 10px
-  .received-likes
-    +margin(top 70px right 30px)
+  figure
+    +size(250px auto)
+    +margin(bottom 20px)
+    position: relative
     float: left
-    // +position(absolute, top 0 left 0)
-    strong
-      font-weight: normal
-      font-size: 14px
+    +mobile
+      background-color: pink
+      +margin(right 20px auto)
+      +size(350px 500px)
     img
-      +margin(top 6px)
-  button
+      +size(100%)
+    .hover
+      h3
+        +margin(top 65px)
+        font-size: 18px
 
-    border: 1px solid #777
-    color: #777
-    font-size: 12px
-    +margin(top 70px )
-    +padding(5px 5px)
-  button:hover
-    border: 1px solid #fff
-    color: $fingo-white
-// .comment-box:nth-child(5n)
-//   margin-right: 0px
-//   +tablet
-//     .comment-box:nth-child(2n)
-//       margin-right: 0px
-.comment-box
-  margin-right: 20px
-.comment-box:nth-child(6n)
-  margin-right: 0px
-  +tablet
-    .comment-box:nth-child(4n)
-      margin-right: 0px
-.stars
-  +margin(bottom 30px)
-  // +background(color #333)
+  .comment-box
+    position: relative
     float: left
+    color: $fingo-white
+    +size(350px 100%)
+    +padding(top 30px left 30px right 30px)
+    box-sizing: border-box
+    +tablet
+      +margin(right 0)
+    h2
+      +margin(bottom 6px)
+      width: 80%
+      font-size: 18px
+    .rating-stars
+      +margin(top 10px bottom 30px)
+      font-size: 12px
+    .comment
+      font-size: 15px
+      color: $fingo-font-dd
+    time
+      +position(absolute, bottom 30px left 30px)
+      font-weight: lighter
+      font-size: 13px
+      color: $fingo-font-dd
+    .received-likes
+      +position(absolute, top 30px right 30px)
+      color: $fingo-font-dd
+      h4
+        @extend %a11y
+      strong
+        font-weight: normal
+        font-size: 14px
+      img
+        +margin(top 6px)
+    button
+      +position(absolute, bottom 30px right 30px)
+      +padding(5px 5px)
+      border: 1px solid #777
+      color: #777
+      font-size: 12px
+    button:hover
+      border: 1px solid #fff
+      color: $fingo-white
