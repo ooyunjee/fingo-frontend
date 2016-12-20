@@ -14,7 +14,7 @@ angular.module('FingoApp')
       }
     });
   }])
-  .controller('FingoBoxOfficeDetailController', ($scope, FingoBoxofficeDetail)=>{
+  .controller('FingoBoxOfficeDetailController', [ '$scope', 'FingoBoxofficeDetail', ($scope, FingoBoxofficeDetail)=>{
 
     FingoBoxofficeDetail.get(function(data) {
       $scope.fingo_boxoffice_detail = data.data;
@@ -22,4 +22,4 @@ angular.module('FingoApp')
        console.log('e',data);
     });
 
-  });
+  }]);
