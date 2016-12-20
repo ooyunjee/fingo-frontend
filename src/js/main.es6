@@ -134,6 +134,12 @@ fingo.config([
         'url'         : '/search',
         'templateUrl' : 'views/search.html',
         'css' : 'css/search.css'
+      })
+      .state('comments.detail.comment', {
+        'url'         : '/comment/:id',
+        'templateUrl' : 'views/FingoAddComment.html',
+        'controller'  : 'FingoAddCommentController',
+        'css' : ['css/add-comment.css', 'css/comments.css']
       });
 
     $urlRouterProvider.otherwise('/');
