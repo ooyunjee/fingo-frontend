@@ -21,7 +21,7 @@
           <p>{{fingo_movie_detail.title}}</p>
 
           <!-- stars -->
-          <div data-fingo-movie-score-directive data-movie-id="movie.movie.id"></div>
+          <div data-fingo-movie-score-directive data-movie-id="movie.movie.id" data-movie-score="currentScore"></div>
 
           <button type="button"
           data-ng-controller="FingoWishMoviesController"
@@ -57,7 +57,7 @@
       <div>
         <h2>주연</h2>
         <div class="actor"  data-ng-repeat="actors in fingo_movie_detail.actors |  limitTo:length_item as results">
-            <img data-ng-src="{{actors.actor.img}}" alt="배우 이미지">
+          <img data-ng-src="{{actors.actor.img}}" alt="{{actors.role}} 역 {{actors.actor.name}}">
           <p>{{actors.actor.name}}</p>
           <p>{{actors.role}}</p>
         </div>
@@ -79,7 +79,7 @@
         <p class="comment">{{results.comment}}</p>
         <time>2016</time>
       </div>
-      <div ng-hide="fingo_movie_detail_comment.results.length <= comment_length_item" > -->
+      <div ng-hide="fingo_movie_detail_comment.results.length <= comment_length_item" >
         <button type="button" name="button"  data-ng-click="comment_length_num(2)">더보기</button>
       </div>
     </section>

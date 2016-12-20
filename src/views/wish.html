@@ -4,7 +4,6 @@
 
 <div data-ng-include="'views/sub-header.html'"></div>
 
-<div>
   <main data-ng-controller="FingoUserWishMoviesController">
     <div class="sub-menu">
       <ul class="container">
@@ -22,15 +21,20 @@
         <img data-ng-src="{{movie.movie.img}}" alt="">
         <div class="hover" data-ui-sref="wish.detail({'id': movie.movie.id})">
           <h3>{{movie.movie.title}}</h3>
-          <div data-fingo-movie-score-directive data-movie-id="movie.movie.id"></div>
+          <div data-fingo-movie-score-directive data-movie-id="movie.movie.id" data-movie-score="currentScore"></div>
 
           <button
-          type="button"
-          class="heart-btn"
-          data-ng-controller="FingoWishMoviesController"
-          data-ng-click="WishMovies('True', movie.movie.id)"
+            type="button"
+            class="heart-btn"
+            data-ng-controller="FingoWishMoviesController"
+            data-ng-click="WishMovies('True', movie.movie.id)"
           ><img src="./images/icon-heart.svg" class="icon">보고싶어요</button>
-          <button type="button" class="like-btn" data-ui-sref="wish.comment({'id': movie.movie.id})" data-ng-click="$event.stopPropagation()"><img src="./images/icon-comment.svg" class="icon">코멘트 쓰기</button>
+          <button
+            type="button"
+            class="like-btn"
+            data-ui-sref="wish.comment({'id': movie.movie.id})"
+            data-ng-click="$event.stopPropagation()"
+          ><img src="./images/icon-comment.svg" class="icon">코멘트 쓰기</button>
         </div>
       </figure>
     </div>
