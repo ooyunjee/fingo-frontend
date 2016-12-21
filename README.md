@@ -3,7 +3,7 @@
 
 ----
 
-#### 브라우저 지원: IE 9 +  
+#### 브라우저 지원: Chrome, IE 9 +  
 #### 사용 기술: AngularJS, Gulp, Sass, JavaScript  
 
 ---
