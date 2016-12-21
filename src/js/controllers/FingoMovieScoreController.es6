@@ -21,9 +21,9 @@ angular.module('FingoApp')
           /* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
           $scope.currentScore = data.score * 2;
 
-          angular.element(event.currentTarget.querySelectorAll('label')).css('color', '#999');
+          // angular.element(event.currentTarget.querySelectorAll('label')).css('color', '#999');
           if($scope.currentScore != 0) {
-            for(let i = 0, l = $scope.currentScore; i <= l; i++) {
+            for(let i = 1, l = $scope.currentScore; i <= l; i++) {
               angular.element(event.currentTarget.querySelector('.star' + i)).css('color', '#e7ae5a');
             }
           }
@@ -59,6 +59,7 @@ angular.module('FingoApp')
       	if( data ) {
       		/* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
           console.log(data);
+          angular.element(event.currentTarget.querySelectorAll('label')).css('color', '#999');
       	}
       	else {
       		/* 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 */

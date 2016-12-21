@@ -26,7 +26,9 @@
             <button
               type="button"
               class="heart-btn"
-              data-ng-click="WishMovies('True')"
+              data-ng-controller="FingoWishMoviesController"
+              data-ng-class="wish_active"
+              data-ng-click="WishMovies(movie.movie.id); $event.preventDefault(); $event.stopPropagation();"
             ><img src="./images/icon-heart.svg" class="icon">보고싶어요</button>
             <button
               type="button"
@@ -63,6 +65,10 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="pagenation">
+      <button class="prev_btn" data-ng-click="movePage(prev_page)" data-ng-hide="prev_page==null" data-ng-show="prev_page!==null">previous</button>
+      <button class="next_btn" data-ng-click="movePage(next_page)" data-ng-hide="next_page==null" data-ng-show="next_page!==null">next</button>
     </div>
   </section>
 </main>

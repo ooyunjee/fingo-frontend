@@ -10,7 +10,8 @@
   a
     color: $fingo-white
   .container
-    padding-top: 40px
+    +padding(top 40px)
+    position: relative
     .footer-logo
       float: left
       margin-right: 50px
@@ -42,3 +43,5 @@
     .footer-sns-twitter
       &:hover
         background: #30758b
+    +mobile
+      +position(absolute, top 40px right 0)
