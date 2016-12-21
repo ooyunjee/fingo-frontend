@@ -1,43 +1,61 @@
 /*! FingoWishMoviesontroller.js © yamoo9.net, 2016 */
 'use strict';
-console.log('on');
 let angular = require('angular');
 
 angular
   .module('FingoApp')
-  .factory('FingoWishMovies', ['$resource','$stateParams', function($resource, $stateParams){
+  .controller('FingoWishMoviesController', ['$scope', '$http', function($scope, $http) {
 
-    //선택한 부분 아이디 필요
-    //http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/wish/ id값 /
-    let url = 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/wish/2/';
+    $scope.WishMovies = function(id) {
+      $scope.url = 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/wish/' + id + '/';
 
+      $http.get(
+        $scope.url,
+        { headers: {'Authorization': 'Token ' + window.localStorage['key1'] } }
+      )
+      .success(function(data, status, headers, config) {
+      	if( data ) {
+      		/* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
+          console.log('get',data.wish_movie);
+          if(data.wish_movie == true) {
+            $scope.sendWish($scope.url, 'False');
+            $scope.wish_active = '';
+          } else if(data.wish_movie == false){
+            $scope.sendWish($scope.url, 'True');
+            $scope.wish_active = 'active';
+          }
+      	}
+      	else {
+      		/* 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 */
+          console.log(error);
+      	}
+      })
+      .error(function(data, status, headers, config) {
+      	/* 서버와의 연결이 정상적이지 않을 때 처리 */
+      	console.log(status);
+      });
 
-    return $resource(url, {}, {
-        'create': {
-            method: 'POST',
-            headers: {'Authorization': 'Token 8b7e29cf10bd79af9f387f021d4a1cd0a8ecd291'}
-        }
-    });
+    };
 
-  }])
-  .controller('FingoWishMoviesController', ['$scope', 'FingoWishMovies', function($scope, FingoWishMovies) {
-
-    $scope.WishMovies = function(bool,movie, id) {
-      console.log('on2');
-      // console.log();
-      console.log(bool);
-      var entry = new FingoWishMovies();
-      // entry.wish_movie = $scope.boolean;
-      // $scope.movie_id = id;
-      // console.log('id값',$scope.movie_id);
-      entry.wish_movie = bool;
-      console.log('결과',entry.wish_movie);
-
-
-      entry.$create().then(function(response) {
-        console.log(response);
-      }, function errorCallback(response) {
-         console.log('error',response);
+    $scope.sendWish = function(url, bool) {
+      $http.post(
+        url,
+        { wish_movie: bool },
+        { headers: {'Authorization': 'Token ' + window.localStorage['key1'] } }
+      )
+      .success(function(data, status, headers, config) {
+      	if( data ) {
+      		/* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
+          console.log('post',data);
+      	}
+      	else {
+      		/* 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 */
+          console.log(error);
+      	}
+      })
+      .error(function(data, status, headers, config) {
+      	/* 서버와의 연결이 정상적이지 않을 때 처리 */
+      	console.log(status);
       });
     };
 

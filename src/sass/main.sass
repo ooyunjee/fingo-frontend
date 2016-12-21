@@ -342,15 +342,31 @@ $bp-tablet: 1024px
 .main-main
   .main-movie-ranking
     +size(100% auto)
-    +padding(bottom 200px)
+    +padding(top 115px bottom 200px)
     +background(color $fingo-bg-light)
+    text-align: center
     +mobile
       +size(100% auto)
+    h1
+      font-size: 20px
+      position: relative
+      &::after
+        content: ''
+        +position(absolute, bottom -20px left 50%)
+        +size(50px 1px)
+        transform: translateX(-50%)
+        display: block
+        background: #454545
+    .main-movie-ranking-desc
+      +margin(top 50px bottom 70px)
+      font-weight: lighter
+      +mobile
+        +margin(bottom 80px)
     .ui-carousel-tabpanel
       text-align: center
       +mobile
         +margin(right 20px)
-    .main-movie-ranking-btn-group
+    // .main-movie-ranking-btn-group
       +margin(bottom 40px left auto right auto)
       +padding(top 115px)
       +tablet

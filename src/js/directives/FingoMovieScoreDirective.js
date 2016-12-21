@@ -11,6 +11,10 @@ angular
       'scope': {
         'movieId': '=',
         'movieScore': '='
+      },
+      'link': function(scope, element, attrs) {
+        // var star_label = element.find('label');
+        // console.log(star_label);
       }
     };
   });

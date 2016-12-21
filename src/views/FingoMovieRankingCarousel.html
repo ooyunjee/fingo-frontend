@@ -16,7 +16,9 @@
           <button
             type="button"
             class="heart-btn"
-            data-ng-click="$event.preventDefault();"
+            data-ng-controller="FingoWishMoviesController"
+            data-ng-class="wish_active"
+            data-ng-click="WishMovies(movie.id); $event.preventDefault(); $event.stopPropagation();"
           ><img src="./images/icon-heart.svg" class="icon">보고싶어요</button>
           <button
             type="button"
