@@ -14,6 +14,8 @@ input
 // reset
 button
   @extend %reset-button
+img
+  @extend %reset-image
 
 // body
   // overflow-y: hidden
@@ -166,20 +168,24 @@ button
     width: 690px
     float: left
     +padding(left 30px top 50px bottom 40px)
-
     h2
       +margin(bottom 30px)
-    >div
+    > div
       // background-color: #111
       +size(630px auto)
       +margin(bottom 20px)
       .profile
-        height: 100px
-        // background-color: #000
+        +size(55px)
+        +margin(right 20px)
         float: left
+        overflow: hidden
+        border-radius: 50%
+        border: 1px solid $fingo-font-ad
         img
-          float: left
           +margin(right 15px)
+          +size(100%)
+          border-radius: 50%
+
       p
         display: inline-block
       .user-name

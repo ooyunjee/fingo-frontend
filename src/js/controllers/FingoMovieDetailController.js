@@ -13,7 +13,6 @@ angular.module('FingoApp')
   $scope.popup_show_active = false;
   $scope.length_item = 3;
   $scope.comment_length_item = 3;
-  var dataObject = 1;
 
   $rootScope.previousState = null;
   $rootScope.currentState = null;
@@ -38,14 +37,13 @@ angular.module('FingoApp')
   $http({
     method: 'GET', //방식
     url: 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/detail/'+$scope.movie_id+'/', /* 통신할 URL */
-    data: dataObject, /* 파라메터로 보낼 데이터 */
     headers: {'Authorization': 'Token ' + window.localStorage['key1']} //헤더
   })
   .success(function(data, status, headers, config) {
     if( data ) {
       /* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
       $scope.fingo_movie_detail = data;
-      console.log($scope.fingo_movie_detail);
+      console.log('detail',$scope.fingo_movie_detail);
     }
     else {
       /* 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 */
@@ -56,13 +54,12 @@ angular.module('FingoApp')
   $http({
     method: 'GET', //방식
     url: 'http://fingo2-dev.ap-northeast-2.elasticbeanstalk.com/api/v1.0/movie/detail/'+$scope.movie_id+'/comments/', /* 통신할 URL */
-    data: dataObject, /* 파라메터로 보낼 데이터 */
     headers: {'Authorization': 'Token ' + window.localStorage['key1']} //헤더
   })
   .success(function(data, status, headers, config) {
     if( data ) {
       $scope.fingo_movie_detail_comment = data;
-      console.log($scope.fingo_movie_detail_comment);
+      console.log('comment',$scope.fingo_movie_detail_comment);
     }
     else {
       /* 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 */
