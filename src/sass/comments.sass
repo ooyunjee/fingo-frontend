@@ -29,37 +29,6 @@ button
 // * --------------------------------
 main
   +padding(bottom 200px)
-  .sub-menu
-    +size(100% 60px)
-    border-bottom: 1px solid $fingo-border
-    ul
-      li
-        float: left
-        border-left: 1px solid $fingo-border
-        border-right: 1px solid $fingo-border
-
-        &:nth-child(2), &:nth-child(3), &:nth-child(4)
-          border-left: none
-
-        &::after
-          content: ""
-          display: block
-          +size(100% 1px)
-          +background(color $fingo-main-color)
-          clear: both
-          transform: scale(0)
-        &:nth-child(4)::after
-          transform: scale(1)
-        &:hover::after
-          transform: scale(1)
-
-        a
-          +size(auto 60px)
-          +padding(left 20px right 20px)
-          display: block
-          color: $fingo-font-dd
-          font-size: 14px
-          line-height: 60px
 
 .movies
   +margin(top 60px)
@@ -67,10 +36,10 @@ main
     @extend %a11y-hidden
   .movie-list
     +tablet
-      +size(736px auto)
+      width: percentage($t-container-width/$bp-tablet)
       +margin(0 auto)
     +mobile
-      +size(350px auto)
+      width: percentage($m-container-width/$bp-mobile)
       +margin(0 auto)
     &::after
       content: ""
@@ -84,17 +53,18 @@ main
   +size(600px 358px)
   +background(color #222)
   float: left
+  +mobile
+    +size(100% auto)
   figure
-    +size(250px auto)
+    +size(100% auto)
     +margin(bottom 20px)
     position: relative
     float: left
     +mobile
-      background-color: pink
       +margin(right 20px auto)
-      +size(350px 500px)
+      +size(100% auto)
     img
-      +size(100%)
+      +size(100% auto)
     .hover
       h3
         +margin(top 65px)
@@ -109,16 +79,26 @@ main
     box-sizing: border-box
     +tablet
       +margin(right 0)
+    +mobile
+      +size(100%)
+      +padding(top 10px bottom 20px)
     h2
       +margin(bottom 6px)
       width: 80%
       font-size: 18px
+      +mobile
+        display: none
     .rating-stars
       +margin(top 10px bottom 30px)
       font-size: 12px
+      +mobile
+        display: none
     .comment
       font-size: 15px
       color: $fingo-font-dd
+      +mobile
+        +padding(top 10px)
+        +size(100% 150px)
     time
       +position(absolute, bottom 30px left 30px)
       font-weight: lighter
@@ -134,6 +114,8 @@ main
         font-size: 14px
       img
         +margin(top 6px)
+      +mobile
+        top: 0
     button
       +position(absolute, bottom 30px right 30px)
       +padding(5px 5px)
